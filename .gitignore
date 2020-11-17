@@ -2,6 +2,8 @@
 *.class
 
 # Log file
+logs/
+tools/
 *.log
 
 # BlueJ files
@@ -21,3 +23,29 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Build results
+out/
+target/
+
+#Merge temp files
+*.orig
+
+# Eclipse
+*.pydevproject
+.project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# IntelliJ
+.idea/
+*.iml
