@@ -133,7 +133,9 @@ main h2 {
 .list-actions-button-delete,
 .button-add,
 .form-button-submit,
-.form-button-cancel {
+.form-button-cancel,
+.form-button-edit,
+.form-button-return {
     border: none;
     border-radius: 5px;
     color: white;
@@ -147,19 +149,23 @@ main h2 {
     margin-right: 1rem;
 }
 
-.list-actions-button-details {
+.list-actions-button-details,
+.form-button-return {
     background-color: #2980b9;    
 }
 
-.list-actions-button-details:hover {
+.list-actions-button-details:hover,
+.form-button-return:hover {
     background-color: #3498db;
 }
 
-.list-actions-button-edit {
+.list-actions-button-edit,
+.form-button-edit {
     background-color: #f39c12;
 }
 
-.list-actions-button-edit:hover {
+.list-actions-button-edit:hover,
+.form-button-edit:hover {
     background-color: #f1c40f;
 }
 
@@ -175,7 +181,9 @@ main h2 {
 
 .button-add,
 .form-button-submit,
-.form-button-cancel{
+.form-button-cancel,
+.form-button-edit,
+.form-button-return{
     padding: 0.5rem 1rem;
 }
 
@@ -239,19 +247,20 @@ abbr[title='required'] {
 }
 
 .form-button-submit,
-.form-button-cancel {
+.form-button-cancel,
+.form-button-edit,
+.form-button-return {
     width: 100%;
 }
 
-.form-button-cancel {
+.form-button-cancel,
+.form-button-return,
+.form-button-edit {
     box-sizing: border-box;
     display: block;
 }
 
-.form-button-submit {
+.form-button-submit,
+.form-button-edit {
     margin-bottom: 0.5rem;
 }
-
-/* button edit
-button cancel
-button return */
