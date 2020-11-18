@@ -8,6 +8,8 @@
 
     <link rel="icon" type="image/png" href="/images/logo.png" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -32,20 +34,54 @@
                 <input type="text" name="gameName" id="gameName">
             </div>
             <div class="form-group">
-                <label for="gameFamily">Rodzina:<abbr title="required" aria-label="required">*</abbr></label>
-                <input type="text" name="gameFamily" id="gameFamily">
+                <label for="yearReleased">Rok wydania:<abbr title="required" aria-label="required">*</abbr></label>
+                <input type="number" name="yearReleased" id="yearReleased" min="-10000" max="2030" step="1">
+            </div>
+            <div class="form-group">
+                <label for="gameCategory">Gatunek:<abbr title="required" aria-label="required">*</abbr></label>
+                <input type="text" name="gameCategory" id="gameCategory">
+            </div>
+            <div class="form-group">
+                <label for="gameMechanism">Mechanizm:</label>
+                <input type="text" name="gameMechanism" id="gameMechanism">
             </div>
             <div class="form-group">
                 <label for="gamePublisher">Wydawca:<abbr title="required" aria-label="required">*</abbr></label>
-                <input type="text" name="gamePublisher" id="gamePublisher">
+                <select id="gamePublisher" name="gamePublisher" multiple size="3">
+                    <option>Ares Games</option>
+                    <option>Angry Lion Games</option>
+                    <option>Devir</option>
+                    <option>GaGa Games</option>
+                    <option>Galakta</option>
+                    <option>Heidelberger Spieleverlag</option>
+                    <option>Nuts! Publishing</option>
+                    <option>Planplay</option>
+                    <option>Red Glove</option>
+                    <option>Sophisticated Games</option>
+                    <option>Zhiyanjia</option>
+                    <!-- Rozbudować -->
+                </select>
             </div>
             <div class="form-group">
                 <label for="gameDesigner">Projektant:</label>
-                <input type="text" name="gameDesigner" id="gameDesigner">
+                <input class="input-list" list="gameDesignerList" id="gameDesigner">
+                <datalist id="gameDesignerList">
+                    <option value="Antoine Bauza"></option>
+                    <option value="Roberto Di Meglio"></option>
+                    <option value="Marco Maggi"></option>
+                    <option value="Francesco Nepitello"></option>
+                    <!-- Rozbudować -->
+                </datalist>
             </div>
             <div class="form-group">
                 <label for="gameArtist">Artysta:</label>
-                <input type="text" name="gameArtist" id="gameArtist">
+                <input class="input-list" list="gameArtistList" id="gameArtist">
+                <datalist id="gameArtistList">
+                    <option value="Miguel Coimbra"></option>
+                    <option value="John Howe"></option>
+                    <option value="Fabio Maiorana"></option>
+                    <!-- Rozbudować -->
+                </datalist>
             </div>
             <div class="form-buttons">
                 <input type="submit" value="Dodaj" class="form-button-submit" />
