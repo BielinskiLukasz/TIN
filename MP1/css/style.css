@@ -236,7 +236,17 @@ textarea {
 
 .form label {
     display: block;
-    margin-bottom: 0.5em;
+}
+
+label {
+    line-height: 36px;
+    height: 36px;
+    vertical-align: middle;
+}
+
+.multiple-select-3-line-size {
+    line-height: 78.5px;
+    height: 78.5px;
 }
 
 abbr[title='required'] {
