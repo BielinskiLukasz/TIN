@@ -99,6 +99,10 @@ main h2 {
     padding: 0.5rem;
 }
 
+.table-list .td-center {
+    text-align: center;
+}
+
 .table-list th,
 .table-list tbody tr:nth-child(even) {
     background-color: #ecf0f1;
