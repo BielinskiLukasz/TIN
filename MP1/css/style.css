@@ -208,7 +208,9 @@ textarea {
 
 .form {
     margin-left: 2rem;
-    width: 300px;
+    display: grid;
+    grid-template-columns: 150px 300px;
+    row-gap: 1rem;
 }
 
 .form select, 
@@ -229,10 +231,6 @@ textarea {
     margin-bottom: 0.5em;
 }
 
-.form-group {
-    margin-bottom: 1rem;
-}
-
 abbr[title='required'] {
     color: #c0392b;
     text-decoration:none;
@@ -240,6 +238,8 @@ abbr[title='required'] {
 
 .form-buttons{
     margin-top: 2rem;
+    grid-column-start: 1;
+    grid-column-end: -1;
 }
 
 .form-button-submit,
