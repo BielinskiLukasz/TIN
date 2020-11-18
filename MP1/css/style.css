@@ -240,6 +240,7 @@ textarea {
 
 abbr[title='required'] {
     color: #c0392b;
+    text-decoration:none;
 }
 
 .form-buttons{
