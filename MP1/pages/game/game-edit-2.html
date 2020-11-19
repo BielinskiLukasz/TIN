@@ -33,25 +33,39 @@
 
         <form class="form">
             <label for="gameName">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" name="gameName" id="gameName" value="" disabled>
+            <input type="text" name="gameName" id="gameName" value="Pandemic Legacy: Season 1">
 
             <label for="yearReleased">Rok wydania:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="yearReleased" id="yearReleased" min="-10000" max="2030" step="1" value=""
-                disabled>
+            <input type="number" name="yearReleased" id="yearReleased" min="-10000" max="2030" step="1" value="2015">
 
             <label for="gameCategory">Gatunek:<abbr title="required" aria-label="required">*</abbr></label>
-            <select id="gameCategory" name="gameCategory" disabled>
+            <select id="gameCategory" name="gameCategory">
                 <option disabled selected value> -- wybierz -- </option>
-                <option>Strategiczna</option>
+                <option selected>Strategiczna</option>
                 <option>Wojenna</option>
             </select>
 
+            <label for="minAge">Min wiek:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="minAge" id="minAge" min="0" max="24" step="1" value="13">
+
+            <label for="minPlayersNum">Min ilość graczy:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="minPlayersNum" id="minPlayersNum" min="1" max="100000" step="1" value="2">
+
+            <label for="maxPlayersNum">Max ilość graczy:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="maxPlayersNum" id="maxPlayersNum" min="1" max="100000" step="1" value="4">
+
+            <label for="minPlayingTime">Min czas gry [min]:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="minPlayingTime" id="minPlayingTime" min="1" max="100000" step="1" value="60">
+
+            <label for="maxPlayingTime">Max czas gry [min]:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="maxPlayingTime" id="maxPlayingTime" min="1" max="100000" step="1" value="60">
+
             <label for="gameMechanism">Mechanizm:</label>
-            <select id="gameMechanism" name="gameMechanism" disabled>
+            <select id="gameMechanism" name="gameMechanism">
                 <option disabled selected value> -- wybierz -- </option>
                 <option>Aukcje</option>
                 <option>Legacy</option>
-                <option>Kooperacja</option>
+                <option selected>Kooperacja</option>
                 <option>Punkty akcji</option>
                 <option>Rozwiązywanie konfliktów</option>
                 <option>Sojusze</option>
@@ -60,31 +74,37 @@
 
             <label class="multiple-select-3-line-size" for="gamePublisher">Wydawca:<abbr title="required"
                     aria-label="required">*</abbr></label>
-            <select id="gamePublisher" name="gamePublisher" multiple size="3" disabled>
+            <select id="gamePublisher" name="gamePublisher" multiple size="3">
                 <option>Albi</option>
                 <option>Albi Polska</option>
                 <option>Angry Lion Games</option>
                 <option>Ares Games</option>
-                <option>Asterion Press</option>
-                <option>Devir</option>
-                <option>Jolly Thinkers</option>
-                <option>Lacerta</option>
+                <option selected>Asterion Press</option>
+                <option selected>Devir</option>
+                <option selected>Jolly Thinkers</option>
+                <option selected>Lacerta</option>
                 <!-- Rozbudować -->
             </select>
 
             <label for="gameDesigner">Projektant:</label>
-            <input class="input-list" list="gameDesignerList" id="gameDesigner" disabled>
-            <datalist id="gameDesignerList">
+            <input class="input-list" list="gameCreatorList" id="gameDesigner" value="Matt Leacock">
+            <datalist id="gameCreatorList">
                 <option value="Isaac Childres"></option>
                 <option value="Roberto Di Meglio"></option>
+                <option value="Alexandr Elichev"></option>
                 <option value="Matt Leacock"></option>
+                <option value="Fabio Maiorana"></option>
+                <option value="Chris Quilliams"></option>
                 <!-- Rozbudować -->
             </datalist>
 
             <label for="gameArtist">Artysta:</label>
-            <input class="input-list" list="gameArtistList" id="gameArtist" disabled>
-            <datalist id="gameArtistList">
+            <input class="input-list" list="gameCreatorList" id="gameArtist" value="Chris Quilliams">
+            <datalist id="gameCreatorList">
+                <option value="Isaac Childres"></option>
+                <option value="Roberto Di Meglio"></option>
                 <option value="Alexandr Elichev"></option>
+                <option value="Matt Leacock"></option>
                 <option value="Fabio Maiorana"></option>
                 <option value="Chris Quilliams"></option>
                 <!-- Rozbudować -->
@@ -92,7 +112,7 @@
 
             <div class="form-buttons">
                 <input type="submit" value="Zapisz" class="form-button-submit" />
-                <a href="/pages/game/game-edit-2.html" class="form-button-cancel">Anuluj</a>
+                <a href="/pages/game/game-list.html" class="form-button-cancel">Anuluj</a>
             </div>
         </form>
     </main>

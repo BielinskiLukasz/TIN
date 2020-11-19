@@ -45,6 +45,21 @@
                 <option>Wojenna</option>
             </select>
 
+            <label for="minAge">Min wiek:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="minAge" id="minAge" min="0" max="24" step="1">
+
+            <label for="minPlayersNum">Min ilość graczy:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="minPlayersNum" id="minPlayersNum" min="1" max="100000" step="1">
+
+            <label for="maxPlayersNum">Max ilość graczy:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="maxPlayersNum" id="maxPlayersNum" min="1" max="100000" step="1">
+
+            <label for="minPlayingTime">Min czas gry [min]:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="minPlayingTime" id="minPlayingTime" min="1" max="100000" step="1">
+
+            <label for="maxPlayingTime">Max czas gry [min]:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="maxPlayingTime" id="maxPlayingTime" min="1" max="100000" step="1">
+
             <label for="gameMechanism">Mechanizm:</label>
             <select id="gameMechanism" name="gameMechanism">
                 <option disabled selected value> -- wybierz -- </option>
