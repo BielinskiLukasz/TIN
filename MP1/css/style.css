@@ -214,11 +214,52 @@ textarea {
     overflow: auto; 
 }
 
-.form {
+.form,
+.details-list {
+    margin-left: 2rem;
+    display: grid;
+    grid-template-columns: 450px;
+    row-gap: 1rem;
+}
+
+.details-list,
+.details-list-multiple-value,
+.details-list-multiple-value ul,
+.details-list-multiple-value ul li {
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+}
+
+.details-list,
+.details-list-multiple-value ul li {
+    margin-left: 0;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+}
+
+.form,
+.details-list li {
     margin-left: 2rem;
     display: grid;
     grid-template-columns: 150px 300px;
     row-gap: 1rem;
+}
+
+.details-list {
+    margin-left: 0;
+}
+
+.details-list-value a,
+.details-list-multiple-value ul li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.details-list-value a:hover,
+.details-list-multiple-value ul li a:hover {
+    text-decoration: none;
+    background-image: linear-gradient(90deg, #1bcbe2 3%, #74e3f1 10%,  #ffffff 50%, #ffffff);
 }
 
 .form select, 
@@ -234,19 +275,17 @@ textarea {
     width: 100%;
 }
 
-.form label {
+.form label,
+.details-list div {
     display: block;
 }
 
-label {
+label,
+.details-list-key,
+.details-list-value {
     line-height: 36px;
     height: 36px;
     vertical-align: middle;
-}
-
-.multiple-select-3-line-size {
-    line-height: 78.5px;
-    height: 78.5px;
 }
 
 abbr[title='required'] {
@@ -320,7 +359,9 @@ abbr[title='required'] {
         display: block;
     }
 
-    .form {
+    .form,
+    .details-list,
+    .details-list li {
         grid-template-columns: 1fr;
         row-gap:unset;
         margin-left: unset;

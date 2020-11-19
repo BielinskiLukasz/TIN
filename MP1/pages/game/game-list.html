@@ -31,87 +31,89 @@
     <main>
         <h2>Lista gier</h2>
 
-        <table class="table-list">
-            <thead>
-                <tr>
-                    <th>Tytuł</th>
-                    <th>Twoja ocena</th>
-                    <th>Średnia ocena</th>
-                    <th>Ilość ocen</th>
-                    <th>Status</th>
-                    <th>Partie</th>
-                    <th>Akcje</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Gloomhaven</td>
-                    <td class="td-center">10</td>
-                    <td class="td-center">8.561</td>
-                    <td class="td-center">39236</td>
-                    <td class="td-center">Posiadana</td>
-                    <td class="td-center">46</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/pages/game/game-details.html"
-                                    class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/pages/game/game-form.html" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Pandemic Legacy: Season 1</td>
-                    <td class="td-center">N/A</td>
-                    <td class="td-center">8.467</td>
-                    <td class="td-center">39790</td>
-                    <td class="td-center"></td>
-                    <td class="td-center"></td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/pages/game/game-details.html"
-                                    class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/pages/game/game-form.html" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Brass: Birmingham</td>
-                    <td class="td-center">N/A</td>
-                    <td class="td-center">8.339</td>
-                    <td class="td-center">16737</td>
-                    <td class="td-center"></td>
-                    <td class="td-center"></td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/pages/game/game-details.html"
-                                    class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/pages/game/game-form.html" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-div">
+            <table class="table-list">
+                <thead>
+                    <tr>
+                        <th scope="col">Tytuł</th>
+                        <th scope="col">Twoja ocena</th>
+                        <th scope="col">Średnia ocena</th>
+                        <th scope="col">Ilość ocen</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Partie</th>
+                        <th scope="col">Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Tytuł">Gloomhaven</td>
+                        <td data-label="Twoja ocena" class="td-center">10</td>
+                        <td data-label="Średnia ocena" class="td-center">8.561</td>
+                        <td data-label="Ilość ocen" class="td-center">39236</td>
+                        <td data-label="Status" class="td-center">Posiadana</td>
+                        <td data-label="Partie" class="td-center">46</td>
+                        <td data-label="Akcje">
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/pages/game/game-details.html"
+                                        class="list-actions-button-details">Szczegóły</a>
+                                </li>
+                                <li>
+                                    <a href="/pages/game/game-form.html" class="list-actions-button-edit">Edytuj</a>
+                                </li>
+                                <li>
+                                    <a href="" class="list-actions-button-delete">Usuń</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pandemic Legacy: Season 1</td>
+                        <td class="td-center">N/A</td>
+                        <td class="td-center">8.467</td>
+                        <td class="td-center">39790</td>
+                        <td class="td-center"></td>
+                        <td class="td-center"></td>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/pages/game/game-details.html"
+                                        class="list-actions-button-details">Szczegóły</a>
+                                </li>
+                                <li>
+                                    <a href="/pages/game/game-form.html" class="list-actions-button-edit">Edytuj</a>
+                                </li>
+                                <li>
+                                    <a href="" class="list-actions-button-delete">Usuń</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Brass: Birmingham</td>
+                        <td class="td-center">N/A</td>
+                        <td class="td-center">8.339</td>
+                        <td class="td-center">16737</td>
+                        <td class="td-center"></td>
+                        <td class="td-center"></td>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/pages/game/game-details.html"
+                                        class="list-actions-button-details">Szczegóły</a>
+                                </li>
+                                <li>
+                                    <a href="/pages/game/game-form.html" class="list-actions-button-edit">Edytuj</a>
+                                </li>
+                                <li>
+                                    <a href="" class="list-actions-button-delete">Usuń</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <p><a href="/pages/game/game-form.html" class="button-add">Dodaj nową grę</a></p>
     </main>
