@@ -30,6 +30,12 @@ footer {
     padding: 1rem;
 }
 
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
 header {
     display: flex;
     justify-content: space-between;
