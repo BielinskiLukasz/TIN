@@ -31,61 +31,74 @@
     <main>
         <h2>Szczegóły gry</h2>
 
-        <form class="form">
-            <label for="gameName">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" name="gameName" value="War of the Ring: Second Edition" id="gameName" disabled>
-
-            <label for="yearReleased">Rok wydania:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="yearReleased" value="2012" id="yearReleased" min="-10000" max="2030" step="1"
-                disabled>
-
-            <label for="gameCategory">Gatunek:<abbr title="required" aria-label="required">*</abbr></label>
-            <select id="gameCategory" name="gameCategory" disabled>
-                <option disabled selected value> -- wybierz -- </option>
-                <option>Kooperacja</option>
-                <option>Tematyczna</option>
-                <option>Towarzyska</option>
-                <option selected>Wojenna</option>
-            </select>
-
-            <label for="gameMechanism">Mechanizm:</label>
-            <select id="gameMechanism" name="gameMechanism" disabled>
-                <option disabled selected value> -- wybierz -- </option>
-                <option>Aukcje</option>
-                <option>Punkty akcji</option>
-                <option selected>Rozwiązywanie konfliktów</option>
-                <option>Sojusze</option>
-                <option>Inny</option>
-            </select>
-
-            <label class="multiple-select-3-line-size" for="gamePublisher">Wydawca:<abbr title="required"
-                    aria-label="required">*</abbr></label>
-            <select id="gamePublisher" name="gamePublisher" multiple size="3" disabled>
-                <option selected>Ares Games</option>
-                <option selected>Angry Lion Games</option>
-                <option selected>Devir</option>
-                <option>GaGa Games</option>
-                <option>Galakta</option>
-                <option>Heidelberger Spieleverlag</option>
-                <option>Nuts! Publishing</option>
-                <option>Planplay</option>
-                <option>Red Glove</option>
-                <option>Sophisticated Games</option>
-                <option>Zhiyanjia</option>
-                <!-- Rozbudować -->
-            </select>
-
-            <label for="gameDesigner">Projektant:</label>
-            <input class="input-list" id="gameDesigner" value="Roberto Di Meglio" disabled>
-
-            <label for="gameArtist">Artysta:</label>
-            <input class="input-list" id="gameArtist" value="Fabio Maiorana" disabled>
-
-            <div class="form-buttons">
-                <a href="/pages/game/game-form.html" class="form-button-edit">Edytuj</a>
-                <a href="/pages/game/game-list.html" class="form-button-return">Powrót</a>
-            </div>
-        </form>
+        <ul class="details-list">
+            <li>
+                <div class="details-list-key">
+                    <span>Nazwa:<abbr title="required" aria-label="required">*</abbr></span>
+                </div>
+                <div class="details-list-value">
+                    <a href="">War of the Ring: Second Edition</a>
+                </div>
+            </li>
+            <li>
+                <div class="details-list-key">
+                    <span>Rok wydania:<abbr title="required" aria-label="required">*</abbr></span>
+                </div>
+                <div class="details-list-value">
+                    <span>2012</span>
+                </div>
+            </li>
+            <li>
+                <div class="details-list-key">
+                    <span>Gatunek:<abbr title="required" aria-label="required">*</abbr></span>
+                </div>
+                <div class="details-list-value">
+                    <span>Wojenna</span>
+                </div>
+            </li>
+            <li>
+                <div class="details-list-key">
+                    <span>Mechanizm:</span>
+                </div>
+                <div class="details-list-value">
+                    <span>Rozwiązywanie konfliktów</span>
+                </div>
+            </li>
+            <li>
+                <div class="details-list-key">
+                    <span>Wydawca:<abbr title="required" aria-label="required">*</abbr></span>
+                </div>
+                <div class="details-list-multiple-value">
+                    <ul>
+                        <li>
+                            <a href="">Ares Games</a>
+                        </li>
+                        <li>
+                            <a href="">Angry Lion Games</a>
+                        </li>
+                        <li>
+                            <a href="">Devir</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="details-list-key">
+                    <span>Projektant:</span>
+                </div>
+                <div class="details-list-value">
+                    <span><a href="">Roberto Di Meglio</a></span>
+                </div>
+            </li>
+            <li>
+                <div class="details-list-key">
+                    <span>Artysta:</span>
+                </div>
+                <div class="details-list-value">
+                    <span><a href="">Fabio Maiorana</a></span>
+                </div>
+            </li>
+        </ul>
     </main>
 
     <footer>

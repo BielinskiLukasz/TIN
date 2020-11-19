@@ -145,7 +145,7 @@ main h2 {
 
 .list-actions-button-details,
 .list-actions-button-edit,
-.list-actions-button-remove {
+.list-actions-button-delete {
     margin-right: 0.5rem;
     margin-left: 0.5rem;
 }
@@ -331,6 +331,10 @@ abbr[title='required'] {
     nav ul li a {
         display: block;
     }
+
+    .table-div {
+        overflow-x: auto;
+    }
 }
 
 @media all and (max-width: 720px) {
@@ -373,6 +377,77 @@ abbr[title='required'] {
     .form select,
     .input-list {
         margin-bottom: 1rem;
+    }
+
+    table {
+        border: 0;
+    }
+    
+    table caption {
+        font-size: 1.3em;
+    }
+      
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+      
+    table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+    }
+      
+    table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+      
+    table td::before {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+      
+    table td:last-child {
+        border-bottom: 0;
+    }
+
+    .table-list .td-center {
+        text-align: right;
+    }
+}
+
+@media all and (max-width: 510px) {
+    td {
+        min-height: 15px;
+    }
+
+    .list-actions {
+        margin-top: 20px;
+    }
+
+    .list-actions li {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .list-actions-button-details, .list-actions-button-edit, .list-actions-button-delete {
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
     }
 }
 
