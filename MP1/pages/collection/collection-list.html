@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>giercownia</title>
+
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Giercownia</h1>
+        <img class="header-logo" src="/images/logo.png" alt="Giercownia Logo">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/index.html">Strona główna</a></li>
+            <li><a href="/pages/publisher/publisher-list.html">Wydawnictwa</a></li>
+            <li><a href="/pages/creator/creator-list.html">Twórcy</a></li>
+            <li><a href="/pages/game/game-list.html">Gry</a></li>
+            <li><a href="/pages/collection/collection-list.html" class="active">Kolekcja</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Lista gier</h2>
+
+        <div class="table-div">
+            <table class="table-list">
+                <thead>
+                    <tr>
+                        <th scope="col">Tytuł</th>
+                        <th scope="col">Twoja ocena</th>
+                        <th scope="col">Średnia ocena</th>
+                        <th scope="col">Ilość ocen</th>
+                        <th scope="col">Partie</th>
+                        <th scope="col">Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Tytuł">Gloomhaven</td>
+                        <td data-label="Twoja ocena" class="td-center">9</td>
+                        <td data-label="Średnia ocena" class="td-center">8.561</td>
+                        <td data-label="Ilość ocen" class="td-center">39236</td>
+                        <td data-label="Partie" class="td-center">46</td>
+                        <td data-label="Akcje">
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/pages/game/game-details-1.html"
+                                        class="list-actions-button-details">Szczegóły</a>
+                                </li>
+                                <li>
+                                    <a href="" class="list-actions-button-score">Oceń</a>
+                                </li>
+                                <li>
+                                    <a href="" class="list-actions-button-delete">Usuń</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tutaj dodać wyszukiwanie gry po nazwie (form) -->
+        <p><a href="/pages/game/game-form.html" class="button-add">Dodaj grę do kolekcj</a></p>
+    </main>
+
+    <footer>
+        <a href="https://www.linkedin.com/in/lukasz-bielinski/">Łukasz Bieliński</a> s17524
+    </footer>
+</body>
+
+</html>
