@@ -58,7 +58,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-image: linear-gradient(#ecf0f1, #1bcbe2, #166fc7, #1bcbe2, #ecf0f1);
+    background-image: radial-gradient(closest-side,  #166fc7 40%, #1bcbe2, #ecf0f1);
     color: #ecf0f1;
 }
 
