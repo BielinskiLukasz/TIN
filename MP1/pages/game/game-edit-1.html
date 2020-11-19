@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>giercownia</title>
+
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Giercownia</h1>
+        <img class="header-logo" src="/images/logo.png" alt="Giercownia Logo">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/index.html">Strona główna</a></li>
+            <li><a href="">Wydawnictwa</a></li>
+            <li><a href="">Twórcy</a></li>
+            <li><a href="/pages/game/game-list.html">Gry</a></li>
+            <li></li>
+            <li><a href="">Kolekcja</a></li>
+            <li><a href="">Partie</a></li>
+            <li><a href="">Profil</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Szczegóły gry</h2>
+
+        <form class="form">
+            <label for="gameName">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="gameName" id="gameName" value="Gloomhaven" disabled>
+
+            <label for="yearReleased">Rok wydania:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="yearReleased" id="yearReleased" min="-10000" max="2030" step="1" value="2017"
+                disabled>
+
+            <label for="gameCategory">Gatunek:<abbr title="required" aria-label="required">*</abbr></label>
+            <select id="gameCategory" name="gameCategory" disabled>
+                <option disabled selected value> -- wybierz -- </option>
+                <option selected>Strategiczna</option>
+                <option>Wojenna</option>
+            </select>
+
+            <label for="gameMechanism">Mechanizm:</label>
+            <select id="gameMechanism" name="gameMechanism" disabled>
+                <option disabled selected value> -- wybierz -- </option>
+                <option>Aukcje</option>
+                <option selected>Legacy</option>
+                <option>Kooperacja</option>
+                <option>Punkty akcji</option>
+                <option>Rozwiązywanie konfliktów</option>
+                <option>Sojusze</option>
+                <option>Inny</option>
+            </select>
+
+            <label class="multiple-select-3-line-size" for="gamePublisher">Wydawca:<abbr title="required"
+                    aria-label="required">*</abbr></label>
+            <select id="gamePublisher" name="gamePublisher" multiple size="3" disabled>
+                <option selected>Albi</option>
+                <option selected>Albi Polska</option>
+                <option>Angry Lion Games</option>
+                <option>Ares Games</option>
+                <option>Asterion Press</option>
+                <option>Devir</option>
+                <option>Jolly Thinkers</option>
+                <option>Lacerta</option>
+                <!-- Rozbudować -->
+            </select>
+
+            <label for="gameDesigner">Projektant:</label>
+            <input class="input-list" id="gameDesigner" value="Isaac Childres" disabled>
+
+            <label for="gameArtist">Artysta:</label>
+            <input class="input-list" id="gameArtist" value="Alexandr Elichev" disabled>
+
+            <div class="form-buttons">
+                <input type="submit" value="Zapisz" class="form-button-submit" />
+                <a href="/index.html" class="form-button-cancel">Anuluj</a>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <a href="https://www.linkedin.com/in/lukasz-bielinski/">Łukasz Bieliński</a> s17524
+    </footer>
+</body>
+
+</html>
