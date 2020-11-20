@@ -252,6 +252,12 @@ textarea {
     padding-left: 0px;
 }
 
+.details-list-multiple-value,
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 .details-list {
     padding-left: 32px;
     margin-left: 0;
