@@ -40,7 +40,7 @@
 
             <label for="gameCategory">Gatunek:<abbr title="required" aria-label="required">*</abbr></label>
             <select id="gameCategory" name="gameCategory">
-                <option disabled selected value> -- wybierz -- </option>
+                <option disabled value> -- wybierz -- </option>
                 <option selected>Strategiczna</option>
                 <option>Wojenna</option>
             </select>
@@ -62,7 +62,7 @@
 
             <label for="gameMechanism">Mechanizm:</label>
             <select id="gameMechanism" name="gameMechanism">
-                <option disabled selected value> -- wybierz -- </option>
+                <option disabled value> -- wybierz -- </option>
                 <option>Aukcje</option>
                 <option selected>Legacy</option>
                 <option>Kooperacja</option>
@@ -88,18 +88,10 @@
 
             <label for="gameDesigner">Projektant:</label>
             <input class="input-list" list="gameCreatorList" id="gameDesigner" value="Isaac Childres">
-            <datalist id="gameCreatorList">
-                <option value="Isaac Childres"></option>
-                <option value="Roberto Di Meglio"></option>
-                <option value="Alexandr Elichev"></option>
-                <option value="Matt Leacock"></option>
-                <option value="Fabio Maiorana"></option>
-                <option value="Chris Quilliams"></option>
-                <!-- Rozbudować -->
-            </datalist>
 
             <label for="gameArtist">Artysta:</label>
             <input class="input-list" list="gameCreatorList" id="gameArtist" value="Alexandr Elichev">
+
             <datalist id="gameCreatorList">
                 <option value="Isaac Childres"></option>
                 <option value="Roberto Di Meglio"></option>
