@@ -249,21 +249,24 @@ textarea {
 .details-list-multiple-value ul,
 .details-list-multiple-value ul li {
     list-style-type: none;
-    padding-inline-start: 0;
-    margin-block-start: 0;
 }
 
 .details-list,
 .details-list-multiple-value ul li {
+    padding-left: 32px;
     margin-left: 0;
-    margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.form,
+.mini-form {
+    margin-left: 2rem;
 }
 
 .form,
 .mini-form,
 .details-list li {
-    margin-left: 2rem;
     display: grid;
     grid-template-columns: 150px 300px;
     row-gap: 1rem;
@@ -329,13 +332,20 @@ abbr[title='required'] {
     text-decoration:none;
 }
 
-.form-buttons { 
+.form-buttons,
+.details-buttons { 
     grid-column-start: 1;
     grid-column-end: -1;
 }
 
 .form-buttons {
     margin-top: 2rem;
+}
+
+.details-buttons {
+    padding-left: 32px;
+    max-width: 450px;
+    margin-top: 3rem;
 }
 
 .form-button-submit,
@@ -439,7 +449,7 @@ abbr[title='required'] {
       
     table thead {
         border: none;
-        clip: rect(0 0 0 0);
+        clip: rect(0, 0, 0, 0);
         height: 1px;
         margin: -1px;
         overflow: hidden;
