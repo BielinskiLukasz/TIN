@@ -293,7 +293,8 @@ textarea {
 }
 
 .details-list-value a,
-.details-list-multiple-value ul li a {
+.details-list-multiple-value ul li a,
+.link-line {
     text-decoration: none;
     color: #000000;
 }
@@ -302,6 +303,11 @@ textarea {
 .details-list-multiple-value ul li a:hover {
     text-decoration: none;
     background-image: linear-gradient(90deg, #1bcbe2 3%, #74e3f1 10%,  #ffffff 50%);
+}
+
+.link-line:hover {
+    text-decoration: none;
+    background-image: linear-gradient(90deg, #1bcbe2 5%, #74e3f1 30%,  #ffffff 70%);
 }
 
 .form select, 
