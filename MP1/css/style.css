@@ -127,7 +127,8 @@ main h2 {
 
 .list-actions-button-details,
 .list-actions-button-edit,
-.list-actions-button-delete {
+.list-actions-button-delete,
+.list-actions-button-score {
     display: inline-block;
     width: 75px;
     padding: 0.25rem 0.5rem;
@@ -136,11 +137,13 @@ main h2 {
 .list-actions-button-details,
 .list-actions-button-edit,
 .list-actions-button-delete,
+.list-actions-button-score,
 .button-add,
 .form-button-submit,
 .form-button-cancel,
 .form-button-edit,
-.form-button-return {
+.form-button-return,
+.form-button-score {
     border: none;
     border-radius: 5px;
     color: white;
@@ -151,7 +154,8 @@ main h2 {
 
 .list-actions-button-details,
 .list-actions-button-edit,
-.list-actions-button-delete {
+.list-actions-button-delete,
+.list-actions-button-score {
     margin-right: 0.5rem;
     margin-left: 0.5rem;
 }
@@ -163,7 +167,7 @@ main h2 {
 
 .list-actions-button-details:hover,
 .form-button-return:hover {
-    background-image: linear-gradient(45deg, #3498db, #3498db, #2980b9);
+    background-image: linear-gradient(45deg, #2980b9, #3498db 50%);
 }
 
 .list-actions-button-edit,
@@ -173,7 +177,7 @@ main h2 {
 
 .list-actions-button-edit:hover,
 .form-button-edit:hover {
-    background-image: linear-gradient(45deg, #f39c12, #f1c40f, #f1c40f);
+    background-image: linear-gradient(45deg, #f39c12, #f1c40f 50%);
 }
 
 .list-actions-button-delete,
@@ -183,26 +187,31 @@ main h2 {
 
 .list-actions-button-delete:hover,
 .form-button-cancel:hover {
-    background-image: linear-gradient(45deg, #e74c3c, #e74c3c, #c0392b);
+    background-image: linear-gradient(45deg, #c0392b, #e74c3c 50%);
+}
+
+.button-add,
+.form-button-submit,
+.list-actions-button-score,
+.form-button-score {
+    background-color: #27ae60;
+}
+
+.button-add:hover,
+.form-button-submit:hover,
+.list-actions-button-score:hover,
+.form-button-score:hover {
+    background-image: linear-gradient(45deg, #27ae60, #2ecc71 50%);
+    background-color: #2ecc71;
 }
 
 .button-add,
 .form-button-submit,
 .form-button-cancel,
 .form-button-edit,
-.form-button-return{
+.form-button-return,
+.form-button-score{
     padding: 0.5rem 1rem;
-}
-
-.button-add,
-.form-button-submit {
-    background-color: #27ae60;
-}
-
-.button-add:hover,
-.form-button-submit:hover {
-    background-image: linear-gradient(45deg, #27ae60, #2ecc71, #2ecc71);
-    background-color: #2ecc71;
 }
 
 /* Formularz nowego rekordu */
@@ -265,7 +274,7 @@ textarea {
 .details-list-value a:hover,
 .details-list-multiple-value ul li a:hover {
     text-decoration: none;
-    background-image: linear-gradient(90deg, #1bcbe2 3%, #74e3f1 10%,  #ffffff 50%, #ffffff);
+    background-image: linear-gradient(90deg, #1bcbe2 3%, #74e3f1 10%,  #ffffff 50%);
 }
 
 .form select, 
@@ -308,19 +317,22 @@ abbr[title='required'] {
 .form-button-submit,
 .form-button-cancel,
 .form-button-edit,
-.form-button-return {
+.form-button-return,
+.form-button-score {
     width: 100%;
 }
 
 .form-button-cancel,
 .form-button-return,
-.form-button-edit {
+.form-button-edit,
+.form-button-score {
     box-sizing: border-box;
     display: block;
 }
 
 .form-button-submit,
-.form-button-edit {
+.form-button-edit,
+.form-button-score {
     margin-bottom: 0.5rem;
 }
 
@@ -448,7 +460,10 @@ abbr[title='required'] {
         justify-content: space-around;
     }
 
-    .list-actions-button-details, .list-actions-button-edit, .list-actions-button-delete {
+    .list-actions-button-details, 
+    .list-actions-button-edit, 
+    .list-actions-button-delete,
+    .list-actions-button-score {
         margin-top: 0.2rem;
         margin-bottom: 0.2rem;
     }
