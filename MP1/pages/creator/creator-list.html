@@ -27,23 +27,40 @@
     </nav>
 
     <main>
-        <h2>Lista gier</h2>
+        <h2>Lista twórców</h2>
 
         <div class="table-div">
             <table class="table-list">
                 <thead>
                     <tr>
                         <th scope="col">Nick</th>
-                        <th scope="col">Imię</th>
-                        <th scope="col">Nazwisko</th>
+                        <th scope="col">Imię i Nazwisko</th>
                         <th scope="col">Akcje</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td data-label="Nick">Cephalofair</td>
+                        <td data-label="Imię i Nazwisko">Isaac Childres</td>
+                        <td data-label="Akcje">
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/pages/creator/creator-details.html"
+                                        class="list-actions-button-details">Szczegóły</a>
+                                </li>
+                                <li>
+                                    <a href="/pages/creator/creator-edit.html"
+                                        class="list-actions-button-edit">Edytuj</a>
+                                </li>
+                                <li>
+                                    <a href="/under-construction.html" class="list-actions-button-delete">Usuń</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
                         <td data-label="Nick">PLACEHOLDER</td>
-                        <td data-label="Imię">PLACEHOLDER</td>
-                        <td data-label="Nazwisko">PLACEHOLDER</td>
+                        <td data-label="Imię i Nazwisko">PLACEHOLDER</td>
                         <td data-label="Akcje">
                             <ul class="list-actions">
                                 <li>
@@ -60,26 +77,7 @@
                     </tr>
                     <tr>
                         <td data-label="Nick">PLACEHOLDER</td>
-                        <td data-label="Imię">PLACEHOLDER</td>
-                        <td data-label="Nazwisko">PLACEHOLDER</td>
-                        <td data-label="Akcje">
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="/under-construction.html" class="list-actions-button-delete">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nick">PLACEHOLDER</td>
-                        <td data-label="Imię">PLACEHOLDER</td>
-                        <td data-label="Nazwisko">PLACEHOLDER</td>
+                        <td data-label="Imię i Nazwisko">PLACEHOLDER</td>
                         <td data-label="Akcje">
                             <ul class="list-actions">
                                 <li>
@@ -98,7 +96,7 @@
             </table>
         </div>
 
-        <p><a href="" class="button-add">Dodaj nowego twórcę</a></p>
+        <p><a href="/pages/creator/creator-form.html" class="button-add">Dodaj nowego twórcę</a></p>
     </main>
 
     <footer>
