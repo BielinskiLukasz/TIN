@@ -1,5 +1,6 @@
 # TIN
 ## MP0
+Definicja projektu znajduje się w pliku tin_zaoczne_18c_s17524_definicja.pdf w katalogu MP0
 ## MP1
 Uruchomienie aplikacji:
 1. Otwórz folder MP1 w Visual Studio Code
