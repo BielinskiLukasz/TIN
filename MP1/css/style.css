@@ -1,6 +1,6 @@
 /* Style wspólne dla całości strony */
 html {
-    background-image: linear-gradient(#ecf0f1, #166fc7);
+    background-image: linear-gradient(#ecf0f1 20%, #166fc7 80%);
     font-family: sans-serif;
 }
 
