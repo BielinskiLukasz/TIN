@@ -140,6 +140,7 @@ main h2 {
 .list-actions-button-score,
 .button-add,
 .form-button-submit,
+.mini-form-button-submit,
 .form-button-cancel,
 .form-button-edit,
 .form-button-return,
@@ -158,6 +159,8 @@ main h2 {
 .list-actions-button-score {
     margin-right: 0.5rem;
     margin-left: 0.5rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
 }
 
 .list-actions-button-details,
@@ -192,6 +195,7 @@ main h2 {
 
 .button-add,
 .form-button-submit,
+.mini-form-button-submit,
 .list-actions-button-score,
 .form-button-score {
     background-color: #27ae60;
@@ -199,6 +203,7 @@ main h2 {
 
 .button-add:hover,
 .form-button-submit:hover,
+.mini-form-button-submit:hover,
 .list-actions-button-score:hover,
 .form-button-score:hover {
     background-image: linear-gradient(45deg, #27ae60, #2ecc71 50%);
@@ -207,6 +212,7 @@ main h2 {
 
 .button-add,
 .form-button-submit,
+.mini-form-button-submit,
 .form-button-cancel,
 .form-button-edit,
 .form-button-return,
@@ -230,6 +236,7 @@ textarea {
 }
 
 .form,
+.mini-form,
 .details-list {
     margin-left: 2rem;
     display: grid;
@@ -254,11 +261,24 @@ textarea {
 }
 
 .form,
+.mini-form,
 .details-list li {
     margin-left: 2rem;
     display: grid;
     grid-template-columns: 150px 300px;
     row-gap: 1rem;
+}
+
+.mini-form {
+    display: grid;
+    grid-template-columns: 60px 300px 150px;
+    grid-template-rows: auto;
+    grid-template-areas: "label input submit";
+    margin-bottom: 1rem;
+}
+
+.mini-form div {
+    grid-area: submit;
 }
 
 .details-list {
@@ -291,6 +311,7 @@ textarea {
 }
 
 .form label,
+.mini-form label,
 .details-list div {
     display: block;
 }
@@ -308,13 +329,17 @@ abbr[title='required'] {
     text-decoration:none;
 }
 
-.form-buttons{
-    margin-top: 2rem;
+.form-buttons { 
     grid-column-start: 1;
     grid-column-end: -1;
 }
 
+.form-buttons {
+    margin-top: 2rem;
+}
+
 .form-button-submit,
+.mini-form-button-submit,
 .form-button-cancel,
 .form-button-edit,
 .form-button-return,
@@ -334,6 +359,12 @@ abbr[title='required'] {
 .form-button-edit,
 .form-button-score {
     margin-bottom: 0.5rem;
+}
+
+.mini-form-button-submit {
+    margin-bottom: 0;
+    min-height: 36px;
+    margin-left: 0.5rem;
 }
 
 @media all and (max-width: 900px) {
@@ -382,6 +413,7 @@ abbr[title='required'] {
     }
 
     .form,
+    .mini-form,
     .details-list,
     .details-list li {
         grid-template-columns: 1fr;
@@ -446,7 +478,7 @@ abbr[title='required'] {
     }
 }
 
-@media all and (max-width: 510px) {
+@media all and (max-width: 620px) {
     td {
         min-height: 15px;
     }

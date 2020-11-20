@@ -29,6 +29,21 @@
     <main>
         <h2>Lista gier</h2>
 
+        <form class="mini-form">
+            <label for="game">Nazwa:</label>
+            <input class="input-list" list="gameList" id="game">
+            <datalist id="gameList">
+                <option value="Gloomhaven"></option>
+                <option value="Pandemic Legacy: Season 1"></option>
+                <option value="War of the Ring: Second Edition"></option>
+                <!-- Rozbudować -->
+            </datalist>
+
+            <div class="mini-form-buttons">
+                <input type="submit" value="Dodaj grę do kolekcj" class="mini-form-button-submit" />
+            </div>
+        </form>
+
         <div class="table-div">
             <table class="table-list">
                 <thead>
@@ -66,9 +81,6 @@
                 </tbody>
             </table>
         </div>
-
-        <!-- Tutaj dodać wyszukiwanie gry po nazwie (form) -->
-        <p><a href="" class="button-add">Dodaj grę do kolekcj</a></p>
     </main>
 
     <footer>
