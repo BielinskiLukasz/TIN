@@ -8,5 +8,7 @@ Uruchomienie aplikacji:
 1. Otwórz folder MP1 w Visual Studio Code
 2. Uruchom serwer poprzez przycisk Go Live (rozszerzenie Live Server - autor: Ritwick Dey)
 ## MP2
-
+1. Przejdź do katalogu tin-projekt-bielinski-s17524
+2. Uruchom komendę npm start (wymagany node.js)
+3. Otwórz w przeglądarce stronę http://localhost:3000/
 ###### Łukasz Bieliński c18 s17524
