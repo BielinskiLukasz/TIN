@@ -1,11 +1,11 @@
 exports.showGameList = (req, res, next) => {
-    res.render('pages/game/list', {});
+    res.render('pages/game/list', { navLocation: 'games' });
 }
 
 exports.showAddGameForm = (req, res, next) => {
-    res.render('pages/game/form', {});
+    res.render('pages/game/form', { navLocation: '' });
 }
 
 exports.showGameDetails = (req, res, next) => {
-    res.render('pages/game/details', {});
+    res.render('pages/game/details', { navLocation: '' });
 }

@@ -1,117 +1,84 @@
-<!DOCTYPE html>
-<html lang="pl-PL">
+<%- include('./fragments/header.ejs') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>giercownia</title>
+<main>
+    <h2>Szczegóły gry</h2>
 
-    <link rel="icon" type="image/png" href="/images/logo.png" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <form class="form">
+        <label for="gameName">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="gameName" id="gameName" value="Gloomhaven">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
+        <label for="yearReleased">Rok wydania:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="number" name="yearReleased" id="yearReleased" min="-10000" max="2030" step="1" value="2017">
 
-<body>
-    <header>
-        <h1>Giercownia</h1>
-        <img class="header-logo" src="/images/logo.png" alt="Giercownia Logo">
-    </header>
+        <label for="gameCategory">Gatunek:<abbr title="required" aria-label="required">*</abbr></label>
+        <select id="gameCategory" name="gameCategory">
+            <option disabled value> -- wybierz -- </option>
+            <option selected>Strategiczna</option>
+            <option>Wojenna</option>
+        </select>
 
-    <nav>
-        <ul>
-            <li><a href="/index.ejs">Strona główna</a></li>
-            <li><a href="/pages/publisher/publisher-list.ejs">Wydawnictwa</a></li>
-            <li><a href="/pages/creator/creator-list.ejs">Twórcy</a></li>
-            <li><a href="/pages/game/list.ejs">Gry</a></li>
-            <li><a href="/pages/collection/collection-list.ejs">Kolekcja</a></li>
-        </ul>
-    </nav>
+        <label for="minAge">Min wiek:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="number" name="minAge" id="minAge" min="0" max="24" step="1" value="14">
 
-    <main>
-        <h2>Szczegóły gry</h2>
+        <label for="minPlayersNum">Min ilość graczy:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="number" name="minPlayersNum" id="minPlayersNum" min="1" max="100000" step="1" value="1">
 
-        <form class="form">
-            <label for="gameName">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" name="gameName" id="gameName" value="Gloomhaven">
+        <label for="maxPlayersNum">Max ilość graczy:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="number" name="maxPlayersNum" id="maxPlayersNum" min="1" max="100000" step="1" value="4">
 
-            <label for="yearReleased">Rok wydania:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="yearReleased" id="yearReleased" min="-10000" max="2030" step="1" value="2017">
+        <label for="minPlayingTime">Min czas gry [min]:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="number" name="minPlayingTime" id="minPlayingTime" min="1" max="100000" step="1" value="60">
 
-            <label for="gameCategory">Gatunek:<abbr title="required" aria-label="required">*</abbr></label>
-            <select id="gameCategory" name="gameCategory">
-                <option disabled value> -- wybierz -- </option>
-                <option selected>Strategiczna</option>
-                <option>Wojenna</option>
-            </select>
+        <label for="maxPlayingTime">Max czas gry [min]:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="number" name="maxPlayingTime" id="maxPlayingTime" min="1" max="100000" step="1" value="120">
 
-            <label for="minAge">Min wiek:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="minAge" id="minAge" min="0" max="24" step="1" value="14">
+        <label for="gameMechanism">Mechanizm:</label>
+        <select id="gameMechanism" name="gameMechanism">
+            <option disabled value> -- wybierz -- </option>
+            <option>Aukcje</option>
+            <option selected>Legacy</option>
+            <option>Kooperacja</option>
+            <option>Punkty akcji</option>
+            <option>Rozwiązywanie konfliktów</option>
+            <option>Sojusze</option>
+            <option>Inny</option>
+        </select>
 
-            <label for="minPlayersNum">Min ilość graczy:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="minPlayersNum" id="minPlayersNum" min="1" max="100000" step="1" value="1">
+        <label class="multiple-select-3-line-size" for="gamePublisher">Wydawca:<abbr title="required"
+                aria-label="required">*</abbr></label>
+        <select id="gamePublisher" name="gamePublisher" multiple size="3">
+            <option selected>Albi</option>
+            <option selected>Albi Polska</option>
+            <option>Angry Lion Games</option>
+            <option>Ares Games</option>
+            <option>Asterion Press</option>
+            <option>Devir</option>
+            <option>Jolly Thinkers</option>
+            <option>Lacerta</option>
+            <!-- Rozbudować -->
+        </select>
 
-            <label for="maxPlayersNum">Max ilość graczy:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="maxPlayersNum" id="maxPlayersNum" min="1" max="100000" step="1" value="4">
+        <label for="gameDesigner">Projektant:</label>
+        <input class="input-list" list="gameCreatorList" id="gameDesigner" value="Isaac Childres">
 
-            <label for="minPlayingTime">Min czas gry [min]:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="minPlayingTime" id="minPlayingTime" min="1" max="100000" step="1" value="60">
+        <label for="gameArtist">Artysta:</label>
+        <input class="input-list" list="gameCreatorList" id="gameArtist" value="Alexandr Elichev">
 
-            <label for="maxPlayingTime">Max czas gry [min]:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="maxPlayingTime" id="maxPlayingTime" min="1" max="100000" step="1" value="120">
+        <datalist id="gameCreatorList">
+            <option value="Isaac Childres"></option>
+            <option value="Roberto Di Meglio"></option>
+            <option value="Alexandr Elichev"></option>
+            <option value="Matt Leacock"></option>
+            <option value="Fabio Maiorana"></option>
+            <option value="Chris Quilliams"></option>
+            <!-- Rozbudować -->
+        </datalist>
 
-            <label for="gameMechanism">Mechanizm:</label>
-            <select id="gameMechanism" name="gameMechanism">
-                <option disabled value> -- wybierz -- </option>
-                <option>Aukcje</option>
-                <option selected>Legacy</option>
-                <option>Kooperacja</option>
-                <option>Punkty akcji</option>
-                <option>Rozwiązywanie konfliktów</option>
-                <option>Sojusze</option>
-                <option>Inny</option>
-            </select>
+        <div class="form-buttons">
+            <input type="submit" value="Zapisz" class="form-button-submit" />
+            <a href="/index.ejs" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+</main>
 
-            <label class="multiple-select-3-line-size" for="gamePublisher">Wydawca:<abbr title="required"
-                    aria-label="required">*</abbr></label>
-            <select id="gamePublisher" name="gamePublisher" multiple size="3">
-                <option selected>Albi</option>
-                <option selected>Albi Polska</option>
-                <option>Angry Lion Games</option>
-                <option>Ares Games</option>
-                <option>Asterion Press</option>
-                <option>Devir</option>
-                <option>Jolly Thinkers</option>
-                <option>Lacerta</option>
-                <!-- Rozbudować -->
-            </select>
-
-            <label for="gameDesigner">Projektant:</label>
-            <input class="input-list" list="gameCreatorList" id="gameDesigner" value="Isaac Childres">
-
-            <label for="gameArtist">Artysta:</label>
-            <input class="input-list" list="gameCreatorList" id="gameArtist" value="Alexandr Elichev">
-
-            <datalist id="gameCreatorList">
-                <option value="Isaac Childres"></option>
-                <option value="Roberto Di Meglio"></option>
-                <option value="Alexandr Elichev"></option>
-                <option value="Matt Leacock"></option>
-                <option value="Fabio Maiorana"></option>
-                <option value="Chris Quilliams"></option>
-                <!-- Rozbudować -->
-            </datalist>
-
-            <div class="form-buttons">
-                <input type="submit" value="Zapisz" class="form-button-submit" />
-                <a href="/index.ejs" class="form-button-cancel">Anuluj</a>
-            </div>
-        </form>
-    </main>
-
-    <footer>
-        <a href="https://www.linkedin.com/in/lukasz-bielinski/">Łukasz Bieliński</a> s17524
-    </footer>
-</body>
-
-</html>
+<%- include('./fragments/footer.ejs') %>
