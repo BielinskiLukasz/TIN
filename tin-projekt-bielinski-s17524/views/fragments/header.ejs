@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>giercownia</title>
+
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Giercownia</h1>
+        <img class="header-logo" src="/images/logo.png" alt="Giercownia Logo">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+            <li><a href="/pages/publisher/publisher-list.ejs"
+                    class="<%= navLocation == 'publishers' ? 'active' : ''%>">Wydawnictwa</a></li>
+            <li><a href="/pages/creator/creator-list.ejs"
+                    class="<%= navLocation == 'creators' ? 'active' : ''%>">Twórcy</a></li>
+            <li><a href="/game/list" class="<%= navLocation == 'games' ? 'active' : ''%>">Gry</a></li>
+            <li><a href="/pages/collection/collection-list.ejs"
+                    class="<%= navLocation == 'collection' ? 'active' : ''%>">Kolekcja</a></li>
+        </ul>
+    </nav>
