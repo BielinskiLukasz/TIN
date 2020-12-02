@@ -14,5 +14,4 @@ router.get('/details/:gameId', gameController.showGameDetails);
 /* ... */
 router.get('/edit/:gameId', gameController.showEditGameDetails);
 
-
 module.exports = router;
