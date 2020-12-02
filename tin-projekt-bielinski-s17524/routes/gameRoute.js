@@ -9,9 +9,9 @@ router.get('/list', gameController.showGameList);
 router.get('/add', gameController.showAddGameForm);
 
 /* ... */
-router.get('/details/:gameId', gameController.showGameDetails);
+router.get('/:gameId', gameController.showGameDetails);
 
 /* ... */
-router.get('/edit/:gameId', gameController.showEditGameDetails);
+router.get('/:gameId/edit', gameController.showEditGameDetails);
 
 module.exports = router;
