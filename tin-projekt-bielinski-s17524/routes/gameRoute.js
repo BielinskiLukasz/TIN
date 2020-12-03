@@ -12,6 +12,12 @@ router.get('/add', gameController.showAddGameForm);
 router.get('/:gameId', gameController.showGameDetails);
 
 /* ... */
-router.get('/:gameId/edit', gameController.showEditGameDetails);
+router.get('/:gameId/edit', gameController.showEditGameForm);
+
+/* ... */
+router.get('/:gameId/rate', gameController.showRateGameForm);
+
+/* ... */
+router.get('/:gameId/ratings', gameController.showGameRatingList);
 
 module.exports = router;

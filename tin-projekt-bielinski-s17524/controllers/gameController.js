@@ -10,6 +10,14 @@ exports.showGameDetails = (req, res, next) => {
     res.render('pages/game/details', { navLocation: '' });
 }
 
-exports.showEditGameDetails = (req, res, next) => {
+exports.showEditGameForm = (req, res, next) => {
     res.render('pages/game/edit', { navLocation: '' });
+}
+
+exports.showRateGameForm = (req, res, next) => {
+    res.render('pages/game/rate', { navLocation: '' });
+}
+
+exports.showGameRatingList = (req, res, next) => {
+    res.render('pages/game/ratings', { navLocation: '' });
 }
