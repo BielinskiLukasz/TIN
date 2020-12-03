@@ -1,0 +1,125 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Lista twórców</h2>
+
+    <div class="table-div">
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th scope="col">Nick</th>
+                    <th scope="col">Imię i Nazwisko</th>
+                    <th scope="col">Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Nick">Cephalofair</td>
+                    <td data-label="Imię i Nazwisko">Isaac Childres</td>
+                    <td data-label="Akcje">
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/creator/1" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="/creator/1/edit" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="/creator/list" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Nick">cybernex</td>
+                    <td data-label="Imię i Nazwisko">Roberto Di Meglio</td>
+                    <td data-label="Akcje">
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/creator/2" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="/creator/2/edit" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="/creator/list" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Nick">KoTnoneKoT</td>
+                    <td data-label="Imię i Nazwisko">Alexandr Elichev</td>
+                    <td data-label="Akcje">
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/creator/3" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="/creator/3/edit" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="/creator/list" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Nick">mleacock</td>
+                    <td data-label="Imię i Nazwisko">Matt Leacock</td>
+                    <td data-label="Akcje">
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/creator/4" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="/creator/4/edit" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="/creator/list" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Nick">superfabio</td>
+                    <td data-label="Imię i Nazwisko">Fabio Maiorana</td>
+                    <td data-label="Akcje">
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/creator/5" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="/creator/5/edit" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="/creator/list" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Nick">cq</td>
+                    <td data-label="Imię i Nazwisko">Chris Quilliams</td>
+                    <td data-label="Akcje">
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/creator/6" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="/creator/6/edit" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="/creator/list" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p><a href="/creator/add" class="button-add">Dodaj nowego twórcę</a></p>
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

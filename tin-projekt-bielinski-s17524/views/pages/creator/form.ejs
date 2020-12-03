@@ -1,0 +1,26 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Szczegóły nowego twórcy</h2>
+
+    <form class="form">
+        <label for="nick">Nick:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="nick" id="nick">
+
+        <label for="name">Imię:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="name" id="name">
+
+        <label for="surname">Nazwisko:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="surname" id="surname">
+
+        <label for="bio">Biografia:</label>
+        <textarea name="bio" id="bio" cols="30" rows="8"></textarea>
+
+        <div class="form-buttons">
+            <input type="submit" value="Dodaj" class="form-button-submit" />
+            <a href="/creator/list" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+</main>
+
+<%- include('../../fragments/footer.ejs') %>
