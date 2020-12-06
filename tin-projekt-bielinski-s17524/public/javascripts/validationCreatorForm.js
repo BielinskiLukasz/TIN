@@ -1,28 +1,20 @@
-function validateForm() {
-    const nameInput = document.getElementById('name');
+function validateCreatorForm() {
     const nickInput = document.getElementById('nick');
+    const firstNameInput = document.getElementById('name');
+    const lastNameInput = document.getElementById('surname');
     const emailInput = document.getElementById('email');
-    const headquartersInput = document.getElementById('headquarters');
+    const bioInput = document.getElementById('bio');
 
-    const errorName = document.getElementById('errorName');
     const errorNick = document.getElementById('errorNick');
+    const errorFirstName = document.getElementById('errorFirstName');
+    const errorLastName = document.getElementById('errorLastName');
     const errorEmail = document.getElementById('errorEmail');
-    const errorHeadquarters = document.getElementById('errorHeadquarters');
+    const errorBio = document.getElementById('errorBio');
     const errorsSummary = document.getElementById('errorsSummary');
 
-    resetErrors([nameInput, nickInput, emailInput, headquartersInput], [errorName, errorNick, errorEmail, errorHeadquarters], errorsSummary);
+    resetErrors([nickInput, firstNameInput, lastNameInput, emailInput, bioInput], [errorNick, errorFirstName, errorLastName, errorEmail, errorBio], errorsSummary);
 
     let valid = true;
-
-    if (!checkRequired(nameInput.value)) {
-        valid = false;
-        nameInput.classList.add("error-input");
-        errorName.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(nameInput.value, 2, 60)) {
-        valid = false;
-        nameInput.classList.add("error-input");
-        errorName.innerText = "Pole powinno zawierać od 2 do 60 znaków";
-    }
 
     if (!checkRequired(nickInput.value)) {
         valid = false;
@@ -32,6 +24,26 @@ function validateForm() {
         valid = false;
         nickInput.classList.add("error-input");
         errorNick.innerText = "Pole powinno zawierać od 2 do 60 znaków";
+    }
+
+    if (!checkRequired(firstNameInput.value)) {
+        valid = false;
+        firstNameInput.classList.add("error-input");
+        errorFirstName.innerText = "Pole jest wymagane";
+    } else if (!checkTextLengthRange(firstNameInput.value, 2, 60)) {
+        valid = false;
+        firstNameInput.classList.add("error-input");
+        errorFirstName.innerText = "Pole powinno zawierać od 2 do 60 znaków";
+    }
+
+    if (!checkRequired(lastNameInput.value)) {
+        valid = false;
+        lastNameInput.classList.add("error-input");
+        errorLastName.innerText = "Pole jest wymagane";
+    } else if (!checkTextLengthRange(lastNameInput.value, 2, 60)) {
+        valid = false;
+        lastNameInput.classList.add("error-input");
+        errorLastName.innerText = "Pole powinno zawierać od 2 do 60 znaków";
     }
 
     if (!checkRequired(emailInput.value)) {
@@ -48,10 +60,10 @@ function validateForm() {
         errorEmail.innerText = "Pole powinno zawierać prawidłowy adres email";
     }
 
-    if (!checkTextLengthRange(headquartersInput.value, 0, 200)) {
+    if (!checkTextLengthRange(bioInput.value, 0, 1000)) {
         valid = false;
-        headquartersInput.classList.add("error-input");
-        errorHeadquarters.innerText = "Pole powinno zawierać max 200 znaków";
+        bioInput.classList.add("error-input");
+        errorBio.innerText = "Pole powinno zawierać max 1000 znaków";
     }
 
     if (!valid) {

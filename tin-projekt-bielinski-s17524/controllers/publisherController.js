@@ -7,7 +7,7 @@ exports.showAddPublisherForm = (req, res, next) => {
 }
 
 exports.showPublisherDetails = (req, res, next) => {
-    res.render('pages/publisher/details', { navLocation: '' });
+    res.render('pages/publisher/details', { navLocation: 'publisherForm' });
 }
 
 exports.showEditPublisherForm = (req, res, next) => {

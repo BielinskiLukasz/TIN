@@ -3,7 +3,7 @@ exports.showCreatorList = (req, res, next) => {
 }
 
 exports.showAddCreatorForm = (req, res, next) => {
-    res.render('pages/creator/form', { navLocation: '' });
+    res.render('pages/creator/form', { navLocation: 'creatorForm' });
 }
 
 exports.showCreatorDetails = (req, res, next) => {

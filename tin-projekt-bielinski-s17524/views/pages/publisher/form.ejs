@@ -3,7 +3,7 @@
 <main>
     <h2>Szczegóły nowego wydawnictwa</h2>
 
-    <form class="form" novalidate onsubmit="return validateForm();">
+    <form class="form" novalidate onsubmit="return validatePublisherForm();">
         <label for="name">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="text" name="name" id="name" placeholder="2-60 znaków">
         <span id="errorName" class="errors-text"></span>
@@ -17,7 +17,7 @@
         <span id="errorEmail" class="errors-text"></span>
 
         <label for="headquarters">Siedziba:</label>
-        <input type="text" name="headquarters" id="headquarters" placeholder="0-200 znaków">
+        <input type="text" name="headquarters" id="headquarters" placeholder="max 200 znaków">
         <span id="errorHeadquarters" class="errors-text"></span>
 
         <div class="form-buttons">

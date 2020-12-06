@@ -3,20 +3,29 @@
 <main>
     <h2>Szczegóły nowego twórcy</h2>
 
-    <form class="form">
+    <form class="form" novalidate onsubmit="return validateCreatorForm();">
         <label for="nick">Nick:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="text" name="nick" id="nick">
+        <input type="text" name="nick" id="nick" placeholder="2-60 znaków">
+        <span id="errorNick" class="errors-text"></span>
+
+        <label for="email">Mail:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="email" name="email" id="email" placeholder="5-60 znaków  np. nazwa@domena.pl">
+        <span id="errorEmail" class="errors-text"></span>
 
         <label for="name">Imię:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" placeholder="2-60 znaków">
+        <span id="errorFirstName" class="errors-text"></span>
 
         <label for="surname">Nazwisko:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="text" name="surname" id="surname">
+        <input type="text" name="surname" id="surname" placeholder="2-60 znaków">
+        <span id="errorLastName" class="errors-text"></span>
 
         <label for="bio">Biografia:</label>
-        <textarea name="bio" id="bio" cols="30" rows="8"></textarea>
+        <textarea name="bio" id="bio" cols="30" rows="8" placeholder="max 1000 znaków"></textarea>
+        <span id="errorBio" class="errors-text"></span>
 
         <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
             <input type="submit" value="Dodaj" class="form-button-submit" />
             <a href="/creator/list" class="form-button-cancel">Anuluj</a>
         </div>

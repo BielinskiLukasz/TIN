@@ -329,7 +329,8 @@ p {
 .form input[type="number"],
 .form input[type="date"],
 .form input[type="email"],
-.input-list {
+.input-list,
+textarea {
     border: 1px solid #7f8c8d;
     color:#2c3e50;
     border-radius: 5px;
@@ -471,12 +472,12 @@ abbr[title='required'],
         margin-left: unset;
     }
 
-    .form input[type="text"],
-    .form input[type="number"],
-    .form input[type="date"],
-    .form select,
-    .input-list {
+    .form .errors-text {
         margin-bottom: 1rem;
+    }
+
+    .form-buttons {
+        grid-column: 1 / span 1; 
     }
 
     table {
