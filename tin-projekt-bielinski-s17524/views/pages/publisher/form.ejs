@@ -3,17 +3,25 @@
 <main>
     <h2>Szczegóły nowego wydawnictwa</h2>
 
-    <form class="form">
+    <form class="form" novalidate onsubmit="return validateForm();">
         <label for="name">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" placeholder="2-60 znaków">
+        <span id="errorName" class="errors-text"></span>
 
         <label for="nick">Nick:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="text" name="nick" id="nick">
+        <input type="text" name="nick" id="nick" placeholder="2-60 znaków">
+        <span id="errorNick" class="errors-text"></span>
+
+        <label for="email">Mail:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="email" name="email" id="email" placeholder="5-60 znaków  np. nazwa@domena.pl">
+        <span id="errorEmail" class="errors-text"></span>
 
         <label for="headquarters">Siedziba:</label>
-        <input type="text" name="headquarters" id="headquarters">
+        <input type="text" name="headquarters" id="headquarters" placeholder="0-200 znaków">
+        <span id="errorHeadquarters" class="errors-text"></span>
 
         <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
             <input type="submit" value="Dodaj" class="form-button-submit" />
             <a href="/publisher/list" class="form-button-cancel">Anuluj</a>
         </div>
