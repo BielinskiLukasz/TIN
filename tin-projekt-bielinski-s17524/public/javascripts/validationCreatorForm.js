@@ -1,4 +1,4 @@
-function validateCreatorForm() {
+function validateForm() {
     const nickInput = document.getElementById('nick');
     const firstNameInput = document.getElementById('name');
     const lastNameInput = document.getElementById('surname');

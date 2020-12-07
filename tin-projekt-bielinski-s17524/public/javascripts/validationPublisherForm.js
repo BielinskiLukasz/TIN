@@ -1,4 +1,4 @@
-function validatePublisherForm() {
+function validateForm() {
     const nameInput = document.getElementById('name');
     const nickInput = document.getElementById('nick');
     const emailInput = document.getElementById('email');

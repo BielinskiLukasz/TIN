@@ -3,7 +3,7 @@ exports.showGameList = (req, res, next) => {
 }
 
 exports.showAddGameForm = (req, res, next) => {
-    res.render('pages/game/form', { navLocation: '' });
+    res.render('pages/game/form', { navLocation: 'gameForm' });
 }
 
 exports.showGameDetails = (req, res, next) => {
