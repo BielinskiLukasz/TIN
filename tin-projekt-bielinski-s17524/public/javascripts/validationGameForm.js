@@ -75,6 +75,102 @@ function validateForm() {
         errorMinAge.innerText = "Pole powinno być liczbą w zakresie od 0 do 24";
     }
 
+    if (!checkRequired(minPlayersNumInput.value)) {
+        valid = false;
+        minPlayersNumInput.classList.add("error-input");
+        errorMinPlayersNum.innerText = "Pole jest wymagane";
+    } else if (!checkNumber(minPlayersNumInput.value)) {
+        valid = false;
+        minPlayersNumInput.classList.add("error-input");
+        errorMinPlayersNum.innerText = "Pole powinno być liczbą";
+    } else if (!checkNumberRange(minPlayersNumInput.value, 0, 999_999_999)) {
+        valid = false;
+        minPlayersNumInput.classList.add("error-input");
+        errorMinPlayersNum.innerText = "Pole powinno być liczbą większą od 0";
+    }
+
+    if (!checkRequired(maxPlayersNumInput.value)) {
+        valid = false;
+        maxPlayersNumInput.classList.add("error-input");
+        errorMaxPlayersNum.innerText = "Pole jest wymagane";
+    } else if (!checkNumber(maxPlayersNumInput.value)) {
+        valid = false;
+        maxPlayersNumInput.classList.add("error-input");
+        errorMaxPlayersNum.innerText = "Pole powinno być liczbą";
+    } else if (!checkNumberRange(maxPlayersNumInput.value, minPlayersNumInput.value, 999_999_999)) {
+        valid = false;
+        maxPlayersNumInput.classList.add("error-input");
+        errorMaxPlayersNum.innerText = "Pole powinno być liczbą większą od minimalnej liczby graczy";
+    }
+
+    if (!checkRequired(minPlayingTimeInput.value)) {
+        valid = false;
+        minPlayingTimeInput.classList.add("error-input");
+        errorMinPlayingTime.innerText = "Pole jest wymagane";
+    } else if (!checkNumber(minPlayingTimeInput.value)) {
+        valid = false;
+        minPlayingTimeInput.classList.add("error-input");
+        errorMinPlayingTime.innerText = "Pole powinno być liczbą";
+    } else if (!checkNumberRange(minPlayingTimeInput.value, 0, 999_999_999)) {
+        valid = false;
+        minPlayingTimeInput.classList.add("error-input");
+        errorMinPlayingTime.innerText = "Pole powinno być liczbą większą od 0";
+    }
+
+    if (!checkRequired(maxPlayingTimeInput.value)) {
+        valid = false;
+        maxPlayingTimeInput.classList.add("error-input");
+        errorMaxPlayingTime.innerText = "Pole jest wymagane";
+    } else if (!checkNumber(maxPlayingTimeInput.value)) {
+        valid = false;
+        maxPlayingTimeInput.classList.add("error-input");
+        errorMaxPlayingTime.innerText = "Pole powinno być liczbą";
+    } else if (!checkNumberRange(maxPlayingTimeInput.value, minPlayingTimeInput.value, 999_999_999)) {
+        valid = false;
+        maxPlayingTimeInput.classList.add("error-input");
+        errorMaxPlayingTime.innerText = "Pole powinno być liczbą większą od minimalnej liczby minut";
+    }
+
+    // if (!checkRequired(gameMechanismInput.value)) {
+    //     valid = false;
+    //     gameMechanismInput.classList.add("error-input");
+    //     errorGamePublisher.innerText = "Pole jest wymagane";
+    // } else if (!checkTextLengthRange(gameMechanismInput.value, 2, 200)) {
+    //     valid = false;
+    //     gameMechanismInput.classList.add("error-input");
+    //     errorGamePublisher.innerText = "Pole powinno zawierać od 2 do 200 znaków";
+    // }
+
+    if (!checkRequired(gamePublisherInput.value)) {
+        valid = false;
+        gamePublisherInput.classList.add("error-input");
+        errorGameDesigner.innerText = "Pole jest wymagane";
+    } else if (!checkTextLengthRange(gamePublisherInput.value, 2, 200)) {
+        valid = false;
+        gamePublisherInput.classList.add("error-input");
+        errorGameDesigner.innerText = "Pole powinno zawierać od 2 do 200 znaków";
+    }
+
+    // if (!checkRequired(gameDesignerInput.value)) {
+    //     valid = false;
+    //     gameDesignerInput.classList.add("error-input");
+    //     errorGameArtist.innerText = "Pole jest wymagane";
+    // } else if (!checkTextLengthRange(gameDesignerInput.value, 2, 200)) {
+    //     valid = false;
+    //     gameDesignerInput.classList.add("error-input");
+    //     errorGameArtist.innerText = "Pole powinno zawierać od 2 do 200 znaków";
+    // }
+
+    // if (!checkRequired(gameArtistInput.value)) {
+    //     valid = false;
+    //     gameArtistInput.classList.add("error-input");
+    //     errorsSummary.innerText = "Pole jest wymagane";
+    // } else if (!checkTextLengthRange(gameArtistInput.value, 2, 200)) {
+    //     valid = false;
+    //     gameArtistInput.classList.add("error-input");
+    //     errorsSummary.innerText = "Pole powinno zawierać od 2 do 200 znaków";
+    // }
+
     if (!valid) {
         errorsSummary.innerText = "Formularz zawiera błędy";
     }
