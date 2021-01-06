@@ -3,12 +3,14 @@
 <main>
     <h2>Szczegóły nowej gry</h2>
 
-    <form class="form">
+    <form class="form" novalidate onsubmit="return validateForm();">
         <label for="gameName">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="text" name="gameName" id="gameName">
+        <span id="errorGameName" class="errors-text"></span>
 
         <label for="yearReleased">Rok wydania:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="number" name="yearReleased" id="yearReleased" min="-10000" max="2030" step="1">
+        <span id="errorYearReleased" class="errors-text"></span>
 
         <label for="gameCategory">Gatunek:<abbr title="required" aria-label="required">*</abbr></label>
         <select id="gameCategory" name="gameCategory">
@@ -16,21 +18,27 @@
             <option>Strategiczna</option>
             <option>Wojenna</option>
         </select>
+        <span id="errorGameCategory" class="errors-text"></span>
 
         <label for="minAge">Min wiek:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="number" name="minAge" id="minAge" min="0" max="24" step="1">
+        <span id="errorMinAge" class="errors-text"></span>
 
         <label for="minPlayersNum">Min ilość graczy:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="number" name="minPlayersNum" id="minPlayersNum" min="1" max="100000" step="1">
+        <span id="errorMinPlayersNum" class="errors-text"></span>
 
         <label for="maxPlayersNum">Max ilość graczy:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="number" name="maxPlayersNum" id="maxPlayersNum" min="1" max="100000" step="1">
+        <span id="errorMaxPlayersNum" class="errors-text"></span>
 
         <label for="minPlayingTime">Min czas gry [min]:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="number" name="minPlayingTime" id="minPlayingTime" min="1" max="100000" step="1">
+        <span id="errorMinPlayingTime" class="errors-text"></span>
 
         <label for="maxPlayingTime">Max czas gry [min]:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="number" name="maxPlayingTime" id="maxPlayingTime" min="1" max="100000" step="1">
+        <span id="errorMaxPlayingTime" class="errors-text"></span>
 
         <label for="gameMechanism">Mechanizm:</label>
         <select id="gameMechanism" name="gameMechanism">
@@ -43,6 +51,7 @@
             <option>Sojusze</option>
             <option>Inny</option>
         </select>
+        <span id="errorGameMechanism" class="errors-text"></span>
 
         <label class="multiple-select-3-line-size" for="gamePublisher">Wydawca:<abbr title="required"
                 aria-label="required">*</abbr></label>
@@ -57,6 +66,7 @@
             <option>Lacerta</option>
             <!-- Rozbudować -->
         </select>
+        <span id="errorGamePublisher" class="errors-text"></span>
 
         <label for="gameDesigner">Projektant:</label>
         <input class="input-list" list="gameDesignerList" id="gameDesigner">
@@ -69,11 +79,12 @@
             <option value="Chris Quilliams"></option>
             <!-- Rozbudować -->
         </datalist>
+        <span id="errorGameDesigner" class="errors-text"></span>
 
         <label for="gameArtist">Artysta:</label>
         <input class="input-list" list="gameArtistList" id="gameArtist">
         <datalist id="gameArtistList">
-            <option value="Isaac Childres"></option>
+            <option value="Isaac Chil dres"></option>
             <option value="Roberto Di Meglio"></option>
             <option value="Alexandr Elichev"></option>
             <option value="Matt Leacock"></option>
@@ -81,8 +92,10 @@
             <option value="Chris Quilliams"></option>
             <!-- Rozbudować -->
         </datalist>
+        <span id="errorGameArtist" class="errors-text"></span>
 
         <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
             <input type="submit" value="Dodaj" class="form-button-submit" />
             <a href="/game/list" class="form-button-cancel">Anuluj</a>
         </div>

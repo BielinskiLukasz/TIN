@@ -36,3 +36,30 @@ function checkEmail(value) {
     const re = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     return re.test(value);
 }
+
+function checkNumber(value) {
+    if (!value) {
+        return false;
+    }
+    if (isNaN(value)) {
+        return false;
+    }
+    return true;
+}
+
+function checkNumberRange(value, min, max) {
+    if (!value) {
+        return false;
+    }
+    if (isNaN(value)) {
+        return false;
+    }
+    value = parseFloat(value);
+    if (value < min) {
+        return false;
+    }
+    if (value > max) {
+        return false;
+    }
+    return true;
+}
