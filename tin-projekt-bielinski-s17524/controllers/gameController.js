@@ -15,7 +15,7 @@ exports.showEditGameForm = (req, res, next) => {
 }
 
 exports.showRateGameForm = (req, res, next) => {
-    res.render('pages/game/rate', { navLocation: '' });
+    res.render('pages/game/rate', { navLocation: 'rateForm' });
 }
 
 exports.showGameRatingList = (req, res, next) => {

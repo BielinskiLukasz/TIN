@@ -7,7 +7,7 @@ function validateForm() {
     const maxPlayersNumInput = document.getElementById('maxPlayersNum');
     const minPlayingTimeInput = document.getElementById('minPlayingTime');
     const maxPlayingTimeInput = document.getElementById('maxPlayingTime');
-    const gameMechanismInput = document.getElementById('gameMechanism');
+    // const gameMechanismInput = document.getElementById('gameMechanism');
     const gamePublisherInput = document.getElementById('gamePublisher');
     const gameDesignerInput = document.getElementById('gameDesigner');
     const gameArtistInput = document.getElementById('gameArtist');
@@ -20,7 +20,7 @@ function validateForm() {
     const errorMaxPlayersNum = document.getElementById('errorMaxPlayersNum');
     const errorMinPlayingTime = document.getElementById('errorMinPlayingTime');
     const errorMaxPlayingTime = document.getElementById('errorMaxPlayingTime');
-    const errorGameMechanism = document.getElementById('errorGameMechanism');
+    // const errorGameMechanism = document.getElementById('errorGameMechanism');
     const errorGamePublisher = document.getElementById('errorGamePublisher');
     const errorGameDesigner = document.getElementById('errorGameDesigner');
     const errorGameArtist = document.getElementById('errorGameArtist');
@@ -28,9 +28,9 @@ function validateForm() {
 
     resetErrors(
         [gameNameInput, yearReleasedInput, gameCategoryInput, minAgeInput, minPlayersNumInput, maxPlayersNumInput,
-            minPlayingTimeInput, maxPlayingTimeInput, gameMechanismInput, gamePublisherInput, gameDesignerInput, gameArtistInput],
+            minPlayingTimeInput, maxPlayingTimeInput, gamePublisherInput, gameDesignerInput, gameArtistInput],
         [errorGameName, errorYearReleased, errorGameCategory, errorMinAge, errorMinPlayersNum, errorMaxPlayersNum,
-            errorMinPlayingTime, errorMaxPlayingTime, errorGameMechanism, errorGamePublisher, errorGameDesigner, errorGameArtist],
+            errorMinPlayingTime, errorMaxPlayingTime, errorGamePublisher, errorGameDesigner, errorGameArtist],
         errorsSummary);
 
     let valid = true;
@@ -72,7 +72,7 @@ function validateForm() {
     } else if (!checkNumberRange(minAgeInput.value, 0, 24)) {
         valid = false;
         minAgeInput.classList.add("error-input");
-        errorMinAge.innerText = "Pole powinno być liczbą w zakresie od 0 do 24";
+        errorMinAge.innerText = "Pole powinno być liczbą naturalną w zakresie od 0 do 24";
     }
 
     if (!checkRequired(minPlayersNumInput.value)) {
@@ -86,7 +86,7 @@ function validateForm() {
     } else if (!checkNumberRange(minPlayersNumInput.value, 0, 999_999_999)) {
         valid = false;
         minPlayersNumInput.classList.add("error-input");
-        errorMinPlayersNum.innerText = "Pole powinno być liczbą większą od 0";
+        errorMinPlayersNum.innerText = "Pole powinno być liczbą nie mniejszą od 0";
     }
 
     if (!checkRequired(maxPlayersNumInput.value)) {
@@ -100,7 +100,7 @@ function validateForm() {
     } else if (!checkNumberRange(maxPlayersNumInput.value, minPlayersNumInput.value, 999_999_999)) {
         valid = false;
         maxPlayersNumInput.classList.add("error-input");
-        errorMaxPlayersNum.innerText = "Pole powinno być liczbą większą od minimalnej liczby graczy";
+        errorMaxPlayersNum.innerText = "Pole powinno być liczbą nie mniejszą od minimalnej liczby graczy";
     }
 
     if (!checkRequired(minPlayingTimeInput.value)) {
@@ -114,7 +114,7 @@ function validateForm() {
     } else if (!checkNumberRange(minPlayingTimeInput.value, 0, 999_999_999)) {
         valid = false;
         minPlayingTimeInput.classList.add("error-input");
-        errorMinPlayingTime.innerText = "Pole powinno być liczbą większą od 0";
+        errorMinPlayingTime.innerText = "Pole powinno być liczbą nie mniejszą od 0";
     }
 
     if (!checkRequired(maxPlayingTimeInput.value)) {
@@ -128,7 +128,7 @@ function validateForm() {
     } else if (!checkNumberRange(maxPlayingTimeInput.value, minPlayingTimeInput.value, 999_999_999)) {
         valid = false;
         maxPlayingTimeInput.classList.add("error-input");
-        errorMaxPlayingTime.innerText = "Pole powinno być liczbą większą od minimalnej liczby minut";
+        errorMaxPlayingTime.innerText = "Pole powinno być liczbą nie mniejszą od minimalnej liczby minut";
     }
 
     // if (!checkRequired(gameMechanismInput.value)) {
