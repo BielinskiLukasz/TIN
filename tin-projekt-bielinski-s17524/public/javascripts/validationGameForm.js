@@ -49,10 +49,10 @@ function validateForm() {
         valid = false;
         yearReleasedInput.classList.add("error-input");
         errorYearReleased.innerText = "Pole jest wymagane";
-    } else if (!checkNumber(yearReleasedInput.value)) {
+    } else if (!checkInteger(yearReleasedInput.value)) {
         valid = false;
         yearReleasedInput.classList.add("error-input");
-        errorYearReleased.innerText = "Pole powinno być liczbą";
+        errorYearReleased.innerText = "Pole powinno być liczbą całkowitą";
     }
 
     if (!checkRequired(gameCategoryInput.value)) {
@@ -65,10 +65,10 @@ function validateForm() {
         valid = false;
         minAgeInput.classList.add("error-input");
         errorMinAge.innerText = "Pole jest wymagane";
-    } else if (!checkNumber(minAgeInput.value)) {
+    } else if (!checkInteger(minAgeInput.value)) {
         valid = false;
         minAgeInput.classList.add("error-input");
-        errorMinAge.innerText = "Pole powinno być liczbą";
+        errorMinAge.innerText = "Pole powinno być liczbą całkowitą";
     } else if (!checkNumberRange(minAgeInput.value, 0, 24)) {
         valid = false;
         minAgeInput.classList.add("error-input");
@@ -79,10 +79,10 @@ function validateForm() {
         valid = false;
         minPlayersNumInput.classList.add("error-input");
         errorMinPlayersNum.innerText = "Pole jest wymagane";
-    } else if (!checkNumber(minPlayersNumInput.value)) {
+    } else if (!checkInteger(minPlayersNumInput.value)) {
         valid = false;
         minPlayersNumInput.classList.add("error-input");
-        errorMinPlayersNum.innerText = "Pole powinno być liczbą";
+        errorMinPlayersNum.innerText = "Pole powinno być liczbą całkowitą";
     } else if (!checkNumberRange(minPlayersNumInput.value, 0, 999_999_999)) {
         valid = false;
         minPlayersNumInput.classList.add("error-input");
@@ -93,10 +93,10 @@ function validateForm() {
         valid = false;
         maxPlayersNumInput.classList.add("error-input");
         errorMaxPlayersNum.innerText = "Pole jest wymagane";
-    } else if (!checkNumber(maxPlayersNumInput.value)) {
+    } else if (!checkInteger(maxPlayersNumInput.value)) {
         valid = false;
         maxPlayersNumInput.classList.add("error-input");
-        errorMaxPlayersNum.innerText = "Pole powinno być liczbą";
+        errorMaxPlayersNum.innerText = "Pole powinno być liczbą całkowitą";
     } else if (!checkNumberRange(maxPlayersNumInput.value, minPlayersNumInput.value, 999_999_999)) {
         valid = false;
         maxPlayersNumInput.classList.add("error-input");
@@ -107,10 +107,10 @@ function validateForm() {
         valid = false;
         minPlayingTimeInput.classList.add("error-input");
         errorMinPlayingTime.innerText = "Pole jest wymagane";
-    } else if (!checkNumber(minPlayingTimeInput.value)) {
+    } else if (!checkInteger(minPlayingTimeInput.value)) {
         valid = false;
         minPlayingTimeInput.classList.add("error-input");
-        errorMinPlayingTime.innerText = "Pole powinno być liczbą";
+        errorMinPlayingTime.innerText = "Pole powinno być liczbą całkowitą";
     } else if (!checkNumberRange(minPlayingTimeInput.value, 0, 999_999_999)) {
         valid = false;
         minPlayingTimeInput.classList.add("error-input");
@@ -121,10 +121,10 @@ function validateForm() {
         valid = false;
         maxPlayingTimeInput.classList.add("error-input");
         errorMaxPlayingTime.innerText = "Pole jest wymagane";
-    } else if (!checkNumber(maxPlayingTimeInput.value)) {
+    } else if (!checkInteger(maxPlayingTimeInput.value)) {
         valid = false;
         maxPlayingTimeInput.classList.add("error-input");
-        errorMaxPlayingTime.innerText = "Pole powinno być liczbą";
+        errorMaxPlayingTime.innerText = "Pole powinno być liczbą całkowitą";
     } else if (!checkNumberRange(maxPlayingTimeInput.value, minPlayingTimeInput.value, 999_999_999)) {
         valid = false;
         maxPlayingTimeInput.classList.add("error-input");

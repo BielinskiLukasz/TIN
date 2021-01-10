@@ -13,10 +13,10 @@ function validateForm() {
         valid = false;
         scoreInput.classList.add("error-input");
         errorScore.innerText = "Pole jest wymagane";
-    } else if (!checkNumber(scoreInput.value)) {
+    } else if (!checkInteger(scoreInput.value)) {
         valid = false;
         scoreInput.classList.add("error-input");
-        errorScore.innerText = "Pole powinno być liczbą";
+        errorScore.innerText = "Pole powinno być liczbą całkowitą";
     } else if (!checkNumberRange(scoreInput.value, 1, 10)) {
         valid = false;
         scoreInput.classList.add("error-input");

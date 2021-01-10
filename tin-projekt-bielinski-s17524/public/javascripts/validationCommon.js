@@ -47,6 +47,16 @@ function checkNumber(value) {
     return true;
 }
 
+function checkInteger(value) {
+    if (!value) {
+        return false;
+    }
+    if (isNaN(value)) {
+        return false;
+    }
+    return Number.isInteger(value);
+}
+
 function checkNumberRange(value, min, max) {
     if (!value) {
         return false;
