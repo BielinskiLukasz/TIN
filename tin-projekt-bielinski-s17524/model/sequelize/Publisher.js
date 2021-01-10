@@ -23,7 +23,7 @@ const Publisher = sequelize.define('Publisher', {
         unique: true
     },
     headquarters: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     }
 });

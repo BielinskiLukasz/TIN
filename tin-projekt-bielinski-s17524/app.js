@@ -45,3 +45,10 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+// create sqquelize data model
+const sequelizeInit = require('./config/sequelize/init');
+sequelizeInit()
+  .catch(err => {
+    console.log(err);
+  });

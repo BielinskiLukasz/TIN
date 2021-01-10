@@ -8,7 +8,7 @@ const Rate = sequelize.define('Rate', {
         allowNull: false,
         primaryKey: true,
     },
-    score: {
+    rate: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
