@@ -8,7 +8,7 @@ const Gamer = sequelize.define('Gamer', {
         allowNull: false,
         primaryKey: true,
     },
-    gametName: {
+    gameName: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true
