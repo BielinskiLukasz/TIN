@@ -28,6 +28,10 @@ app.use('/publisher', publisherRouter);
 app.use('/creator', creatorRouter);
 app.use('/collection', collectionRouter);
 
+// data model api
+const publisherApiRouter = require('./routes/api/PublisherApiRoute');
+app.use('/api/publishers', publisherApiRouter);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
