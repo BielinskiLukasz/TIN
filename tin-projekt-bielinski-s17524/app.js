@@ -10,6 +10,12 @@ var publisherRouter = require('./routes/publisherRoute');
 var creatorRouter = require('./routes/creatorRoute');
 var collectionRouter = require('./routes/collectionRoute');
 
+var gameApiRouter = require('./routes/api/gameApiRoute');
+var gamerApiRouter = require('./routes/api/gamerApiRoute');
+var publisherApiRouter = require('./routes/api/publisherApiRoute');
+var rateApiRouter = require('./routes/api/rateApiRoute');
+
+
 var app = express();
 
 // view engine setup
@@ -29,8 +35,10 @@ app.use('/creator', creatorRouter);
 app.use('/collection', collectionRouter);
 
 // data model api
-const publisherApiRouter = require('./routes/api/PublisherApiRoute');
+app.use('/api/games', gameApiRouter);
+app.use('/api/gamers', gamerApiRouter);
 app.use('/api/publishers', publisherApiRouter);
+app.use('/api/rates', rateApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,12 +1,12 @@
 const sequelize = require('./sequelize');
 
-const Collection = require('../../model/sequelize/Collection');
+const Collection = require('../../model/sequelize/collection');
 // const Creator = require('../../model/sequelize/Creator');
-const Game = require('../../model/sequelize/Game');
-const Gamer = require('../../model/sequelize/Gamer');
+const Game = require('../../model/sequelize/game');
+const Gamer = require('../../model/sequelize/gamer');
 // const GamesPublished = require('../../model/sequelize/GamesPublished');
-const Publisher = require('../../model/sequelize/Publisher');
-const Rate = require('../../model/sequelize/Rate');
+const Publisher = require('../../model/sequelize/publisher');
+const Rate = require('../../model/sequelize/rate');
 
 module.exports = () => {
     // Publisher.hasMany(GamesPublished, { as: 'games', foreignKey: { name: 'publisher_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
