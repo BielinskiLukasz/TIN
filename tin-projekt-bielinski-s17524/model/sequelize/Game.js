@@ -36,6 +36,10 @@ const Game = sequelize.define('Game', {
     maxPlayingTime: {
         type: Sequelize.INTEGER,
         allowNull: false
+    },
+    averageRate: {
+        type: Sequelize.DOUBLE,
+        allowNull: true
     }
 });
 
