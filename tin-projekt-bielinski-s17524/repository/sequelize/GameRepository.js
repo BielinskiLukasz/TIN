@@ -11,8 +11,8 @@ exports.getGameById = (gameId) => {
     return Game.findByPk(gameId,
         {
             include: [{
-                model: Game,
-                as: 'game'
+                model: Publisher,
+                as: 'publisher'
             }, {
                 model: Rate,
                 as: 'rates',

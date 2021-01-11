@@ -6,7 +6,7 @@ const Rate = sequelize.define('Rate', {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
-        primaryKey: true,
+        primaryKey: true
     },
     rate: {
         type: Sequelize.INTEGER,
