@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const publisherIdApiController = require('../../api/PublisherAPI');
+const publisherIdApiController = require('../../api/publisherApi');
 
 router.get('/', publisherIdApiController.getPublishers);
 router.get('/:publisherId', publisherIdApiController.getPublisherById);

@@ -1,4 +1,4 @@
-const PublisherRepository = require('../repository/sequelize/PublisherRepository');
+const PublisherRepository = require('../repository/sequelize/publisherRepository');
 
 exports.getPublishers = (req, res, next) => {
     PublisherRepository.getPublishers()

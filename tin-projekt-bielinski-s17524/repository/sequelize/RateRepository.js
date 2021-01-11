@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 
-const Game = require("../../model/sequelize/Gamer");
-const Rate = require("../../model/sequelize/Rate");
-const Gamer = require("../../model/sequelize/Game");
+const Game = require("../../model/sequelize/gamer");
+const Rate = require("../../model/sequelize/rate");
+const Gamer = require("../../model/sequelize/game");
 
 exports.getRates = () => {
     return Rate.findAll({

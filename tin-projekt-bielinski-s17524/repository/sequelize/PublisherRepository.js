@@ -1,5 +1,5 @@
-const Publisher = require("../../model/sequelize/Publisher");
-const Game = require("../../model/sequelize/Game");
+const Publisher = require("../../model/sequelize/publisher");
+const Game = require("../../model/sequelize/game");
 
 exports.getPublishers = () => {
     return Publisher.findAll();
