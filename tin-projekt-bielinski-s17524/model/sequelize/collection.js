@@ -1,13 +1,15 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../../config/sequelize/sequelize');
+// const Sequelize = require('sequelize');
+// const sequelize = require('../../config/sequelize/sequelize');
 
-const Collection = sequelize.define('Collection', {
-    _id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true,
-    }
-});
+// const Collection = sequelize.define('Collection', {
+//     _id: {
+//         type: Sequelize.INTEGER,
+//         autoIncrement: true,
+//         allowNull: false,
+//         primaryKey: true,
+//     }
+// });
 
-module.exports = Collection;
+// module.exports = Collection;
+
+//v2
