@@ -16,10 +16,10 @@ module.exports = () => {
     Publisher.hasMany(Game, { as: 'games', foreignKey: { name: 'publisher_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
     Game.belongsTo(Publisher, { as: 'publisher', foreignKey: { name: 'publisher_id', allowNull: false } });
 
-    Gamer.hasMany(Collection, { as: 'games', foreignKey: { name: 'gamer_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
-    Collection.belongsTo(Gamer, { as: 'owner', foreignKey: { name: 'gamer_id', allowNull: false } });
-    Game.hasMany(Collection, { as: 'owners', foreignKey: { name: 'game_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
-    Collection.belongsTo(Game, { as: 'game', foreignKey: { name: 'game_id', allowNull: false } });
+    // Gamer.hasMany(Collection, { as: 'games', foreignKey: { name: 'gamer_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
+    // Collection.belongsTo(Gamer, { as: 'owner', foreignKey: { name: 'gamer_id', allowNull: false } });
+    // Game.hasMany(Collection, { as: 'owners', foreignKey: { name: 'game_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
+    // Collection.belongsTo(Game, { as: 'game', foreignKey: { name: 'game_id', allowNull: false } });
 
     Gamer.hasMany(Rate, { as: 'rates', foreignKey: { name: 'gamer_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
     Rate.belongsTo(Gamer, { as: 'gamer', foreignKey: { name: 'gamer_id', allowNull: false } });
@@ -94,20 +94,20 @@ module.exports = () => {
         })
         .then(games => {
             allGames = games;
-            return Collection.findAll();
-        })
-        .then(items => {
-            if (!items || items.length == 0) {
-                return Collection.bulkCreate([
-                    { gamer_id: allGamers[0]._id, game_id: allGames[0]._id },
-                    { gamer_id: allGamers[1]._id, game_id: allGames[1]._id },
-                    { gamer_id: allGamers[2]._id, game_id: allGames[2]._id }
-                ]);
-            } else {
-                return items;
-            }
-        })
-        .then(() => {
+            //     return Collection.findAll();
+            // })
+            // .then(items => {
+            //     if (!items || items.length == 0) {
+            //         return Collection.bulkCreate([
+            //             { gamer_id: allGamers[0]._id, game_id: allGames[0]._id },
+            //             { gamer_id: allGamers[1]._id, game_id: allGames[1]._id },
+            //             { gamer_id: allGamers[2]._id, game_id: allGames[2]._id }
+            //         ]);
+            //     } else {
+            //         return items;
+            //     }
+            // })
+            // .then(() => {
             return Rate.findAll();
         })
         .then(rates => {
