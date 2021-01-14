@@ -45,8 +45,33 @@ exports.showEditPublisherForm = (req, res, next) => {
                 formMode: 'edit',
                 pageTitle: 'Edycja wydawcy',
                 btnLabel: 'Zapisz zmiany',
-                formAction: '/publisher/edit',
+                formAction: '/publisher/edit/',
                 navLocation: 'publisherForm'
             });
         });
 }
+
+exports.addPublisher = (req, res, next) => {
+    const publisherData = { ...req.body };
+    publisherRepository.createPublisher(publisherData)
+        .then(result => {
+            res.redirect('/publisher');
+        });
+};
+
+exports.updatePublisher = (req, res, next) => {
+    const publisherId = req.body._id;
+    const publisherData = { ...req.body };
+    publisherRepository.updatePublisher(publisherId, publisherData)
+        .then(result => {
+            res.redirect('/publisher');
+        });
+};
+
+exports.deletePublisher = (req, res, next) => {
+    const publisherId = req.params.publisherId;
+    publisherRepository.deletePublisher(publisherId)
+        .then(() => {
+            res.redirect('/publisher');
+        });
+};
