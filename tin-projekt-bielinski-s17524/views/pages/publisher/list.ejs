@@ -14,165 +14,23 @@
                 </tr>
             </thead>
             <tbody>
+                <% for (let publisher of publishers) { %>
                 <tr>
-                    <td data-label="Wydawnictwo">Albi</td>
-                    <td data-label="Nick">Dejf</td>
-                    <td data-label="Siedziba">Palác Karlín, Thámova 289/13, 186 00 Praha 8, Czechy</td>
-                    <td data-label="Akcje">
+                    <td><%= publisher.name %></td>
+                    <td><%= publisher.nick %></td>
+                    <td><%= publisher.headquarters %></td>
+                    <td>
                         <ul class="list-actions">
-                            <li>
-                                <a href="/publisher/1" class="list-actions-button-details">Szczegóły</a>
+                            <li><a href="/publisher/details/<%=publisher._id%>"
+                                    class="list-actions-button-details">Szczegóły</a></li>
+                            <li><a href="/publisher/edit/<%=publisher._id%>" class="list-actions-button-edit">Edytuj</a>
                             </li>
-                            <li>
-                                <a href="/publisher/1/edit" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="/publisher/list" class="list-actions-button-delete">Usuń</a>
-                            </li>
+                            <li><a href="/publisher/delete/<%=publisher._id%>"
+                                    class="list-actions-button-delete">Usuń</a></li>
                         </ul>
                     </td>
                 </tr>
-                <tr>
-                    <td data-label="Wydawnictwo">Albi Polska</td>
-                    <td data-label="Nick">DejfPL</td>
-                    <td data-label="Siedziba">ul. Toruńska 5, 30-056, Kraków, Polska</td>
-                    <td data-label="Akcje">
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-details-2.html"
-                                    class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-edit-2.html"
-                                    class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="/under-construction.ejs" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="Wydawnictwo">Angry Lion Games</td>
-                    <td data-label="Nick">koreaLions</td>
-                    <td data-label="Siedziba">Korea</td>
-                    <td data-label="Akcje">
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-details-3.html"
-                                    class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-edit-3.html"
-                                    class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="/under-construction.ejs" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="Wydawnictwo">Ares Games</td>
-                    <td data-label="Nick">cybernex</td>
-                    <td data-label="Siedziba">Via dei Metalmeccanici 16, 55041, Capezzano Pianore, Włochy</td>
-                    <td data-label="Akcje">
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-details-4.html"
-                                    class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-edit-4.html"
-                                    class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="/under-construction.ejs" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="Wydawnictwo">Asterion Press</td>
-                    <td data-label="Nick">Asterion</td>
-                    <td data-label="Siedziba">Al-Rehab Complex, mezzanine shop 75, Tunisia St, Hawally, Kuwejt</td>
-                    <td data-label="Akcje">
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-details-5.html"
-                                    class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-edit-5.html"
-                                    class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="/under-construction.ejs" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="Wydawnictwo">Devir</td>
-                    <td data-label="Nick">Devir</td>
-                    <td data-label="Siedziba">R. Basílio da Cunha, 727 - Vila DeodoroSão Paulo - SP, 01544-001,
-                        Brazylia</td>
-                    <td data-label="Akcje">
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-details-6.html"
-                                    class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-edit-6.html"
-                                    class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="/under-construction.ejs" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="Wydawnictwo">Jolly Thinkers</td>
-                    <td data-label="Nick">JollyThinkers</td>
-                    <td data-label="Siedziba">155 Sai Yeung Choi St N, Prince Edward, Hongkong</td>
-                    <td data-label="Akcje">
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-details-7.html"
-                                    class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-edit-7.html"
-                                    class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="/under-construction.ejs" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="Wydawnictwo">Lacerta</td>
-                    <td data-label="Nick">przemko</td>
-                    <td data-label="Siedziba">ul. Czarnieckiego 15 53-638, Wrocław, Polska</td>
-                    <td data-label="Akcje">
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-details-8.html"
-                                    class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/pages/publisher/sample/publisher-edit-8.html"
-                                    class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="/under-construction.ejs" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
+                <% } %>
             </tbody>
         </table>
     </div>

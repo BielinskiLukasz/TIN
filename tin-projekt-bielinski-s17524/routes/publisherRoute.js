@@ -2,16 +2,16 @@ var express = require('express');
 var router = express.Router();
 const publisherController = require('../controllers/publisherController');
 
-/* GET home page. */
+/* GET publishers list */
 router.get('/list', publisherController.showPublisherList);
 
-/* ... */
+/* GET publisher add form */
 router.get('/add', publisherController.showAddPublisherForm);
 
-/* ... */
-router.get('/:publisherId', publisherController.showPublisherDetails);
+/* GET publisher details */
+router.get('/details/:publisherId', publisherController.showPublisherDetails);
 
-/* ... */
-router.get('/:publisherId/edit', publisherController.showEditPublisherForm);
+/* GET publisher edit form */
+router.get('/edit/:publisherId', publisherController.showEditPublisherForm);
 
 module.exports = router;

@@ -1,29 +1,101 @@
 <%- include('../../fragments/header.ejs') %>
 
 <main>
-    <h2>Szczegóły nowego wydawnictwa</h2>
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+        <h2><%= pageTitle %></h2>
 
-    <form class="form" novalidate onsubmit="return validateForm();">
         <label for="name">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="text" name="name" id="name" placeholder="2-60 znaków">
+        <input type="text" name="name" id="name" placeholder="2-60 znaków" value="<%= publisher.name %>"
+            <%= (formMode == 'details') ? 'disabled' : '' %> />
         <span id="errorName" class="errors-text"></span>
 
         <label for="nick">Nick:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="text" name="nick" id="nick" placeholder="2-60 znaków">
+        <input type="text" name="nick" id="nick" placeholder="2-60 znaków" value="<%= publisher.nick %>"
+            <%= (formMode == 'details') ? 'disabled' : '' %> />
         <span id="errorNick" class="errors-text"></span>
 
         <label for="email">Mail:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="email" name="email" id="email" placeholder="5-60 znaków  np. nazwa@domena.pl">
+        <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl" value="<%= publisher.email %>"
+            <%= (formMode == 'details') ? 'disabled' : '' %> />
         <span id="errorEmail" class="errors-text"></span>
 
         <label for="headquarters">Siedziba:</label>
-        <input type="text" name="headquarters" id="headquarters" placeholder="max 200 znaków">
+        <input type="text" name="headquarters" id="headquarters" placeholder="max 200 znaków"
+            value="<%= publisher.headquarters %>" <%= (formMode == 'details') ? 'disabled' : '' %> />
         <span id="errorHeadquarters" class="errors-text"></span>
+
+        <% if (formMode == 'details') { %>
+        <div class="form-buttons">
+            <a href="/publisher/edit/<%= publisher._id %>" class="form-button-edit">Edytuj</a>
+        </div>
+        <% } %>
+
+        <% if (formMode == 'details' || formMode == 'edit') { %>
+        <h2>
+            Gry wydawnictwa
+        </h2>
+        <div class="table-div">
+            <table class="table-list">
+                <thead>
+                    <tr>
+                        <th>Tytuł</th>
+                        <% if (formMode == 'details') { %>
+                        <th>Twoja ocena</th>
+                        <th>Średnia ocena</th>
+                        <th>Ilość ocen</th>
+                        <% } %>
+                        <% if (formMode == 'edit') { %>
+                        <th>Rok wydania</th>
+                        <th>Czas gry</th>
+                        <th>Ilość graczy</th>
+                        <th>Min wiek</th>
+                        <% } %>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let game of publisher.games) { %>
+                    <tr>
+                        <td><a href="/games/details/<%= game._id %>" class="link-line"><%= game.gameName %></a></td>
+                        <% if (formMode == 'details') { %>
+                        <td class="td-center">do uzupełnienia</td>
+                        <td class="td-center"><%= game.averageRate %></td>
+                        <td class="td-center">do uzupełnienia</td>
+                        <% } %>
+                        <% if (formMode == 'edit') { %>
+                        <td class="td-center"><%= game.yearReleased %></td>
+                        <td class="td-center"><%= game.minPlayingTime %> - <%= game.maxPlayingTime %> min</td>
+                        <td class="td-center"><%= game.minPlayersNum %> - <%= game.maxPlayersNum %></td>
+                        <td class="td-center"><%= game.minAge %></td>
+                        <% } %>
+                        <td data-label="Akcje">
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/game/1" class="list-actions-button-details">Szczegóły</a>
+                                </li>
+                                <li>
+                                    <a href="/game/1/edit" class="list-actions-button-edit">Edytuj</a>
+                                </li>
+                                <li>
+                                    <a href="/game/list" class="list-actions-button-delete">Usuń</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <% } %>
 
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>
-            <input type="submit" value="Dodaj" class="form-button-submit" />
-            <a href="/publisher/list" class="form-button-cancel">Anuluj</a>
+            <% if (formMode != 'details') { %>
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <a class="form-button-cancel" href="/publisher">Anuluj</a>
+            <% } else { %>
+            <a class="form-button-cancel" href="/publisher">Powrót</a>
+            <% } %>
         </div>
     </form>
 </main>

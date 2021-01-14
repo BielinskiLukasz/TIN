@@ -88,6 +88,12 @@ main h2 {
 }
 
 /* Tabela */
+.table-div, 
+h2 {
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+
 .table-list {
     border-collapse: collapse;
     color:#2c3e50;
