@@ -1,35 +1,18 @@
 const sequelize = require('./sequelize');
 
-const Collection = require('../../model/sequelize/collection');
-// const Creator = require('../../model/sequelize/Creator');
 const Game = require('../../model/sequelize/game');
 const Gamer = require('../../model/sequelize/gamer');
-// const GamesPublished = require('../../model/sequelize/GamesPublished');
 const Publisher = require('../../model/sequelize/publisher');
 const Rate = require('../../model/sequelize/rate');
 
 module.exports = () => {
-    // Publisher.hasMany(GamesPublished, { as: 'games', foreignKey: { name: 'publisher_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
-    // GamesPublished.belongsTo(Publisher, { as: 'publisher', foreignKey: { name: 'publisher_id', allowNull: false } });
-    // Game.hasMany(GamesPublished, { as: 'publishers', foreignKey: { name: 'game_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
-    // GamesPublished.belongsTo(Game, { as: 'game', foreignKey: { name: 'game_id', allowNull: false } });
     Publisher.hasMany(Game, { as: 'games', foreignKey: { name: 'publisher_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
     Game.belongsTo(Publisher, { as: 'publisher', foreignKey: { name: 'publisher_id', allowNull: false } });
-
-    // Gamer.hasMany(Collection, { as: 'games', foreignKey: { name: 'gamer_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
-    // Collection.belongsTo(Gamer, { as: 'owner', foreignKey: { name: 'gamer_id', allowNull: false } });
-    // Game.hasMany(Collection, { as: 'owners', foreignKey: { name: 'game_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
-    // Collection.belongsTo(Game, { as: 'game', foreignKey: { name: 'game_id', allowNull: false } });
 
     Gamer.hasMany(Rate, { as: 'rates', foreignKey: { name: 'gamer_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
     Rate.belongsTo(Gamer, { as: 'gamer', foreignKey: { name: 'gamer_id', allowNull: false } });
     Game.hasMany(Rate, { as: 'rates', foreignKey: { name: 'game_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
     Rate.belongsTo(Game, { as: 'game', foreignKey: { name: 'game_id', allowNull: false } });
-
-    // Creator.hasMany(Game, { as: 'games', foreignKey: { name: 'creator_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
-    // Game.belongsTo(Creator, { as: 'designer', foreignKey: { name: 'game_id', allowNull: false } });
-    // Creator.hasMany(Game, { as: 'games', foreignKey: { name: 'creator_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
-    // Game.belongsTo(Creator, { as: 'artist', foreignKey: { name: 'game_id', allowNull: false } });
 
     let allGamers, allPublishers, allGames;
     return sequelize
@@ -94,20 +77,6 @@ module.exports = () => {
         })
         .then(games => {
             allGames = games;
-            //     return Collection.findAll();
-            // })
-            // .then(items => {
-            //     if (!items || items.length == 0) {
-            //         return Collection.bulkCreate([
-            //             { gamer_id: allGamers[0]._id, game_id: allGames[0]._id },
-            //             { gamer_id: allGamers[1]._id, game_id: allGames[1]._id },
-            //             { gamer_id: allGamers[2]._id, game_id: allGames[2]._id }
-            //         ]);
-            //     } else {
-            //         return items;
-            //     }
-            // })
-            // .then(() => {
             return Rate.findAll();
         })
         .then(rates => {
