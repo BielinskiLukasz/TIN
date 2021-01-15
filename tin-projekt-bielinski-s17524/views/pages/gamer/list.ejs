@@ -1,0 +1,36 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Lista graczy</h2>
+
+    <div class="table-div">
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th scope="col">Nick</th>
+                    <th scope="col">Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let gamer of gamers) { %>
+                <tr>
+                    <td><%= gamer.nick %></td>
+                    <td>
+                        <ul class="list-actions">
+                            <li><a href="/gamer/details/<%=gamer._id%>"
+                                    class="list-actions-button-details">Szczegóły</a></li>
+                            <li><a href="/gamer/edit/<%=gamer._id%>" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li><a href="/gamer/delete/<%=gamer._id%>" class="list-actions-button-delete">Usuń</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    <p><a href="/gamer/add" class="button-add">Dodaj nowe wydawnictwo</a></p>
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

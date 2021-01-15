@@ -1,0 +1,95 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+        <input type="hidden" name="_id" value="<%= gamer._id %>">
+
+        <h2><%= pageTitle %></h2>
+
+        <label for="nick">Nick:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="nick" id="nick" placeholder="2-60 znaków" value="<%= gamer.nick %>"
+            <%= (formMode == 'details') ? 'disabled' : '' %> />
+        <span id="errorNick" class="errors-text"></span>
+
+        <label for="email">Mail:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl" value="<%= gamer.email %>"
+            <%= (formMode == 'details') ? 'disabled' : '' %> />
+        <span id="errorEmail" class="errors-text"></span>
+
+        <label for="bio">Bio:</label>
+        <input type="text" name="bio" id="bio" placeholder="max 200 znaków" value="<%= gamer.bio %>"
+            <%= (formMode == 'details') ? 'disabled' : '' %> />
+        <span id="errorHeadquarters" class="errors-text"></span>
+
+        <% if (formMode == 'details') { %>
+        <div class="form-buttons">
+            <a href="/gamer/edit/<%= gamer._id %>" class="form-button-edit">Edytuj</a>
+        </div>
+        <% } %>
+
+        <% if (formMode == 'details' || formMode == 'edit') { %>
+        <h2>
+            Oceny gracza
+        </h2>
+        <div class="table-div">
+            <table class="table-list">
+                <thead>
+                    <tr>
+                        <th>Gra</th>
+                        <% if (formMode == 'details') { %>
+                        <th>Ocena</th>
+                        <th>Komentarz</th>
+                        <% } %>
+                        <% if (formMode == 'edit') { %>
+                        <th>Ocena</th>
+                        <th>Komentarz</th>
+                        <% } %>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let rate of gamer.rates) { %>
+                    <tr>
+                        <td><a href="/rates/details/<%= rate.game_id %>" class="link-line"><%= rate.game.gameName %></a>
+                        </td>
+                        <% if (formMode == 'details') { %>
+                        <td class="td-center"><%= rate.rate %></td>
+                        <td class="td-center"><%= rate.comment %></td>
+                        <% } %>
+                        <% if (formMode == 'edit') { %>
+                        <td class="td-center"><%= rate.rate %></td>
+                        <td class="td-center"><%= rate.comment %></td>
+                        <% } %>
+                        <td data-label="Akcje">
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/rate/1" class="list-actions-button-details">Szczegóły</a>
+                                </li>
+                                <li>
+                                    <a href="/rate/1/edit" class="list-actions-button-edit">Edytuj</a>
+                                </li>
+                                <li>
+                                    <a href="/rate/list" class="list-actions-button-delete">Usuń</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <% } %>
+
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'details') { %>
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <a class="form-button-cancel" href="/gamer">Anuluj</a>
+            <% } else { %>
+            <a class="form-button-cancel" href="/gamer">Powrót</a>
+            <% } %>
+        </div>
+    </form>
+</main>
+
+<%- include('../../fragments/footer.ejs') %>
