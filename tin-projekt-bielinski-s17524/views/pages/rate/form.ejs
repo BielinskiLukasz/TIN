@@ -1,0 +1,45 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+        <input type="hidden" name="_id" value="<%= rate._id %>">
+
+        <h2><%= pageTitle %></h2>
+
+        <label for="gameName">Gra:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="gameName" id="gameName" value="<%= rate.game.gameName %>" disabled />
+        <span id="errorGameName" class="errors-text"></span>
+
+        <label for="gamerNick">Gracz:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="gamerNick" id="gamerNick" value="<%= rate.gamer.nick %>" disabled />
+        <span id="errorGamerNick" class="errors-text"></span>
+
+        <label for="rate">Ocena:</label>
+        <input type="number" name="rate" id="rate" min=1 max=10 step=1 value=<%= rate.rate %>
+            <%= (formMode == 'details') ? 'disabled' : '' %> />
+        <span id="errorRate" class="errors-text"></span>
+
+        <label for="comment">Komentarz:</label>
+        <textarea name="comment" id="comment" cols="30" rows="8" placeholder="max 500 znaków"
+            <%= (formMode == 'details') ? 'disabled' : '' %>>"<%= rate.comment %>"</textarea>
+        <span id="errorComment" class="errors-text"></span>
+
+        <% if (formMode == 'details') { %>
+        <div class="form-buttons">
+            <a href="/rate/edit/<%= rate._id %>" class="form-button-edit">Edytuj</a>
+        </div>
+        <% } %>
+
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'details') { %>
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <a class="form-button-cancel" href="/rate">Anuluj</a>
+            <% } else { %>
+            <a class="form-button-cancel" href="/rate">Powrót</a>
+            <% } %>
+        </div>
+    </form>
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

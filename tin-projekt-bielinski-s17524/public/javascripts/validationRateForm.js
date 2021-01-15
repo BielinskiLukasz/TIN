@@ -1,26 +1,26 @@
 function validateForm() {
-    const scoreInput = document.getElementById('score');
+    const rateInput = document.getElementById('rate');
     const commentInput = document.getElementById('comment');
 
-    const errorScore = document.getElementById('errorScore');
+    const errorRate = document.getElementById('errorRate');
     const errorComment = document.getElementById('errorComment');
 
-    resetErrors([scoreInput, commentInput], [errorScore, errorComment], errorsSummary);
+    resetErrors([rateInput, commentInput], [errorRate, errorComment], errorsSummary);
 
     let valid = true;
 
-    if (!checkRequired(scoreInput.value)) {
+    if (!checkRequired(rateInput.value)) {
         valid = false;
-        scoreInput.classList.add("error-input");
-        errorScore.innerText = "Pole jest wymagane";
-    } else if (!checkInteger(scoreInput.value)) {
+        rateInput.classList.add("error-input");
+        errorRate.innerText = "Pole jest wymagane";
+    } else if (!checkInteger(rateInput.value)) {
         valid = false;
-        scoreInput.classList.add("error-input");
-        errorScore.innerText = "Pole powinno być liczbą całkowitą";
-    } else if (!checkNumberRange(scoreInput.value, 1, 10)) {
+        rateInput.classList.add("error-input");
+        errorRate.innerText = "Pole powinno być liczbą naturalną";
+    } else if (!checkNumberRange(rateInput.value, 1, 10)) {
         valid = false;
-        scoreInput.classList.add("error-input");
-        errorScore.innerText = "Pole powinno być liczbą naturalną w zakresie od 1 do 10";
+        rateInput.classList.add("error-input");
+        errorRate.innerText = "Pole powinno być liczbą naturalną w zakresie od 1 do 10";
     }
 
     if (!checkTextLengthRange(commentInput.value, 0, 500)) {

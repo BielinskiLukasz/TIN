@@ -51,10 +51,10 @@ function checkInteger(value) {
     if (!value) {
         return false;
     }
-    if (isNaN(value)) {
+    if (isNaN(parseInt(value)) && isFinite(value)) {
         return false;
     }
-    return Number.isInteger(value);
+    return Number.isInteger(parseInt(value));
 }
 
 function checkNumberRange(value, min, max) {

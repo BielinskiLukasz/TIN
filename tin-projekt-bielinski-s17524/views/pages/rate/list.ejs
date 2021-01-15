@@ -1,0 +1,40 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Lista graczy</h2>
+
+    <div class="table-div">
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th scope="col">Gra</th>
+                    <th scope="col">Ocena</th>
+                    <th scope="col">Gracz</th>
+                    <th scope="col">Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let rate of rates) { %>
+                <tr>
+                    <td><%= rate.game.gameName %></td>
+                    <td><%= rate.rate %></td>
+                    <td><%= rate.gamer.nick %></td>
+                    <td>
+                        <ul class="list-actions">
+                            <li><a href="/rate/details/<%=rate._id%>" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li><a href="/rate/edit/<%=rate._id%>" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li><a href="/rate/delete/<%=rate._id%>" class="list-actions-button-delete">Usuń</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <p><a href="/rate/add" class="button-add">Dodaj nowe wydawnictwo</a></p> -->
+</main>
+
+<%- include('../../fragments/footer.ejs') %>
