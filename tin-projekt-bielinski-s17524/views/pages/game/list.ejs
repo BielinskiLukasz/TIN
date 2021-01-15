@@ -1,7 +1,7 @@
 <%- include('../../fragments/header.ejs') %>
 
 <main>
-    <h2>Lista gier</h2>
+    <h2>Lista graczy</h2>
 
     <div class="table-div">
         <table class="table-list">
@@ -11,83 +11,27 @@
                     <th scope="col">Twoja ocena</th>
                     <th scope="col">Średnia ocena</th>
                     <th scope="col">Ilość ocen</th>
-                    <th scope="col">Status</th>
                     <th scope="col">Akcje</th>
                 </tr>
             </thead>
             <tbody>
+                <% for (let game of games) { %>
                 <tr>
-                    <td data-label="Tytuł">Gloomhaven</td>
-                    <td data-label="Twoja ocena" class="td-center">9</td>
-                    <td data-label="Średnia ocena" class="td-center"><a class="link-line"
-                            href="/game/1/ratings">9.333</a></td>
-                    <td data-label="Ilość ocen" class="td-center">3</td>
-                    <td data-label="Status" class="td-center">Posiadana</td>
-                    <td data-label="Akcje">
+                    <td><a href="/games/details/<%= game._id %>" class="link-line"><%= game.gameName %></a></td>
+                    <td class="td-center">do uzupełnienia</td>
+                    <td class="td-center"><%= game.averageRate %></td>
+                    <td class="td-center">do uzupełnienia</td>
+                    <td>
                         <ul class="list-actions">
-                            <li>
-                                <a href="/game/1" class="list-actions-button-details">Szczegóły</a>
+                            <li><a href="/rate/<%=game._id%>" class="list-actions-button-score">Oceń</a></li>
+                            <li><a href="/game/details/<%=game._id%>" class="list-actions-button-details">Szczegóły</a>
                             </li>
-                            <li>
-                                <a href="/game/1/rate" class="list-actions-button-score">Oceń</a>
-                            </li>
-                            <li>
-                                <a href="/game/1/edit" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="/game/list" class="list-actions-button-delete">Usuń</a>
-                            </li>
+                            <li><a href="/game/edit/<%=game._id%>" class="list-actions-button-edit">Edytuj</a></li>
+                            <li><a href="/game/delete/<%=game._id%>" class="list-actions-button-delete">Usuń</a></li>
                         </ul>
                     </td>
                 </tr>
-                <tr>
-                    <td data-label="Tytuł">Pandemic Legacy: Season 1</td>
-                    <td data-label="Twoja ocena" class="td-center">N/A</td>
-                    <td data-label="Średnia ocena" class="td-center"><a class="link-line"
-                            href="/game/2/ratings">9.000</a></td>
-                    <td data-label="Ilość ocen" class="td-center">1</td>
-                    <td data-label="Status" class="td-center"></td>
-                    <td data-label="Akcje">
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/game/2" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/game/2/rate" class="list-actions-button-score">Oceń</a>
-                            </li>
-                            <li>
-                                <a href="/game/2/edit" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="/game/list" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="Tytuł">War of the Ring: Second Edition</td>
-                    <td data-label="Twoja ocena" class="td-center">10</td>
-                    <td data-label="Średnia ocena" class="td-center"><a class="link-line"
-                            href="/game/3/ratings">8.500</a></td>
-                    <td data-label="Ilość ocen" class="td-center">2</td>
-                    <td data-label="Status" class="td-center"></td>
-                    <td data-label="Akcje">
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/game/3" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/game/3/rate" class="list-actions-button-score">Oceń</a>
-                            </li>
-                            <li>
-                                <a href="/game/3/edit" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="/game/list" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
+                <% } %>
             </tbody>
         </table>
     </div>

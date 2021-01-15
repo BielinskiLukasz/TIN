@@ -52,7 +52,7 @@ function validateForm() {
     } else if (!checkInteger(yearReleasedInput.value)) {
         valid = false;
         yearReleasedInput.classList.add("error-input");
-        errorYearReleased.innerText = "Pole powinno być liczbą całkowitą";
+        errorYearReleased.innerText = "Pole powinno być liczbą naturalną";
     }
 
     if (!checkRequired(gameCategoryInput.value)) {
@@ -68,7 +68,7 @@ function validateForm() {
     } else if (!checkInteger(minAgeInput.value)) {
         valid = false;
         minAgeInput.classList.add("error-input");
-        errorMinAge.innerText = "Pole powinno być liczbą całkowitą";
+        errorMinAge.innerText = "Pole powinno być liczbą naturalną";
     } else if (!checkNumberRange(minAgeInput.value, 0, 24)) {
         valid = false;
         minAgeInput.classList.add("error-input");
@@ -82,7 +82,7 @@ function validateForm() {
     } else if (!checkInteger(minPlayersNumInput.value)) {
         valid = false;
         minPlayersNumInput.classList.add("error-input");
-        errorMinPlayersNum.innerText = "Pole powinno być liczbą całkowitą";
+        errorMinPlayersNum.innerText = "Pole powinno być liczbą naturalną";
     } else if (!checkNumberRange(minPlayersNumInput.value, 0, 999_999_999)) {
         valid = false;
         minPlayersNumInput.classList.add("error-input");
@@ -96,7 +96,7 @@ function validateForm() {
     } else if (!checkInteger(maxPlayersNumInput.value)) {
         valid = false;
         maxPlayersNumInput.classList.add("error-input");
-        errorMaxPlayersNum.innerText = "Pole powinno być liczbą całkowitą";
+        errorMaxPlayersNum.innerText = "Pole powinno być liczbą naturalną";
     } else if (!checkNumberRange(maxPlayersNumInput.value, minPlayersNumInput.value, 999_999_999)) {
         valid = false;
         maxPlayersNumInput.classList.add("error-input");
@@ -110,7 +110,7 @@ function validateForm() {
     } else if (!checkInteger(minPlayingTimeInput.value)) {
         valid = false;
         minPlayingTimeInput.classList.add("error-input");
-        errorMinPlayingTime.innerText = "Pole powinno być liczbą całkowitą";
+        errorMinPlayingTime.innerText = "Pole powinno być liczbą naturalną";
     } else if (!checkNumberRange(minPlayingTimeInput.value, 0, 999_999_999)) {
         valid = false;
         minPlayingTimeInput.classList.add("error-input");
@@ -124,7 +124,7 @@ function validateForm() {
     } else if (!checkInteger(maxPlayingTimeInput.value)) {
         valid = false;
         maxPlayingTimeInput.classList.add("error-input");
-        errorMaxPlayingTime.innerText = "Pole powinno być liczbą całkowitą";
+        errorMaxPlayingTime.innerText = "Pole powinno być liczbą naturalną";
     } else if (!checkNumberRange(maxPlayingTimeInput.value, minPlayingTimeInput.value, 999_999_999)) {
         valid = false;
         maxPlayingTimeInput.classList.add("error-input");
@@ -150,26 +150,6 @@ function validateForm() {
         gamePublisherInput.classList.add("error-input");
         errorGameDesigner.innerText = "Pole powinno zawierać od 2 do 200 znaków";
     }
-
-    // if (!checkRequired(gameDesignerInput.value)) {
-    //     valid = false;
-    //     gameDesignerInput.classList.add("error-input");
-    //     errorGameArtist.innerText = "Pole jest wymagane";
-    // } else if (!checkTextLengthRange(gameDesignerInput.value, 2, 200)) {
-    //     valid = false;
-    //     gameDesignerInput.classList.add("error-input");
-    //     errorGameArtist.innerText = "Pole powinno zawierać od 2 do 200 znaków";
-    // }
-
-    // if (!checkRequired(gameArtistInput.value)) {
-    //     valid = false;
-    //     gameArtistInput.classList.add("error-input");
-    //     errorsSummary.innerText = "Pole jest wymagane";
-    // } else if (!checkTextLengthRange(gameArtistInput.value, 2, 200)) {
-    //     valid = false;
-    //     gameArtistInput.classList.add("error-input");
-    //     errorsSummary.innerText = "Pole powinno zawierać od 2 do 200 znaków";
-    // }
 
     if (!valid) {
         errorsSummary.innerText = "Formularz zawiera błędy";
