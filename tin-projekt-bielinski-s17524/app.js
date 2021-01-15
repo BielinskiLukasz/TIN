@@ -7,14 +7,13 @@ var logger = require('morgan');
 var mainRouter = require('./routes/mainRoute');
 var gameRouter = require('./routes/gameRoute');
 var publisherRouter = require('./routes/publisherRoute');
-var creatorRouter = require('./routes/creatorRoute');
-var collectionRouter = require('./routes/collectionRoute');
+// var creatorRouter = require('./routes/creatorRoute');
+// var collectionRouter = require('./routes/collectionRoute');
 
 var gameApiRouter = require('./routes/api/gameApiRoute');
 var gamerApiRouter = require('./routes/api/gamerApiRoute');
 var publisherApiRouter = require('./routes/api/publisherApiRoute');
 var rateApiRouter = require('./routes/api/rateApiRoute');
-
 
 var app = express();
 
@@ -31,8 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', mainRouter);
 app.use('/game', gameRouter);
 app.use('/publisher', publisherRouter);
-app.use('/creator', creatorRouter);
-app.use('/collection', collectionRouter);
+// app.use('/creator', creatorRouter);
+// app.use('/collection', collectionRouter);
 
 // data model api
 app.use('/api/games', gameApiRouter);
