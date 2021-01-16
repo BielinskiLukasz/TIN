@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const publisherIdApiController = require('../../api/publisherApi');
+const publisherApiController = require('../../api/publisherApi');
 
-router.get('/', publisherIdApiController.getPublishers);
-router.get('/:publisherId', publisherIdApiController.getPublisherById);
-router.post('/', publisherIdApiController.createPublisher);
-router.put('/:publisherId', publisherIdApiController.updatePublisher);
-router.delete('/:publisherId', publisherIdApiController.deletePublisher);
+router.get('/', publisherApiController.getPublishers);
+router.get('/:publisherId', publisherApiController.getPublisherById);
+router.post('/', publisherApiController.createPublisher);
+router.put('/:publisherId', publisherApiController.updatePublisher);
+router.delete('/:publisherId', publisherApiController.deletePublisher);
 
 module.exports = router;
