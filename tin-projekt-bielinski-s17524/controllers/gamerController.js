@@ -61,6 +61,11 @@ exports.addGamer = (req, res, next) => {
             res.redirect('/gamer');
         })
         .catch(err => {
+            err.errors.forEach(e => {
+                if (e.path.includes('email') && e.type == 'unique violation') {
+                    e.message = "Podany adres email jest już używany";
+                }
+            });
             res.render('pages/gamer/form', {
                 gamer: gamerData,
                 formMode: 'create',
@@ -81,6 +86,11 @@ exports.updateGamer = (req, res, next) => {
             res.redirect('/gamer');
         })
         .catch(err => {
+            err.errors.forEach(e => {
+                if (e.path.includes('email') && e.type == 'unique violation') {
+                    e.message = "Podany adres email jest już używany";
+                }
+            });
             gamerRepository.getGamerById(gamerId)
                 .then(gamer => {
                     gamerData.rates = gamer.rates

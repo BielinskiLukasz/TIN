@@ -61,6 +61,11 @@ exports.addPublisher = (req, res, next) => {
             res.redirect('/publisher');
         })
         .catch(err => {
+            err.errors.forEach(e => {
+                if (e.path.includes('email') && e.type == 'unique violation') {
+                    e.message = "Podany adres email jest już używany";
+                }
+            });
             res.render('pages/publisher/form', {
                 publisher: publisherData,
                 formMode: 'create',
@@ -81,6 +86,11 @@ exports.updatePublisher = (req, res, next) => {
             res.redirect('/publisher');
         })
         .catch(err => {
+            err.errors.forEach(e => {
+                if (e.path.includes('email') && e.type == 'unique violation') {
+                    e.message = "Podany adres email jest już używany";
+                }
+            });
             publisherRepository.getPublisherById(publisherId)
                 .then(publisher => {
                     publisherData.games = publisher.games
