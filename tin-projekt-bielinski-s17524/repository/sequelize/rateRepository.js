@@ -31,10 +31,10 @@ exports.getRateById = (rateId) => {
 
 exports.createRate = (data) => {
     return Rate.create({
-        nick: data.nick,
-        name: data.name,
-        email: data.email,
-        headquarters: data.headquarters
+        rate: data.rate,
+        comment: data.comment,
+        game_id: data.game_id,
+        gamer_id: data.gamer_id,
     });
 };
 
