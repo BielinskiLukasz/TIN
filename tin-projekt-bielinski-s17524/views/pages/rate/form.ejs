@@ -7,22 +7,42 @@
         <h2><%= pageTitle %></h2>
 
         <label for="gameName">Gra:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="text" name="gameName" id="gameName" value="<%= rate.game.gameName %>" disabled />
-        <span id="errorGameName" class="errors-text"></span>
+        <input type="text" name="gameName" id="gameName" value="<%= rate.game.gameName %>" disabled
+            class="<%= validationErrors.find(e => e.path.includes('gameName')) ? 'error-input' : '' %>" />
+        <span id="errorGameName" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('gameName'))) { %>
+            <%= validationErrors.find(e => e.path.includes('gameName')).message %>
+            <% } %>
+        </span>
 
         <label for="gamerNick">Gracz:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="text" name="gamerNick" id="gamerNick" value="<%= rate.gamer.nick %>" disabled />
-        <span id="errorGamerNick" class="errors-text"></span>
+        <input type="text" name="gamerNick" id="gamerNick" value="<%= rate.gamer.nick %>" disabled
+            class="<%= validationErrors.find(e => e.path.includes('gamerNick')) ? 'error-input' : '' %>" />
+        <span id="errorGamerNick" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('gamerNick'))) { %>
+            <%= validationErrors.find(e => e.path.includes('gamerNick')).message %>
+            <% } %>
+        </span>
 
         <label for="rate">Ocena:</label>
-        <input type="number" name="rate" id="rate" min=1 max=10 step=1 value=<%= rate.rate %>
-            <%= (formMode == 'details') ? 'disabled' : '' %> />
-        <span id="errorRate" class="errors-text"></span>
+        <input type="number" name="rate" id="rate" min="1" max="10" step="1" value="<%= rate.rate %>"
+            <%= (formMode == 'details') ? 'disabled' : '' %>
+            class="<%= validationErrors.find(e => e.path.includes('rate')) ? 'error-input' : '' %>" />
+        <span id="errorRate" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('rate'))) { %>
+            <%= validationErrors.find(e => e.path.includes('rate')).message %>
+            <% } %>
+        </span>
 
         <label for="comment">Komentarz:</label>
         <textarea name="comment" id="comment" cols="30" rows="8" placeholder="max 500 znaków"
-            <%= (formMode == 'details') ? 'disabled' : '' %>>"<%= rate.comment %>"</textarea>
-        <span id="errorComment" class="errors-text"></span>
+            <%= (formMode == 'details') ? 'disabled' : '' %>
+            class="<%= validationErrors.find(e => e.path.includes('comment')) ? 'error-input' : '' %>"><%= rate.comment %></textarea>
+        <span id="errorComment" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('comment'))) { %>
+            <%= validationErrors.find(e => e.path.includes('comment')).message %>
+            <% } %>
+        </span>
 
         <% if (formMode == 'details') { %>
         <div class="form-buttons">

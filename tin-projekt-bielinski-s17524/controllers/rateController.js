@@ -17,7 +17,8 @@ exports.showAddRateForm = (req, res, next) => {
         pageTitle: 'Oceń grę',
         btnLabel: 'Oceń grę',
         formAction: '/rate/add',
-        navLocation: 'rateForm'
+        navLocation: 'rateForm',
+        validationErrors: []
     });
 }
 
@@ -31,7 +32,8 @@ exports.showRateDetails = (req, res, next) => {
                 pageTitle: 'Szczegóły oceny',
                 btnLabel: '',
                 formAction: '',
-                navLocation: ''
+                navLocation: '',
+                validationErrors: []
             });
         });
 }
@@ -46,7 +48,8 @@ exports.showEditRateForm = (req, res, next) => {
                 pageTitle: 'Edycja oceny',
                 btnLabel: 'Zapisz zmiany',
                 formAction: '/rate/edit/',
-                navLocation: 'rateForm'
+                navLocation: 'rateForm',
+                validationErrors: []
             });
         });
 }
@@ -56,6 +59,17 @@ exports.addRate = (req, res, next) => {
     rateRepository.createRate(rateData)
         .then(result => {
             res.redirect('/rate');
+        })
+        .catch(err => {
+            res.render('pages/rate/form', {
+                rate: rateData,
+                formMode: 'create',
+                pageTitle: 'Oceń grę',
+                btnLabel: 'Oceń grę',
+                formAction: '/rate/add',
+                navLocation: 'rateForm',
+                validationErrors: err.errors
+            });
         });
 };
 
@@ -65,6 +79,22 @@ exports.updateRate = (req, res, next) => {
     rateRepository.updateRate(rateId, rateData)
         .then(result => {
             res.redirect('/rate');
+        })
+        .catch(err => {
+            rateRepository.getRateById(rateId)
+                .then(rate => {
+                    rateData.game = rate.game;
+                    rateData.gamer = rate.gamer;
+                    res.render('pages/rate/form', {
+                        rate: rateData,
+                        formMode: 'edit',
+                        pageTitle: 'Edycja oceny',
+                        btnLabel: 'Zapisz zmiany',
+                        formAction: '/rate/edit/',
+                        navLocation: 'rateForm',
+                        validationErrors: err.errors
+                    });
+                });
         });
 };
 
