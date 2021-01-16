@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const gamerIdApiController = require('../../api/gamerApi');
+const gamerApiController = require('../../api/gamerApi');
 
-router.get('/', gamerIdApiController.getGamers);
-router.get('/:gamerId', gamerIdApiController.getGamerById);
-router.post('/', gamerIdApiController.createGamer);
-router.put('/:gamerId', gamerIdApiController.updateGamer);
-router.delete('/:gamerId', gamerIdApiController.deleteGamer);
+router.get('/', gamerApiController.getGamers);
+router.get('/:gamerId', gamerApiController.getGamerById);
+router.post('/', gamerApiController.createGamer);
+router.put('/:gamerId', gamerApiController.updateGamer);
+router.delete('/:gamerId', gamerApiController.deleteGamer);
 
 module.exports = router;

@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const rateIdApiController = require('../../api/rateApi');
+const rateApiController = require('../../api/rateApi');
 
-router.get('/', rateIdApiController.getRates);
-router.get('/:rateId', rateIdApiController.getRateById);
-router.post('/', rateIdApiController.createRate);
-router.put('/:rateId', rateIdApiController.updateRate);
-router.delete('/:rateId', rateIdApiController.deleteRate);
+router.get('/', rateApiController.getRates);
+router.get('/:rateId', rateApiController.getRateById);
+router.post('/', rateApiController.createRate);
+router.put('/:rateId', rateApiController.updateRate);
+router.delete('/:rateId', rateApiController.deleteRate);
 
 module.exports = router;
