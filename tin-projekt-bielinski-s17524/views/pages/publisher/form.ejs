@@ -8,29 +8,59 @@
 
         <label for="name">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="text" name="name" id="name" placeholder="2-60 znaków" value="<%= publisher.name %>"
-            <%= (formMode == 'details') ? 'disabled' : '' %> />
-        <span id="errorName" class="errors-text"></span>
+            <%= (formMode == 'details') ? 'disabled' : '' %>
+            class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>" />
+        <span id="errorName" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('name'))) { %>
+            <%= validationErrors.find(e => e.path.includes('name')).message %>
+            <% } %>
+        </span>
 
         <label for="nick">Nick:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="text" name="nick" id="nick" placeholder="2-60 znaków" value="<%= publisher.nick %>"
-            <%= (formMode == 'details') ? 'disabled' : '' %> />
-        <span id="errorNick" class="errors-text"></span>
+            <%= (formMode == 'details') ? 'disabled' : '' %>
+            class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>" />
+        <span id="errorNick" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('nick'))) { %>
+            <%=validationErrors.find(e => e.path.includes('nick')).message %>
+            <% } %>
+        </span>
 
         <label for="email">Mail:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl" value="<%= publisher.email %>"
-            <%= (formMode == 'details') ? 'disabled' : '' %> />
-        <span id="errorEmail" class="errors-text"></span>
+            <%= (formMode == 'details') ? 'disabled' : '' %>
+            class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>" />
+        <span id="errorEmail" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('email'))) { %>
+            <%= validationErrors.find(e => e.path.includes('email')).message %>
+            <% } %>
+        </span>
 
-        <label for="headquarters">Siedziba:</label>
+        <label for="headquarters">Siedziba:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="text" name="headquarters" id="headquarters" placeholder="max 200 znaków"
-            value="<%= publisher.headquarters %>" <%= (formMode == 'details') ? 'disabled' : '' %> />
-        <span id="errorHeadquarters" class="errors-text"></span>
+            value="<%= publisher.headquarters %>" <%= (formMode == 'details') ? 'disabled' : '' %>
+            class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>" />
+        <span id="errorHeadquarters" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('headquarters'))) { %>
+            <%= validationErrors.find(e => e.path.includes('headquarters')).message %>
+            <% } %>
+        </span>
 
         <% if (formMode == 'details') { %>
         <div class="form-buttons">
             <a href="/publisher/edit/<%= publisher._id %>" class="form-button-edit">Edytuj</a>
         </div>
         <% } %>
+
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'details') { %>
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <a class="form-button-cancel" href="/publisher">Anuluj</a>
+            <% } else { %>
+            <a class="form-button-cancel" href="/publisher">Powrót</a>
+            <% } %>
+        </div>
 
         <% if (formMode == 'details' || formMode == 'edit') { %>
         <h2>
@@ -91,14 +121,13 @@
         <% } %>
 
         <div class="form-buttons">
-            <p id="errorsSummary" class="errors-text"></p>
             <% if (formMode != 'details') { %>
-            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
             <a class="form-button-cancel" href="/publisher">Anuluj</a>
             <% } else { %>
             <a class="form-button-cancel" href="/publisher">Powrót</a>
             <% } %>
         </div>
+
     </form>
 </main>
 

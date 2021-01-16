@@ -17,7 +17,8 @@ exports.showAddPublisherForm = (req, res, next) => {
         pageTitle: 'Nowy wydawca',
         btnLabel: 'Dodaj wydawcę',
         formAction: '/publisher/add',
-        navLocation: 'publisherForm'
+        navLocation: 'publisherForm',
+        validationErrors: []
     });
 }
 
@@ -31,7 +32,8 @@ exports.showPublisherDetails = (req, res, next) => {
                 pageTitle: 'Szczegóły wydawcy',
                 btnLabel: '',
                 formAction: '',
-                navLocation: ''
+                navLocation: '',
+                validationErrors: []
             });
         });
 }
@@ -46,7 +48,8 @@ exports.showEditPublisherForm = (req, res, next) => {
                 pageTitle: 'Edycja wydawcy',
                 btnLabel: 'Zapisz zmiany',
                 formAction: '/publisher/edit/',
-                navLocation: 'publisherForm'
+                navLocation: 'publisherForm',
+                validationErrors: []
             });
         });
 }
@@ -56,6 +59,17 @@ exports.addPublisher = (req, res, next) => {
     publisherRepository.createPublisher(publisherData)
         .then(result => {
             res.redirect('/publisher');
+        })
+        .catch(err => {
+            res.render('pages/publisher/form', {
+                publisher: publisherData,
+                formMode: 'create',
+                pageTitle: 'Nowy wydawca',
+                btnLabel: 'Dodaj wydawcę',
+                formAction: '/publisher/add',
+                navLocation: 'publisherForm',
+                validationErrors: err.errors
+            });
         });
 };
 
@@ -65,6 +79,21 @@ exports.updatePublisher = (req, res, next) => {
     publisherRepository.updatePublisher(publisherId, publisherData)
         .then(result => {
             res.redirect('/publisher');
+        })
+        .catch(err => {
+            publisherRepository.getPublisherById(publisherId)
+                .then(publisher => {
+                    publisherData.games = publisher.games
+                    res.render('pages/publisher/form', {
+                        publisher: publisherData,
+                        formMode: 'edit',
+                        pageTitle: 'Edycja wydawcy',
+                        btnLabel: 'Zapisz zmiany',
+                        formAction: '/publisher/edit/',
+                        navLocation: 'publisherForm',
+                        validationErrors: err.errors
+                    });
+                });
         });
 };
 
