@@ -64,6 +64,8 @@ exports.addPublisher = (req, res, next) => {
             err.errors.forEach(e => {
                 if (e.path.includes('email') && e.type == 'unique violation') {
                     e.message = "Podany adres email jest już używany";
+                } else if (e.path.includes('nick') && e.type == 'unique violation') {
+                    e.message = "Podany nick jest już używany";
                 }
             });
             res.render('pages/publisher/form', {
@@ -89,6 +91,8 @@ exports.updatePublisher = (req, res, next) => {
             err.errors.forEach(e => {
                 if (e.path.includes('email') && e.type == 'unique violation') {
                     e.message = "Podany adres email jest już używany";
+                } else if (e.path.includes('nick') && e.type == 'unique violation') {
+                    e.message = "Podany nick jest już używany";
                 }
             });
             publisherRepository.getPublisherById(publisherId)
