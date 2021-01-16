@@ -36,11 +36,18 @@
             <% } %>
         </span>
 
-        <% if (formMode == 'details') { %>
         <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode == 'details') { %>
             <a href="/gamer/edit/<%= gamer._id %>" class="form-button-edit">Edytuj</a>
+            <% } %>
+            <% if (formMode != 'details') { %>
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <a class="form-button-cancel" href="/gamer">Anuluj</a>
+            <% } else { %>
+            <a class="form-button-cancel" href="/gamer">Powrót</a>
+            <% } %>
         </div>
-        <% } %>
 
         <% if (formMode == 'details' || formMode == 'edit') { %>
         <h2>
@@ -96,9 +103,7 @@
         <% } %>
 
         <div class="form-buttons">
-            <p id="errorsSummary" class="errors-text"></p>
             <% if (formMode != 'details') { %>
-            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
             <a class="form-button-cancel" href="/gamer">Anuluj</a>
             <% } else { %>
             <a class="form-button-cancel" href="/gamer">Powrót</a>

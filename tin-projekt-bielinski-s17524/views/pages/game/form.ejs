@@ -89,14 +89,13 @@
             <% } %>
         </span>
 
-        <% if (formMode == 'details') { %>
-        <div class="form-buttons">
-            <a href="/game/edit/<%= game._id %>" class="form-button-edit">Edytuj</a>
-        </div>
-        <% } %>
+
 
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode == 'details') { %>
+            <a href="/game/edit/<%= game._id %>" class="form-button-edit">Edytuj</a>
+            <% } %>
             <% if (formMode != 'details') { %>
             <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
             <a class="form-button-cancel" href="/game">Anuluj</a>
