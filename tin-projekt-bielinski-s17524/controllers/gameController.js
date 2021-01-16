@@ -61,6 +61,11 @@ exports.addGame = (req, res, next) => {
             res.redirect('/game');
         })
         .catch(err => {
+            err.errors.forEach(e => {
+                if (e.path.includes('gameName') && e.type == 'unique violation') {
+                    e.message = "Podana nazwa gry jest już używana";
+                }
+            });
             res.render('pages/game/form', {
                 game: gameData,
                 formMode: 'create',
@@ -81,6 +86,11 @@ exports.updateGame = (req, res, next) => {
             res.redirect('/game');
         })
         .catch(err => {
+            err.errors.forEach(e => {
+                if (e.path.includes('gameName') && e.type == 'unique violation') {
+                    e.message = "Podana nazwa gry jest już używana";
+                }
+            });
             res.render('pages/game/form', {
                 game: gameData,
                 formMode: 'edit',
