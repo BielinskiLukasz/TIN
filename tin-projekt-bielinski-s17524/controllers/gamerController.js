@@ -17,7 +17,8 @@ exports.showAddGamerForm = (req, res, next) => {
         pageTitle: 'Nowy gracz',
         btnLabel: 'Dodaj gracza',
         formAction: '/gamer/add',
-        navLocation: 'gamerForm'
+        navLocation: 'gamerForm',
+        validationErrors: []
     });
 }
 
@@ -31,7 +32,8 @@ exports.showGamerDetails = (req, res, next) => {
                 pageTitle: 'Szczegóły gracza',
                 btnLabel: '',
                 formAction: '',
-                navLocation: ''
+                navLocation: '',
+                validationErrors: []
             });
         });
 }
@@ -46,7 +48,8 @@ exports.showEditGamerForm = (req, res, next) => {
                 pageTitle: 'Edycja gracza',
                 btnLabel: 'Zapisz zmiany',
                 formAction: '/gamer/edit/',
-                navLocation: 'gamerForm'
+                navLocation: 'gamerForm',
+                validationErrors: []
             });
         });
 }
@@ -56,6 +59,17 @@ exports.addGamer = (req, res, next) => {
     gamerRepository.createGamer(gamerData)
         .then(result => {
             res.redirect('/gamer');
+        })
+        .catch(err => {
+            res.render('pages/gamer/form', {
+                gamer: gamerData,
+                formMode: 'create',
+                pageTitle: 'Nowy gracz',
+                btnLabel: 'Dodaj gracza',
+                formAction: '/gamer/add',
+                navLocation: 'gamerForm',
+                validationErrors: err.errors
+            });
         });
 };
 
@@ -65,6 +79,21 @@ exports.updateGamer = (req, res, next) => {
     gamerRepository.updateGamer(gamerId, gamerData)
         .then(result => {
             res.redirect('/gamer');
+        })
+        .catch(err => {
+            gamerRepository.getGamerById(gamerId)
+                .then(gamer => {
+                    gamerData.rates = gamer.rates
+                    res.render('pages/gamer/form', {
+                        gamer: gamerData,
+                        formMode: 'edit',
+                        pageTitle: 'Edycja gracza',
+                        btnLabel: 'Zapisz zmiany',
+                        formAction: '/gamer/edit/',
+                        navLocation: 'gamerForm',
+                        validationErrors: err.errors
+                    });
+                });
         });
 };
 

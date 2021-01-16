@@ -8,18 +8,33 @@
 
         <label for="nick">Nick:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="text" name="nick" id="nick" placeholder="2-60 znaków" value="<%= gamer.nick %>"
-            <%= (formMode == 'details') ? 'disabled' : '' %> />
-        <span id="errorNick" class="errors-text"></span>
+            <%= (formMode == 'details') ? 'disabled' : '' %>
+            class="<%= validationErrors.find(e => e.path.includes('nick')) ? 'error-input' : '' %>" />
+        <span id="errorNick" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('nick'))) { %>
+            <%= validationErrors.find(e => e.path.includes('nick')).message %>
+            <% } %>
+        </span>
 
         <label for="email">Mail:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl" value="<%= gamer.email %>"
-            <%= (formMode == 'details') ? 'disabled' : '' %> />
-        <span id="errorEmail" class="errors-text"></span>
+            <%= (formMode == 'details') ? 'disabled' : '' %>
+            class="<%= validationErrors.find(e => e.path.includes('email')) ? 'error-input' : '' %>" />
+        <span id="errorEmail" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('email'))) { %>
+            <%= validationErrors.find(e => e.path.includes('email')).message %>
+            <% } %>
+        </span>
 
         <label for="bio">Bio:</label>
         <input type="text" name="bio" id="bio" placeholder="max 200 znaków" value="<%= gamer.bio %>"
-            <%= (formMode == 'details') ? 'disabled' : '' %> />
-        <span id="errorHeadquarters" class="errors-text"></span>
+            <%= (formMode == 'details') ? 'disabled' : '' %>
+            class="<%= validationErrors.find(e => e.path.includes('bio')) ? 'error-input' : '' %>" />
+        <span id="errorHeadquarters" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('bio'))) { %>
+            <%= validationErrors.find(e => e.path.includes('bio')).message %>
+            <% } %>
+        </span>
 
         <% if (formMode == 'details') { %>
         <div class="form-buttons">
