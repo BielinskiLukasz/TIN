@@ -17,7 +17,8 @@ exports.showAddGameForm = (req, res, next) => {
         pageTitle: 'Nowa gra',
         btnLabel: 'Dodaj grę',
         formAction: '/game/add',
-        navLocation: 'gameForm'
+        navLocation: 'gameForm',
+        validationErrors: []
     });
 }
 
@@ -31,7 +32,8 @@ exports.showGameDetails = (req, res, next) => {
                 pageTitle: 'Szczegóły gry',
                 btnLabel: '',
                 formAction: '',
-                navLocation: ''
+                navLocation: '',
+                validationErrors: []
             });
         });
 }
@@ -46,7 +48,8 @@ exports.showEditGameForm = (req, res, next) => {
                 pageTitle: 'Edycja gry',
                 btnLabel: 'Zapisz zmiany',
                 formAction: '/game/edit/',
-                navLocation: 'gameForm'
+                navLocation: 'gameForm',
+                validationErrors: []
             });
         });
 }
@@ -56,6 +59,17 @@ exports.addGame = (req, res, next) => {
     gameRepository.createGame(gameData)
         .then(result => {
             res.redirect('/game');
+        })
+        .catch(err => {
+            res.render('pages/game/form', {
+                game: gameData,
+                formMode: 'create',
+                pageTitle: 'Nowa gra',
+                btnLabel: 'Dodaj grę',
+                formAction: '/game/add',
+                navLocation: 'gameForm',
+                validationErrors: err.errors
+            });
         });
 };
 
@@ -65,6 +79,17 @@ exports.updateGame = (req, res, next) => {
     gameRepository.updateGame(gameId, gameData)
         .then(result => {
             res.redirect('/game');
+        })
+        .catch(err => {
+            res.render('pages/game/form', {
+                game: gameData,
+                formMode: 'edit',
+                pageTitle: 'Edycja gry',
+                btnLabel: 'Zapisz zmiany',
+                formAction: '/game/edit/',
+                navLocation: 'gameForm',
+                validationErrors: err.errors
+            });
         });
 };
 

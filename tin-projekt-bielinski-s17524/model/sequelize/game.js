@@ -96,7 +96,7 @@ const Game = sequelize.define('Game', {
                 msg: "Pole powinno być liczbą naturalną"
             },
             maxIsGreaterThanMin() {
-                if (this.minPlayersNum > this.maxPlayersNum) {
+                if (parseInt(this.minPlayersNum) > parseInt(this.maxPlayersNum)) {
                     throw new Error('Pole powinno być liczbą naturalną nie mniejszą od minimalnej liczby gracz');
                 }
             }
@@ -135,7 +135,7 @@ const Game = sequelize.define('Game', {
                 msg: "Pole powinno być liczbą naturalną"
             },
             maxIsGreaterThanMin() {
-                if (this.minPlayingTime > this.maxPlayingTime) {
+                if (parseInt(this.minPlayingTime) > parseInt(this.maxPlayingTime)) {
                     throw new Error('Pole powinno być liczbą naturalną nie mniejszą od minimalnego czasu gry');
                 }
             }
