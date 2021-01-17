@@ -131,16 +131,6 @@ function validateForm() {
         errorMaxPlayingTime.innerText = "Pole powinno być liczbą nie mniejszą od minimalnej liczby minut";
     }
 
-    // if (!checkRequired(gameMechanismInput.value)) {
-    //     valid = false;
-    //     gameMechanismInput.classList.add("error-input");
-    //     errorGamePublisher.innerText = "Pole jest wymagane";
-    // } else if (!checkTextLengthRange(gameMechanismInput.value, 2, 200)) {
-    //     valid = false;
-    //     gameMechanismInput.classList.add("error-input");
-    //     errorGamePublisher.innerText = "Pole powinno zawierać od 2 do 200 znaków";
-    // }
-
     if (!checkRequired(gamePublisherInput.value)) {
         valid = false;
         gamePublisherInput.classList.add("error-input");
