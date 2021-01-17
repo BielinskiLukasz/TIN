@@ -3,6 +3,7 @@ var router = express.Router();
 const rateController = require('../controllers/rateController');
 
 router.get('/', rateController.showRateList);
+router.get('/my-scores', rateController.showLoggedUserRateList);
 router.get('/add', rateController.showAddRateForm);
 router.get('/details/:rateId', rateController.showRateDetails);
 router.get('/edit/:rateId', rateController.showEditRateForm);

@@ -34,6 +34,7 @@
             <li><a href="/rate" class="<%= navLocation == 'rates' ? 'active' : ''%>">Oceny</a></li>
             <li> </li>
             <% if(loggedUser) { %>
+            <li><a href="/rate/my-scores" class="<%= navLocation == 'my-scores' ? 'active' : ''%>">Moje oceny</a></li>
             <li><a href="/profile" class="<%= navLocation == 'profile' ? 'active' : ''%>">Profil</a></li>
             <li><a href="/logout" class="<%= navLocation == '' ? 'active' : ''%>">Wyloguj</a></li>
             <% } else { %>

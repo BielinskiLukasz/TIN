@@ -10,6 +10,16 @@ exports.showRateList = (req, res, next) => {
         });
 }
 
+exports.showLoggedUserRateList = (req, res, next) => {
+    rateRepository.getRates()
+        .then(rates => {
+            res.render('pages/profile/rates', {
+                rates: rates,
+                navLocation: 'my-scores'
+            });
+        });
+}
+
 exports.showAddRateForm = (req, res, next) => {
     res.render('pages/rate/form', {
         rate: {},

@@ -22,7 +22,15 @@ exports.getGamerById = (gamerId) => {
 
 exports.findByLogin = (login) => {
     return Gamer.findOne({
-        where: { nick: login }
+        where: { nick: login },
+        include: [{
+            model: Rate,
+            as: 'rates',
+            include: {
+                model: Game,
+                as: 'game'
+            }
+        }]
     });
 }
 

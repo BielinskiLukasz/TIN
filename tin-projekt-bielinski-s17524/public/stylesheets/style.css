@@ -148,6 +148,7 @@ h2 {
 .form-button-submit,
 .form-button-login,
 .mini-form-button-submit,
+.mini-form-button-logout,
 .form-button-cancel,
 .form-button-logout,
 .form-button-edit,
@@ -207,6 +208,7 @@ h2 {
 .form-button-submit,
 .form-button-login,
 .mini-form-button-submit,
+.mini-form-button-logout,
 .list-actions-button-score,
 .form-button-score {
     background-color: #27ae60;
@@ -216,6 +218,7 @@ h2 {
 .form-button-submit:hover,
 .form-button-login:hover,
 .mini-form-button-submit:hover,
+.mini-form-button-logout:hover,
 .list-actions-button-score:hover,
 .form-button-score:hover {
     background-image: linear-gradient(45deg, #27ae60, #2ecc71 50%);
@@ -226,6 +229,7 @@ h2 {
 .form-button-submit,
 .form-button-login,
 .mini-form-button-submit,
+.mini-form-button-logout,
 .form-button-cancel,
 .form-button-logout,
 .form-button-edit,
@@ -407,6 +411,7 @@ abbr[title='required'],
 .form-button-submit,
 .form-button-login,
 .mini-form-button-submit,
+.mini-form-button-logout,
 .form-button-cancel,
 .form-button-logout,
 .form-button-edit,
@@ -431,7 +436,8 @@ abbr[title='required'],
     margin-bottom: 0.5rem;
 }
 
-.mini-form-button-submit {
+.mini-form-button-submit,
+.mini-form-button-logout {
     margin-bottom: 0;
     min-height: 36px;
     margin-left: 0.5rem;

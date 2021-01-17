@@ -4,11 +4,11 @@
     <% if(loggedUser) { %>
     <h2>Profil</h2>
 
-    <span>Witaj <%=loggedUser.nick%></span>
-    <span>Liczba ocen: <%=loggedUser.rates%></span>
+    <p>Witaj <%=loggedUser.nick%></p>
+    <p>Liczba ocen: <%=loggedUser.rates.length%></p>
 
     <div class="form-buttons">
-        <a class="form-button-logout" href="/logout">Wyloguj się</a>
+        <a class="mini-form-button-logout" href="/logout">Wyloguj się</a>
     </div>
     <% } else { %>
     <h2>Logowanie</h2>
