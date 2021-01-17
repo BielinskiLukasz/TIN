@@ -327,6 +327,8 @@ p {
 .details-list-value a,
 .details-list-multiple-value ul li a,
 .link-line {
+    display: inline-block;
+    min-width: 75px;
     text-decoration: none;
     color: #000000;
 }

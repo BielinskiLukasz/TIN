@@ -21,13 +21,20 @@
                 <tr>
                     <td><a href="/games/details/<%= game._id %>" class="link-line"><%= game.gameName %></a></td>
                     <% if(loggedUser) { %>
-                    <td class="td-center">do uzupełnienia</td>
+                    <% if(loggedUser.rates.find(rate => rate.game_id == game._id)) { %>
+                    <td class="td-center"><a
+                            href="/rate/details/<%= loggedUser.rates.find(rate => rate.game_id == game._id)._id %>"
+                            class="link-line"><%= loggedUser.rates.find(rate => rate.game_id == game._id).rate %></a>
+                    </td>
+                    <% } else {%>
+                    <td class="td-center"><a href="/rate/add" class="list-actions-button-score">Oceń</a>
+                    </td>
+                    <% } %>
                     <% } %>
                     <td class="td-center"><%= game.averageRate %></td>
                     <td class="td-center"><%= game.rates.length %></td>
                     <td>
                         <ul class="list-actions">
-                            <li><a href="/rate/<%=game._id%>" class="list-actions-button-score">Oceń</a></li>
                             <li><a href="/game/details/<%=game._id%>" class="list-actions-button-details">Szczegóły</a>
                             </li>
                             <li><a href="/game/edit/<%=game._id%>" class="list-actions-button-edit">Edytuj</a></li>

@@ -36,10 +36,10 @@
             <% if(loggedUser) { %>
             <li><a href="/rate/my-scores" class="<%= navLocation == 'my-scores' ? 'active' : ''%>">Moje oceny</a></li>
             <li><a href="/profile" class="<%= navLocation == 'profile' ? 'active' : ''%>">Profil</a></li>
-            <li><a href="/logout" class="<%= navLocation == '' ? 'active' : ''%>">Wyloguj</a></li>
+            <li><a href="/logout" class="<%= navLocation == 'logout' ? 'active' : ''%>">Wyloguj</a></li>
             <% } else { %>
             <li><a href="/sign" class="<%= navLocation == 'newUser' ? 'active' : ''%>">Zarejestruj</a></li>
-            <li><a href="/login" class="<%= navLocation == '' ? 'active' : ''%>">Zaloguj</a></li>
+            <li><a href="/login" class="<%= navLocation == 'login' ? 'active' : ''%>">Zaloguj</a></li>
             <% } %>
         </ul>
     </nav>
