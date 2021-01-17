@@ -146,8 +146,10 @@ h2 {
 .list-actions-button-score,
 .button-add,
 .form-button-submit,
+.form-button-login,
 .mini-form-button-submit,
 .form-button-cancel,
+.form-button-logout,
 .form-button-edit,
 .form-button-return,
 .form-button-score {
@@ -190,17 +192,20 @@ h2 {
 }
 
 .list-actions-button-delete,
-.form-button-cancel {
+.form-button-cancel,
+.form-button-logout {
     background-color: #c0392b;
 }
 
 .list-actions-button-delete:hover,
-.form-button-cancel:hover {
+.form-button-cancel:hover,
+.form-button-logout:hover {
     background-image: linear-gradient(45deg, #c0392b, #e74c3c 50%);
 }
 
 .button-add,
 .form-button-submit,
+.form-button-login,
 .mini-form-button-submit,
 .list-actions-button-score,
 .form-button-score {
@@ -209,6 +214,7 @@ h2 {
 
 .button-add:hover,
 .form-button-submit:hover,
+.form-button-login:hover,
 .mini-form-button-submit:hover,
 .list-actions-button-score:hover,
 .form-button-score:hover {
@@ -218,8 +224,10 @@ h2 {
 
 .button-add,
 .form-button-submit,
+.form-button-login,
 .mini-form-button-submit,
 .form-button-cancel,
+.form-button-logout,
 .form-button-edit,
 .form-button-return,
 .form-button-score{
@@ -335,6 +343,7 @@ p {
 .form input[type="number"],
 .form input[type="date"],
 .form input[type="email"],
+.form input[type="password"],
 .input-list,
 textarea {
     border: 1px solid #7f8c8d;
@@ -396,8 +405,10 @@ abbr[title='required'],
 }
 
 .form-button-submit,
+.form-button-login,
 .mini-form-button-submit,
 .form-button-cancel,
+.form-button-logout,
 .form-button-edit,
 .form-button-return,
 .form-button-score {
@@ -405,6 +416,7 @@ abbr[title='required'],
 }
 
 .form-button-cancel,
+.form-button-logout,
 .form-button-return,
 .form-button-edit,
 .form-button-score {
@@ -413,6 +425,7 @@ abbr[title='required'],
 }
 
 .form-button-submit,
+.form-button-login,
 .form-button-edit,
 .form-button-score {
     margin-bottom: 0.5rem;

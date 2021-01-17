@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const session = require('express-session');
+
 var mainRouter = require('./routes/mainRoute');
 var gameRouter = require('./routes/gameRoute');
 var gamerRouter = require('./routes/gamerRoute');
@@ -26,6 +28,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'my_secret_password',
+  resave: false
+}));
+
+app.use((req, res, next) => {
+  const loggedUser = req.session.loggedUser;
+  res.locals.loggedUser = loggedUser;
+  if (!res.locals.loginError) {
+    res.locals.loginError = undefined;
+  }
+  next();
+});
 
 app.use('/', mainRouter);
 app.use('/game', gameRouter);

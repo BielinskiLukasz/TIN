@@ -23,9 +23,9 @@ module.exports = () => {
         .then(gamers => {
             if (!gamers || gamers.length == 0) {
                 return Gamer.bulkCreate([
-                    { nick: 'Jan', bio: 'bio', email: 'jan.kowalski@acme.com' },
-                    { nick: 'Adam', bio: '', email: 'adam.zielinski@acme.com' },
-                    { nick: 'Marian', email: 'marian.nowak@acme.com' }
+                    { nick: 'Jan', bio: 'bio', email: 'jan.kowalski@acme.com', password: 'password' },
+                    { nick: 'Adam', bio: '', email: 'adam.zielinski@acme.com', password: 'password' },
+                    { nick: 'Marian', email: 'marian.nowak@acme.com', password: 'password' }
                 ])
                     .then(() => {
                         return Gamer.findAll();

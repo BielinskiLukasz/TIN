@@ -20,9 +20,16 @@ exports.getGamerById = (gamerId) => {
         });
 };
 
+exports.findByLogin = (login) => {
+    return Gamer.findOne({
+        where: { nick: login }
+    });
+}
+
 exports.createGamer = (data) => {
     return Gamer.create({
         nick: data.nick,
+        password: data.password,
         bio: data.bio,
         email: data.email
     });

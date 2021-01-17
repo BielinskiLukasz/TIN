@@ -54,6 +54,22 @@ const Gamer = sequelize.define('Gamer', {
                 msg: 'Pole powinno zawierać prawidłowy adres email'
             }
         }
+    },
+    password: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            notNull: {
+                msg: "Hasło jest wymagane"
+            },
+            notEmpty: {
+                msg: "Hasło jest wymagane"
+            },
+            len: {
+                args: [8, 100],
+                msg: "Hasło powinno zawierać min 8 znaków"
+            }
+        }
     }
 });
 

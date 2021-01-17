@@ -16,6 +16,14 @@
             <% } %>
         </span>
 
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" name="password"
+            class="<%= validationErrors.find(e => e.path.includes('password')) ? 'error-input' : '' %>">
+        <span id="errorPassword" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('password'))) { %>
+            <%= validationErrors.find(e => e.path.includes('password')).message %>
+            <% } %>
+        </span>
         <label for="email">Mail:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl" value="<%= gamer.email %>"
             <%= (formMode == 'details') ? 'disabled' : '' %>
@@ -103,10 +111,11 @@
         <% } %>
 
         <div class="form-buttons">
-            <% if (formMode != 'details') { %>
+            <% if (formMode == 'details') { %>
+            <a class="form-button-cancel" href="/gamer">Powrót</a>
+            <% } else if (formMode == 'edit'){ %>
             <a class="form-button-cancel" href="/gamer">Anuluj</a>
             <% } else { %>
-            <a class="form-button-cancel" href="/gamer">Powrót</a>
             <% } %>
         </div>
     </form>

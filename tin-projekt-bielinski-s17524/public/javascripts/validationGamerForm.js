@@ -1,14 +1,16 @@
 function validateForm() {
     const nickInput = document.getElementById('nick');
+    const passwordInput = document.getElementById('password');
     const emailInput = document.getElementById('email');
     const bioInput = document.getElementById('bio');
 
     const errorNick = document.getElementById('errorNick');
+    const errorPassword = document.getElementById('errorPassword');
     const errorEmail = document.getElementById('errorEmail');
     const errorBio = document.getElementById('errorBio');
     const errorsSummary = document.getElementById('errorsSummary');
 
-    resetErrors([nickInput, emailInput, bioInput], [errorNick, errorEmail, errorBio], errorsSummary);
+    resetErrors([nickInput, passwordInput, emailInput, bioInput], [errorNick, errorPassword, errorEmail, errorBio], errorsSummary);
 
     let valid = true;
 
@@ -20,6 +22,16 @@ function validateForm() {
         valid = false;
         nickInput.classList.add("error-input");
         errorNick.innerText = "Pole powinno zawierać od 2 do 60 znaków";
+    }
+
+    if (!checkRequired(passwordInput.value)) {
+        valid = false;
+        passwordInput.classList.add("error-input");
+        errorPassword.innerText = "Hasło jest wymagane";
+    } else if (!checkTextLengthRange(passwordInput.value, 8, 100)) {
+        valid = false;
+        passwordInput.classList.add("error-input");
+        errorPassword.innerText = "Hasło powinno zawierać min 8 znaków";
     }
 
     if (!checkRequired(emailInput.value)) {
