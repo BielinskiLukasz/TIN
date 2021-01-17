@@ -11,6 +11,7 @@
         molestie ac. Integer porttitor tempor eros, et feugiat lacus porttitor sit amet. Praesent placerat eros
         nulla.</p>
 
+    <% if (loggedUser && loggedUser.nick === 'admin') { %>
     <h2>TODO</h2>
     <ul>
         <li>
@@ -22,7 +23,11 @@
         <li>
             <p>Sortowanie list wg wybranego kryterium</p>
         </li>
+        <li>
+            <p>Wydawnictwa danej gry</p>
+        </li>
     </ul>
+    <% } %>
 
 </main>
 

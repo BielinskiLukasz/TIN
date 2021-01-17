@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>giercownia</title>
+    <title>Giercownia</title>
 
     <link rel="icon" type="image/png" href="/images/logo.png" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
@@ -28,18 +28,19 @@
     <nav>
         <ul>
             <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
-            <% if(loggedUser) { %>
+            <% if (loggedUser) { %>
             <li><a href="/publisher" class="<%= navLocation == 'publishers' ? 'active' : ''%>">Wydawnictwa</a></li>
             <% } %>
             <li><a href="/game" class="<%= navLocation == 'games' ? 'active' : ''%>">Gry</a></li>
-            <% if(loggedUser) { %>
+            <% if (loggedUser) { %>
             <li><a href="/gamer" class="<%= navLocation == 'gamers' ? 'active' : ''%>">Gracze</a></li>
             <li><a href="/rate" class="<%= navLocation == 'rates' ? 'active' : ''%>">Oceny</a></li>
             <% } %>
             <li> </li>
-            <% if(loggedUser) { %>
+            <% if (loggedUser) { %>
             <li><a href="/rate/my-scores" class="<%= navLocation == 'my-scores' ? 'active' : ''%>">Moje oceny</a></li>
-            <li><a href="/profile" class="<%= navLocation == 'profile' ? 'active' : ''%>">Profil</a></li>
+            <li><a href="/profile" class="<%= navLocation == 'profile' ? 'active' : ''%>">Profil <%= loggedUser.nick %>
+                </a></li>
             <li><a href="/logout" class="<%= navLocation == 'logout' ? 'active' : ''%>">Wyloguj</a></li>
             <% } else { %>
             <li><a href="/sign" class="<%= navLocation == 'newUser' ? 'active' : ''%>">Zarejestruj</a></li>

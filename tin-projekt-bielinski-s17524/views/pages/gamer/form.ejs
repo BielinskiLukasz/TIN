@@ -1,7 +1,7 @@
 <%- include('../../fragments/header.ejs') %>
 
 <main>
-    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+    <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm();">
         <input type="hidden" name="_id" value="<%= gamer._id %>">
 
         <h2><%= pageTitle %></h2>
@@ -50,7 +50,7 @@
             <a href="/gamer/edit/<%= gamer._id %>" class="form-button-edit">Edytuj</a>
             <% } %>
             <% if (formMode != 'details') { %>
-            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <input class="form-button-submit" type="submit" value="<%= btnLabel %>" />
             <a class="form-button-cancel" href="/gamer">Anuluj</a>
             <% } else { %>
             <a class="form-button-cancel" href="/gamer">Powrót</a>
@@ -58,6 +58,7 @@
         </div>
 
         <% if (formMode == 'details' || formMode == 'edit') { %>
+        <% if (gamer.rates.length > 0) { %>
         <h2>
             Oceny gracza
         </h2>
@@ -108,7 +109,6 @@
                 </tbody>
             </table>
         </div>
-        <% } %>
 
         <div class="form-buttons">
             <% if (formMode == 'details') { %>
@@ -118,6 +118,11 @@
             <% } else { %>
             <% } %>
         </div>
+        <% } else { %>
+        <h3>brak ocen gracza <%= gamer.nick %></h3>
+        <% } %>
+        <% } %>
+
     </form>
 </main>
 

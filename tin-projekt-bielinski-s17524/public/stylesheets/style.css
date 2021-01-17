@@ -89,7 +89,8 @@ main h2 {
 
 /* Tabela */
 .table-div, 
-h2 {
+h2,
+h3 {
     grid-column-start: 1;
     grid-column-end: -1;
 }

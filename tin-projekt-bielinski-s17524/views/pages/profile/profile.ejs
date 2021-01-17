@@ -1,11 +1,11 @@
 <%- include('../../fragments/header.ejs') %>
 
 <main>
-    <% if(loggedUser) { %>
+    <% if (loggedUser) { %>
     <h2>Profil</h2>
 
-    <p>Witaj <%=loggedUser.nick%></p>
-    <p>Liczba ocen: <%=loggedUser.rates.length%></p>
+    <h3>Witaj <%= loggedUser.nick %></h3>
+    <p>Liczba ocen: <%= loggedUser.rates.length %></p>
 
     <div class="form-buttons">
         <a class="mini-form-button-logout" href="/logout">Wyloguj się</a>

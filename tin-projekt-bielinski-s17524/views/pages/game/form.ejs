@@ -1,7 +1,7 @@
 <%- include('../../fragments/header.ejs') %>
 
 <main>
-    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+    <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm();">
         <input type="hidden" name="_id" value="<%= game._id %>">
 
         <h2><%= pageTitle %></h2>
@@ -89,15 +89,13 @@
             <% } %>
         </span>
 
-
-
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>
             <% if (formMode == 'details' && loggedUser) { %>
             <a href="/game/edit/<%= game._id %>" class="form-button-edit">Edytuj</a>
             <% } %>
             <% if (formMode != 'details') { %>
-            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <input class="form-button-submit" type="submit" value="<%= btnLabel %>" />
             <a class="form-button-cancel" href="/game">Anuluj</a>
             <% } else { %>
             <a class="form-button-cancel" href="/game">Powrót</a>
