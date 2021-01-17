@@ -452,7 +452,7 @@ abbr[title='required'],
     margin-left: 0.5rem;
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 1000px) {
     nav ul {
         flex-wrap: wrap;
     }
