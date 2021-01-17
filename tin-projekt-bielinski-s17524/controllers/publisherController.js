@@ -26,6 +26,13 @@ exports.showPublisherDetails = (req, res, next) => {
     const publisherId = req.params.publisherId;
     publisherRepository.getPublisherById(publisherId)
         .then(publisher => {
+            for (let game of publisher.games) {
+                var total = 0;
+                for (var i = 0; i < game.rates.length; i++) {
+                    total += game.rates[i].rate;
+                }
+                game.averageRate = (Math.round(total / game.rates.length * 1000) / 1000).toFixed(3);
+            };
             res.render('pages/publisher/form', {
                 publisher: publisher,
                 formMode: 'details',

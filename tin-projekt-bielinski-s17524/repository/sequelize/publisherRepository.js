@@ -1,5 +1,6 @@
 const Publisher = require("../../model/sequelize/publisher");
 const Game = require("../../model/sequelize/game");
+const Rate = require("../../model/sequelize/rate");
 
 exports.getPublishers = () => {
     return Publisher.findAll();
@@ -10,7 +11,11 @@ exports.getPublisherById = (publisherId) => {
         {
             include: [{
                 model: Game,
-                as: 'games'
+                as: 'games',
+                include: {
+                    model: Rate,
+                    as: 'rates'
+                }
             }]
         });
 };

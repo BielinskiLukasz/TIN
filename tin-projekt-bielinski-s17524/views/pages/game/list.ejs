@@ -8,7 +8,9 @@
             <thead>
                 <tr>
                     <th scope="col">Tytuł</th>
+                    <% if(loggedUser) { %>
                     <th scope="col">Twoja ocena</th>
+                    <% } %>
                     <th scope="col">Średnia ocena</th>
                     <th scope="col">Ilość ocen</th>
                     <th scope="col">Akcje</th>
@@ -18,9 +20,11 @@
                 <% for (let game of games) { %>
                 <tr>
                     <td><a href="/games/details/<%= game._id %>" class="link-line"><%= game.gameName %></a></td>
+                    <% if(loggedUser) { %>
                     <td class="td-center">do uzupełnienia</td>
+                    <% } %>
                     <td class="td-center"><%= game.averageRate %></td>
-                    <td class="td-center">do uzupełnienia</td>
+                    <td class="td-center"><%= game.rates.length %></td>
                     <td>
                         <ul class="list-actions">
                             <li><a href="/rate/<%=game._id%>" class="list-actions-button-score">Oceń</a></li>

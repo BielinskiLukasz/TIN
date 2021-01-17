@@ -4,7 +4,21 @@ const Game = require("../../model/sequelize/game");
 const Publisher = require("../../model/sequelize/publisher");
 
 exports.getGames = () => {
-    return Game.findAll();
+    return Game.findAll({
+        include: [{
+            model: Rate,
+            as: 'rates'
+        }]
+    })
+    // .then(games => {
+    //     for (let game of games) {
+    //         var total = 0;
+    //         for (var i = 0; i < game.rates.length; i++) {
+    //             total += game.rates[i].rate;
+    //         }
+    //         game.averageRate = total / game.rates.length;
+    //     };
+    // });
 };
 
 exports.getGameById = (gameId) => {
