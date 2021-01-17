@@ -380,12 +380,18 @@ abbr[title='required'],
     text-decoration:none;
 }
 
+.message-text {
+    color: #27ae60;
+    text-decoration:none;
+}
+
 .form input.error-input,
 .form select.error-input {
   border: 3px solid #e74c3c;
 }
 
-.errors-text {
+.errors-text,
+.message-text {
     font-size: 0.85em;
     line-height: 2.25rem;
   }
@@ -500,7 +506,8 @@ abbr[title='required'],
         margin-left: unset;
     }
 
-    .form .errors-text {
+    .form .errors-text,
+    .form .message-text {
         margin-bottom: 1rem;
     }
 

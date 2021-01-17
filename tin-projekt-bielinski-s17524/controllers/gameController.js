@@ -1,4 +1,5 @@
 const gameRepository = require('../repository/sequelize/gameRepository');
+const publisherRepository = require('../repository/sequelize/publisherRepository');
 
 exports.showGameList = (req, res, next) => {
     gameRepository.getGames()
@@ -12,29 +13,41 @@ exports.showGameList = (req, res, next) => {
             };
             res.render('pages/game/list', {
                 games: games,
-                navLocation: 'games'
+                navLocation: 'games',
+                message: ''
             });
         });
 }
 
 exports.showAddGameForm = (req, res, next) => {
-    res.render('pages/game/form', {
-        game: {},
-        formMode: 'create',
-        pageTitle: 'Nowa gra',
-        btnLabel: 'Dodaj grę',
-        formAction: '/game/add',
-        navLocation: 'gameForm',
-        validationErrors: []
-    });
+    let allPublishers;
+    publisherRepository.getPublishers()
+        .then(publishers => {
+            res.render('pages/game/form', {
+                game: {},
+                allPublishers: publishers,
+                formMode: 'create',
+                pageTitle: 'Nowa gra',
+                btnLabel: 'Dodaj grę',
+                formAction: '/game/add',
+                navLocation: 'gameForm',
+                validationErrors: []
+            });
+        });
 }
 
 exports.showGameDetails = (req, res, next) => {
     const gameId = req.params.gameId;
-    gameRepository.getGameById(gameId)
+    let allPublishers;
+    publisherRepository.getPublishers()
+        .then(publishers => {
+            allPublishers = publishers;
+            return gameRepository.getGameById(gameId)
+        })
         .then(game => {
             res.render('pages/game/form', {
                 game: game,
+                allPublishers: allPublishers,
                 formMode: 'details',
                 pageTitle: 'Szczegóły gry',
                 btnLabel: '',
@@ -47,10 +60,16 @@ exports.showGameDetails = (req, res, next) => {
 
 exports.showEditGameForm = (req, res, next) => {
     const gameId = req.params.gameId;
-    gameRepository.getGameById(gameId)
+    let allPublishers;
+    publisherRepository.getPublishers()
+        .then(publishers => {
+            allPublishers = publishers;
+            return gameRepository.getGameById(gameId)
+        })
         .then(game => {
             res.render('pages/game/form', {
                 game: game,
+                allPublishers: allPublishers,
                 formMode: 'edit',
                 pageTitle: 'Edycja gry',
                 btnLabel: 'Zapisz zmiany',
@@ -63,7 +82,11 @@ exports.showEditGameForm = (req, res, next) => {
 
 exports.addGame = (req, res, next) => {
     const gameData = { ...req.body };
-    gameRepository.createGame(gameData)
+    publisherRepository.getPublishers()
+        .then(publishers => {
+            allPublishers = publishers;
+            return gameRepository.createGame(gameData)
+        })
         .then(result => {
             res.redirect('/game');
         })
@@ -75,6 +98,7 @@ exports.addGame = (req, res, next) => {
             });
             res.render('pages/game/form', {
                 game: gameData,
+                allPublishers: allPublishers,
                 formMode: 'create',
                 pageTitle: 'Nowa gra',
                 btnLabel: 'Dodaj grę',
@@ -88,7 +112,11 @@ exports.addGame = (req, res, next) => {
 exports.updateGame = (req, res, next) => {
     const gameId = req.body._id;
     const gameData = { ...req.body };
-    gameRepository.updateGame(gameId, gameData)
+    publisherRepository.getPublishers()
+        .then(publishers => {
+            allPublishers = publishers;
+            return gameRepository.updateGame(gameId, gameData)
+        })
         .then(result => {
             res.redirect('/game');
         })

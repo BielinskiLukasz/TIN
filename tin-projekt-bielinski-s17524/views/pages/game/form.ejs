@@ -16,6 +16,21 @@
             <% } %>
         </span>
 
+        <label for="publisher">Wydawnictwo:<abbr title="required" aria-label="required">*</abbr></label>
+        <select id="publisher" name="publisher_id" required <%= (formMode == 'details') ? 'disabled' : ''%>>
+            <option value="" selected>--- Wybierz wydawnictwo ---</option>
+            <% for (let i=0; i < allPublishers.length; i++) { let publisher = allPublishers[i]; %>
+            <option value="<%= publisher._id %>" label="<%= publisher.name%>"
+                <%= (publisher._id == game.publisher_id) ? 'selected' : ''%>>
+            </option>
+            <% } %>
+        </select>
+        <span id="errorPublisher" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('publisher'))) { %>
+            <%= validationErrors.find(e => e.path.includes('publisher')).message %>
+            <% } %>
+        </span>
+
         <label for="yearReleased">Rok wydania:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="number" name="yearReleased" id="yearReleased" min="-10000" max="2030" step="1"
             value="<%= game.yearReleased %>" <%= (formMode == 'details') ? 'disabled' : '' %>
@@ -26,7 +41,7 @@
             <% } %>
         </span>
 
-        <label for="gameCategory">Gatunek:<abbr title="required" aria-label="required">*</abbr></label>
+        <!-- <label for="gameCategory">Gatunek:<abbr title="required" aria-label="required">*</abbr></label>
         <select id="gameCategory" name="gameCategory"
             class="<%= validationErrors.find(e => e.path.includes('gameCategory')) ? 'error-input' : '' %>">
             <option disabled selected value> -- wybierz -- </option>
@@ -37,7 +52,7 @@
             <% if (validationErrors.find(e => e.path.includes('gameCategory'))) { %>
             <%= validationErrors.find(e => e.path.includes('gameCategory')).message %>
             <% } %>
-        </span>
+        </span> -->
 
         <label for="minAge">Min wiek:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="number" name="minAge" id="minAge" min="0" max="24" step="1" value="<%= game.minAge %>"
