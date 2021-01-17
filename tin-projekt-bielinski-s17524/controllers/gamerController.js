@@ -5,7 +5,8 @@ exports.showGamerList = (req, res, next) => {
         .then(gamers => {
             res.render('pages/gamer/list', {
                 gamers: gamers,
-                navLocation: 'gamers'
+                navLocation: 'gamers',
+                message: req.param("m")
             });
         });
 }
@@ -58,7 +59,7 @@ exports.addGamer = (req, res, next) => {
     const gamerData = { ...req.body };
     gamerRepository.createGamer(gamerData)
         .then(result => {
-            res.redirect('/gamer');
+            res.redirect('/gamer?m=' + encodeURIComponent('Dodano nowego gracza'));
         })
         .catch(err => {
             err.errors.forEach(e => {
@@ -85,7 +86,7 @@ exports.updateGamer = (req, res, next) => {
     const gamerData = { ...req.body };
     gamerRepository.updateGamer(gamerId, gamerData)
         .then(result => {
-            res.redirect('/gamer');
+            res.redirect('/gamer?m=' + encodeURIComponent('Zaktualizowano dane gracza'));
         })
         .catch(err => {
             err.errors.forEach(e => {
@@ -115,6 +116,6 @@ exports.deleteGamer = (req, res, next) => {
     const gamerId = req.params.gamerId;
     gamerRepository.deleteGamer(gamerId)
         .then(() => {
-            res.redirect('/gamer');
+            res.redirect('/gamer?m=' + encodeURIComponent('Usunięto gracza'));
         });
 };

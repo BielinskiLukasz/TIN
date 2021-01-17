@@ -390,11 +390,15 @@ abbr[title='required'],
   border: 3px solid #e74c3c;
 }
 
-.errors-text,
-.message-text {
+.errors-text {
     font-size: 0.85em;
     line-height: 2.25rem;
-  }
+}
+
+.message-text {
+    font-size: 1.2em;
+    line-height: 2.25rem;
+}
 
 .form-buttons,
 .details-buttons { 

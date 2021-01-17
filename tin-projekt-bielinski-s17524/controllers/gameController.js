@@ -18,7 +18,7 @@ exports.showGameList = (req, res, next) => {
             res.render('pages/game/list', {
                 games: games,
                 navLocation: 'games',
-                message: ''
+                message: req.param("m")
             });
         });
 }
@@ -92,7 +92,7 @@ exports.addGame = (req, res, next) => {
             return gameRepository.createGame(gameData)
         })
         .then(result => {
-            res.redirect('/game');
+            res.redirect('/game?m=' + encodeURIComponent('Dodano nową grę'));
         })
         .catch(err => {
             err.errors.forEach(e => {
@@ -122,7 +122,7 @@ exports.updateGame = (req, res, next) => {
             return gameRepository.updateGame(gameId, gameData)
         })
         .then(result => {
-            res.redirect('/game');
+            res.redirect('/game?m=' + encodeURIComponent('Zaktualizowano dane o grze'));
         })
         .catch(err => {
             err.errors.forEach(e => {
@@ -146,6 +146,6 @@ exports.deleteGame = (req, res, next) => {
     const gameId = req.params.gameId;
     gameRepository.deleteGame(gameId)
         .then(() => {
-            res.redirect('/game');
+            res.redirect('/game?m=' + encodeURIComponent('Usunięto grę'));
         });
 };

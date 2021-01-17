@@ -5,7 +5,8 @@ exports.showPublisherList = (req, res, next) => {
         .then(publishers => {
             res.render('pages/publisher/list', {
                 publishers: publishers,
-                navLocation: 'publishers'
+                navLocation: 'publishers',
+                message: req.param("m")
             });
         });
 }
@@ -69,7 +70,7 @@ exports.addPublisher = (req, res, next) => {
     const publisherData = { ...req.body };
     publisherRepository.createPublisher(publisherData)
         .then(result => {
-            res.redirect('/publisher');
+            res.redirect('/publisher?m=' + encodeURIComponent('Dodano nowe wydawnictwo'));
         })
         .catch(err => {
             err.errors.forEach(e => {
@@ -96,7 +97,7 @@ exports.updatePublisher = (req, res, next) => {
     const publisherData = { ...req.body };
     publisherRepository.updatePublisher(publisherId, publisherData)
         .then(result => {
-            res.redirect('/publisher');
+            res.redirect('/publisher?m=' + encodeURIComponent('Zaktualizowano dane o wydawnictwio'));
         })
         .catch(err => {
             err.errors.forEach(e => {
@@ -126,6 +127,6 @@ exports.deletePublisher = (req, res, next) => {
     const publisherId = req.params.publisherId;
     publisherRepository.deletePublisher(publisherId)
         .then(() => {
-            res.redirect('/publisher');
+            res.redirect('/publisher?m=' + encodeURIComponent('Usunięto wydawnictwo'));
         });
 };
