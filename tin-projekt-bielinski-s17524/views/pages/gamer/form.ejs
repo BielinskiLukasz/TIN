@@ -17,7 +17,7 @@
         </span>
 
         <label for="password">Hasło:</label>
-        <input type="password" id="password" name="password"
+        <input type="password" id="password" name="password" <%= (formMode == 'details') ? 'disabled' : '' %>
             class="<%= validationErrors.find(e => e.path.includes('password')) ? 'error-input' : '' %>">
         <span id="errorPassword" class="errors-text">
             <% if (validationErrors.find(e => e.path.includes('password'))) { %>

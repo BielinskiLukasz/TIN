@@ -5,6 +5,8 @@ const Gamer = require('../../model/sequelize/gamer');
 const Publisher = require('../../model/sequelize/publisher');
 const Rate = require('../../model/sequelize/rate');
 
+const authUtil = require('../../util/authUtils');
+
 module.exports = () => {
     Publisher.hasMany(Game, { as: 'games', foreignKey: { name: 'publisher_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
     Game.belongsTo(Publisher, { as: 'publisher', foreignKey: { name: 'publisher_id', allowNull: false } });
@@ -23,9 +25,9 @@ module.exports = () => {
         .then(gamers => {
             if (!gamers || gamers.length == 0) {
                 return Gamer.bulkCreate([
-                    { nick: 'Jan', bio: 'bio', email: 'jan.kowalski@acme.com', password: 'password' },
-                    { nick: 'Adam', bio: '', email: 'adam.zielinski@acme.com', password: 'password' },
-                    { nick: 'Marian', email: 'marian.nowak@acme.com', password: 'password' }
+                    { nick: 'Jan', bio: 'bio', email: 'jan.kowalski@acme.com', password: authUtil.hashPassword('password') },
+                    { nick: 'Adam', bio: '', email: 'adam.zielinski@acme.com', password: authUtil.hashPassword('password') },
+                    { nick: 'Marian', email: 'marian.nowak@acme.com', password: authUtil.hashPassword('password') }
                 ])
                     .then(() => {
                         return Gamer.findAll();

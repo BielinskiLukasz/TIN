@@ -1,4 +1,5 @@
 const gamerRepository = require('../repository/sequelize/gamerRepository');
+const authUtil = require('../util/authUtils');
 
 exports.login = (req, res, next) => {
     const login = req.body.login;
@@ -10,7 +11,7 @@ exports.login = (req, res, next) => {
                     navLocation: '',
                     loginError: "Nieprawidłowy login lub hasło"
                 })
-            } else if (user.password === password) {
+            } else if (authUtil.comparePasswords(password, user.password) === true) {
                 req.session.loggedUser = user;
                 res.redirect('/');
             } else {
