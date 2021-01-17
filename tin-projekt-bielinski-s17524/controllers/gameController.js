@@ -5,11 +5,15 @@ exports.showGameList = (req, res, next) => {
     gameRepository.getGames()
         .then(games => {
             for (let game of games) {
-                var total = 0;
-                for (var i = 0; i < game.rates.length; i++) {
-                    total += game.rates[i].rate;
+                if (game.rates.length == 0) {
+                    game.averageRate = 0;
+                } else {
+                    var total = 0;
+                    for (var i = 0; i < game.rates.length; i++) {
+                        total += game.rates[i].rate;
+                    }
+                    game.averageRate = (Math.round(total / game.rates.length * 1000) / 1000).toFixed(3);
                 }
-                game.averageRate = (Math.round(total / game.rates.length * 1000) / 1000).toFixed(3);
             };
             res.render('pages/game/list', {
                 games: games,
