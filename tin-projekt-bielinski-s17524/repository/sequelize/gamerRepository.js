@@ -1,7 +1,7 @@
 const Gamer = require("../../model/sequelize/gamer");
 const Rate = require("../../model/sequelize/rate");
 const Game = require("../../model/sequelize/game");
-const authUtil = require('../../util/authUtils');
+const authUtils = require('../../util/authUtils');
 
 exports.getGamers = () => {
     return Gamer.findAll();
@@ -38,14 +38,14 @@ exports.findByLogin = (login) => {
 exports.createGamer = (data) => {
     return Gamer.create({
         nick: data.nick,
-        password: authUtil.hashPassword(data.password),
+        password: authUtils.hashPassword(data.password),
         bio: data.bio,
         email: data.email
     });
 };
 
 exports.updateGamer = (gamerId, data) => {
-    data.password = authUtil.hashPassword(data.password);
+    data.password = authUtils.hashPassword(data.password);
     return Gamer.update(data, { where: { _id: gamerId } });
 };
 

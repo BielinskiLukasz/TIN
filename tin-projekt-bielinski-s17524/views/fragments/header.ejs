@@ -28,10 +28,14 @@
     <nav>
         <ul>
             <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+            <% if(loggedUser) { %>
             <li><a href="/publisher" class="<%= navLocation == 'publishers' ? 'active' : ''%>">Wydawnictwa</a></li>
+            <% } %>
             <li><a href="/game" class="<%= navLocation == 'games' ? 'active' : ''%>">Gry</a></li>
+            <% if(loggedUser) { %>
             <li><a href="/gamer" class="<%= navLocation == 'gamers' ? 'active' : ''%>">Gracze</a></li>
             <li><a href="/rate" class="<%= navLocation == 'rates' ? 'active' : ''%>">Oceny</a></li>
+            <% } %>
             <li> </li>
             <% if(loggedUser) { %>
             <li><a href="/rate/my-scores" class="<%= navLocation == 'my-scores' ? 'active' : ''%>">Moje oceny</a></li>

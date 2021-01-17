@@ -37,8 +37,10 @@
                         <ul class="list-actions">
                             <li><a href="/game/details/<%=game._id%>" class="list-actions-button-details">Szczegóły</a>
                             </li>
+                            <% if(loggedUser) { %>
                             <li><a href="/game/edit/<%=game._id%>" class="list-actions-button-edit">Edytuj</a></li>
                             <li><a href="/game/delete/<%=game._id%>" class="list-actions-button-delete">Usuń</a></li>
+                            <% } %>
                         </ul>
                     </td>
                 </tr>
@@ -47,7 +49,9 @@
         </table>
     </div>
 
+    <% if(loggedUser) { %>
     <p><a href="/game/add" class="button-add">Dodaj nową grę</a></p>
+    <% } %>
 </main>
 
 <%- include('../../fragments/footer.ejs') %>

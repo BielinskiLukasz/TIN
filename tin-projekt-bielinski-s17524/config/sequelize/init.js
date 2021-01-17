@@ -5,7 +5,7 @@ const Gamer = require('../../model/sequelize/gamer');
 const Publisher = require('../../model/sequelize/publisher');
 const Rate = require('../../model/sequelize/rate');
 
-const authUtil = require('../../util/authUtils');
+const authUtils = require('../../util/authUtils');
 
 module.exports = () => {
     Publisher.hasMany(Game, { as: 'games', foreignKey: { name: 'publisher_id', allowNull: false }, constraints: true, onDelete: 'CASCADE' });
@@ -25,9 +25,10 @@ module.exports = () => {
         .then(gamers => {
             if (!gamers || gamers.length == 0) {
                 return Gamer.bulkCreate([
-                    { nick: 'Jan', bio: 'bio', email: 'jan.kowalski@acme.com', password: authUtil.hashPassword('password') },
-                    { nick: 'Adam', bio: '', email: 'adam.zielinski@acme.com', password: authUtil.hashPassword('password') },
-                    { nick: 'Marian', email: 'marian.nowak@acme.com', password: authUtil.hashPassword('password') }
+                    { nick: 'admin', bio: 'admin', email: 'admin@admin.com', password: authUtils.hashPassword('admin') },
+                    { nick: 'Jan', bio: 'bio', email: 'jan.kowalski@acme.com', password: authUtils.hashPassword('password') },
+                    { nick: 'Adam', bio: '', email: 'adam.zielinski@acme.com', password: authUtils.hashPassword('password') },
+                    { nick: 'Marian', email: 'marian.nowak@acme.com', password: authUtils.hashPassword('password') }
                 ])
                     .then(() => {
                         return Gamer.findAll();
@@ -84,12 +85,12 @@ module.exports = () => {
         .then(rates => {
             if (!rates || rates.length == 0) {
                 return Rate.bulkCreate([
-                    { gamer_id: allGamers[0]._id, game_id: allGames[0]._id, rate: 9 },
-                    { gamer_id: allGamers[0]._id, game_id: allGames[2]._id, rate: 10 },
-                    { gamer_id: allGamers[1]._id, game_id: allGames[0]._id, rate: 8 },
-                    { gamer_id: allGamers[1]._id, game_id: allGames[1]._id, rate: 9 },
-                    { gamer_id: allGamers[1]._id, game_id: allGames[2]._id, rate: 7 },
-                    { gamer_id: allGamers[2]._id, game_id: allGames[0]._id, rate: 10 }
+                    { gamer_id: allGamers[1]._id, game_id: allGames[0]._id, rate: 9 },
+                    { gamer_id: allGamers[1]._id, game_id: allGames[2]._id, rate: 10 },
+                    { gamer_id: allGamers[2]._id, game_id: allGames[0]._id, rate: 8 },
+                    { gamer_id: allGamers[2]._id, game_id: allGames[1]._id, rate: 9 },
+                    { gamer_id: allGamers[2]._id, game_id: allGames[2]._id, rate: 7 },
+                    { gamer_id: allGamers[3]._id, game_id: allGames[0]._id, rate: 10 }
                 ]);
             } else {
                 return rates;

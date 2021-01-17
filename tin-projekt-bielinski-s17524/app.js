@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const session = require('express-session');
+const authUtils = require('./util/authUtils');
 
 var mainRouter = require('./routes/mainRoute');
 var gameRouter = require('./routes/gameRoute');
@@ -45,15 +46,15 @@ app.use((req, res, next) => {
 
 app.use('/', mainRouter);
 app.use('/game', gameRouter);
-app.use('/gamer', gamerRouter);
-app.use('/publisher', publisherRouter);
-app.use('/rate', rateRouter);
+app.use('/gamer', authUtils.permitAuthenticatedUser, gamerRouter);
+app.use('/publisher', authUtils.permitAuthenticatedUser, publisherRouter);
+app.use('/rate', authUtils.permitAuthenticatedUser, rateRouter);
 
 // data model api
 app.use('/api/games', gameApiRouter);
-app.use('/api/gamers', gamerApiRouter);
-app.use('/api/publishers', publisherApiRouter);
-app.use('/api/rates', rateApiRouter);
+app.use('/api/gamers', authUtils.permitAuthenticatedUser, gamerApiRouter);
+app.use('/api/publishers', authUtils.permitAuthenticatedUser, publisherApiRouter);
+app.use('/api/rates', authUtils.permitAuthenticatedUser, rateApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
