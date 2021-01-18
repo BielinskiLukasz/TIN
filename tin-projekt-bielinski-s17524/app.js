@@ -46,7 +46,7 @@ app.use((req, res, next) => {
 
 app.use('/', mainRouter);
 app.use('/game', gameRouter);
-app.use('/gamer', authUtils.permitAuthenticatedUser, gamerRouter);
+app.use('/gamer', gamerRouter);
 app.use('/publisher', authUtils.permitAuthenticatedUser, publisherRouter);
 app.use('/rate', authUtils.permitAuthenticatedUser, rateRouter);
 
