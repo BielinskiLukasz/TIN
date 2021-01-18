@@ -41,7 +41,7 @@
                             <li><a href="/game/details/<%= game._id %>"
                                     class="list-actions-button-details">Szczegóły</a>
                             </li>
-                            <% if (loggedUser) { %>
+                            <% if (loggedUser && loggedUser.nick == 'admin') { %>
                             <li><a href="/game/edit/<%= game._id %>" class="list-actions-button-edit">Edytuj</a></li>
                             <li><a href="/game/delete/<%= game._id %>" class="list-actions-button-delete">Usuń</a></li>
                             <% } %>

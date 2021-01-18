@@ -25,11 +25,13 @@
                         <ul class="list-actions">
                             <li><a href="/publisher/details/<%= publisher._id %>"
                                     class="list-actions-button-details">Szczegóły</a></li>
+                            <% if (loggedUser && loggedUser.nick == 'admin') { %>
                             <li><a href="/publisher/edit/<%= publisher._id %>"
                                     class="list-actions-button-edit">Edytuj</a>
                             </li>
                             <li><a href="/publisher/delete/<%= publisher._id %>"
                                     class="list-actions-button-delete">Usuń</a></li>
+                            <% } %>
                         </ul>
                     </td>
                 </tr>
