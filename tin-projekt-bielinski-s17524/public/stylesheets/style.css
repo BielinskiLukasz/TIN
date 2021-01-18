@@ -150,6 +150,8 @@ h3 {
 .form-button-login,
 .mini-form-button-submit,
 .mini-form-button-logout,
+.mini-form-button-edit,
+.mini-form-button-delete,
 .form-button-cancel,
 .form-button-logout,
 .form-button-edit,
@@ -184,24 +186,28 @@ h3 {
 }
 
 .list-actions-button-edit,
-.form-button-edit {
+.form-button-edit,
+.mini-form-button-edit {
     background-color: #f39c12;
 }
 
 .list-actions-button-edit:hover,
-.form-button-edit:hover {
+.form-button-edit:hover,
+.mini-form-button-edit:hover {
     background-image: linear-gradient(45deg, #f39c12, #f1c40f 50%);
 }
 
 .list-actions-button-delete,
 .form-button-cancel,
-.form-button-logout {
+.form-button-logout,
+.mini-form-button-delete {
     background-color: #c0392b;
 }
 
 .list-actions-button-delete:hover,
 .form-button-cancel:hover,
-.form-button-logout:hover {
+.form-button-logout:hover,
+.mini-form-button-delete:hover {
     background-image: linear-gradient(45deg, #c0392b, #e74c3c 50%);
 }
 
@@ -231,6 +237,8 @@ h3 {
 .form-button-login,
 .mini-form-button-submit,
 .mini-form-button-logout,
+.mini-form-button-edit,
+.mini-form-button-delete,
 .form-button-cancel,
 .form-button-logout,
 .form-button-edit,
@@ -425,6 +433,8 @@ abbr[title='required'],
 .form-button-login,
 .mini-form-button-submit,
 .mini-form-button-logout,
+.mini-form-button-edit,
+.mini-form-button-delete,
 .form-button-cancel,
 .form-button-logout,
 .form-button-edit,
