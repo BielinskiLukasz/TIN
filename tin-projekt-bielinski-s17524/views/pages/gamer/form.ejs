@@ -46,7 +46,7 @@
 
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>
-            <% if (formMode == 'details') { %>
+            <% if (formMode == 'details' && loggedUser && loggedUser.nick == 'admin') { %>
             <a href="/gamer/edit/<%= gamer._id %>" class="form-button-edit">Edytuj</a>
             <% } %>
             <% if (formMode != 'details') { %>

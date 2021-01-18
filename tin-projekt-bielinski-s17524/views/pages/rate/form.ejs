@@ -52,7 +52,7 @@
             <% } %>
         </span>
 
-        <% if (formMode == 'details') { %>
+        <% if (formMode == 'details' && loggedUser && loggedUser.nick == 'admin') { %>
         <div class="form-buttons">
             <a href="/rate/edit/<%= rate._id %>" class="form-button-edit">Edytuj</a>
         </div>
