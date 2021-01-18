@@ -4,6 +4,7 @@ function validateForm() {
 
     const errorRate = document.getElementById('errorRate');
     const errorComment = document.getElementById('errorComment');
+    const errorsSummary = document.getElementById('errorsSummary');
 
     resetErrors([rateInput, commentInput], [errorRate, errorComment], errorsSummary);
 

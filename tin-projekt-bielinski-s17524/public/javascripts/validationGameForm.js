@@ -1,36 +1,26 @@
 function validateForm() {
     const gameNameInput = document.getElementById('gameName');
     const yearReleasedInput = document.getElementById('yearReleased');
-    const gameCategoryInput = document.getElementById('gameCategory');
+    const publisherInput = document.getElementById('publisher');
     const minAgeInput = document.getElementById('minAge');
     const minPlayersNumInput = document.getElementById('minPlayersNum');
     const maxPlayersNumInput = document.getElementById('maxPlayersNum');
     const minPlayingTimeInput = document.getElementById('minPlayingTime');
     const maxPlayingTimeInput = document.getElementById('maxPlayingTime');
-    // const gameMechanismInput = document.getElementById('gameMechanism');
-    const gamePublisherInput = document.getElementById('gamePublisher');
-    const gameDesignerInput = document.getElementById('gameDesigner');
-    const gameArtistInput = document.getElementById('gameArtist');
 
     const errorGameName = document.getElementById('errorGameName');
     const errorYearReleased = document.getElementById('errorYearReleased');
-    const errorGameCategory = document.getElementById('errorGameCategory');
+    const errorPublisher = document.getElementById('errorPublisher');
     const errorMinAge = document.getElementById('errorMinAge');
     const errorMinPlayersNum = document.getElementById('errorMinPlayersNum');
     const errorMaxPlayersNum = document.getElementById('errorMaxPlayersNum');
     const errorMinPlayingTime = document.getElementById('errorMinPlayingTime');
     const errorMaxPlayingTime = document.getElementById('errorMaxPlayingTime');
-    // const errorGameMechanism = document.getElementById('errorGameMechanism');
-    const errorGamePublisher = document.getElementById('errorGamePublisher');
-    const errorGameDesigner = document.getElementById('errorGameDesigner');
-    const errorGameArtist = document.getElementById('errorGameArtist');
     const errorsSummary = document.getElementById('errorsSummary');
 
     resetErrors(
-        [gameNameInput, yearReleasedInput, gameCategoryInput, minAgeInput, minPlayersNumInput, maxPlayersNumInput,
-            minPlayingTimeInput, maxPlayingTimeInput, gamePublisherInput, gameDesignerInput, gameArtistInput],
-        [errorGameName, errorYearReleased, errorGameCategory, errorMinAge, errorMinPlayersNum, errorMaxPlayersNum,
-            errorMinPlayingTime, errorMaxPlayingTime, errorGamePublisher, errorGameDesigner, errorGameArtist],
+        [gameNameInput, yearReleasedInput, publisherInput, minAgeInput, minPlayersNumInput, maxPlayersNumInput, minPlayingTimeInput, maxPlayingTimeInput],
+        [errorGameName, errorYearReleased, errorPublisher, errorMinAge, errorMinPlayersNum, errorMaxPlayersNum, errorMinPlayingTime, errorMaxPlayingTime],
         errorsSummary);
 
     let valid = true;
@@ -55,10 +45,10 @@ function validateForm() {
         errorYearReleased.innerText = "Pole powinno być liczbą naturalną";
     }
 
-    if (!checkRequired(gameCategoryInput.value)) {
+    if (!checkRequired(publisherInput.value)) {
         valid = false;
-        gameCategoryInput.classList.add("error-input");
-        errorGameCategory.innerText = "Pole jest wymagane";
+        publisherInput.classList.add("error-input");
+        errorPublisher.innerText = "Pole jest wymagane";
     }
 
     if (!checkRequired(minAgeInput.value)) {
@@ -129,16 +119,6 @@ function validateForm() {
         valid = false;
         maxPlayingTimeInput.classList.add("error-input");
         errorMaxPlayingTime.innerText = "Pole powinno być liczbą nie mniejszą od minimalnej liczby minut";
-    }
-
-    if (!checkRequired(gamePublisherInput.value)) {
-        valid = false;
-        gamePublisherInput.classList.add("error-input");
-        errorGameDesigner.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(gamePublisherInput.value, 2, 200)) {
-        valid = false;
-        gamePublisherInput.classList.add("error-input");
-        errorGameDesigner.innerText = "Pole powinno zawierać od 2 do 200 znaków";
     }
 
     if (!valid) {

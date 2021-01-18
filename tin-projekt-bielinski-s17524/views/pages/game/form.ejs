@@ -17,8 +17,9 @@
         </span>
 
         <label for="publisher">Wydawnictwo:<abbr title="required" aria-label="required">*</abbr></label>
-        <select id="publisher" name="publisher_id" required <%= (formMode == 'details') ? 'disabled' : ''%>>
-            <option value="" selected>--- Wybierz wydawnictwo ---</option>
+        <select id="publisher" name="publisher_id" required <%= (formMode == 'details') ? 'disabled' : ''%>
+            class="<%= validationErrors.find(e => e.path.includes('publisher')) ? 'error-input' : '' %>">
+            <option value="" selected disabled>--- Wybierz wydawnictwo ---</option>
             <% for (let i=0; i < allPublishers.length; i++) { let publisher = allPublishers[i]; %>
             <option value="<%= publisher._id %>" label="<%= publisher.name%>"
                 <%= (publisher._id == game.publisher_id) ? 'selected' : ''%>>

@@ -38,7 +38,7 @@
         <input type="text" name="bio" id="bio" placeholder="max 200 znaków" value="<%= gamer.bio %>"
             <%= (formMode == 'details') ? 'disabled' : '' %>
             class="<%= validationErrors.find(e => e.path.includes('bio')) ? 'error-input' : '' %>" />
-        <span id="errorHeadquarters" class="errors-text">
+        <span id="errorBio" class="errors-text">
             <% if (validationErrors.find(e => e.path.includes('bio'))) { %>
             <%= validationErrors.find(e => e.path.includes('bio')).message %>
             <% } %>
