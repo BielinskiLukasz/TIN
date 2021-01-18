@@ -9,7 +9,7 @@ exports.showLogPage = (req, res, next) => {
 }
 
 exports.showResetPasswordPage = (req, res, next) => {
-    res.render('pages/profile/reset-pass', {
+    res.render('pages/profile/resetpass', {
         gamer: {},
         navLocation: 'resetPasswordForm',
         validationErrors: [],
@@ -21,30 +21,40 @@ exports.resetPassword = (req, res, next) => {
     const gamerData = { ...req.body };
     gamerRepository.findByLogin(gamerData.nick)
         .then(gamer => {
-            if (gamer.email == gamerData.email) {
+            if (!gamer) {
+                res.render('pages/profile/resetpass', {
+                    gamer: {},
+                    navLocation: 'resetPasswordForm',
+                    validationErrors: [],
+                    message: "Brak wskazanej pary nick + email w bazie serwisu"
+                });
+            } else if (gamer.email == gamerData.email) {
                 gamerRepository.updateGamer(gamer._id, gamerData)
                     .then(result => {
                         res.redirect('/gamer/?m=' + encodeURIComponent('Zresetowano hasło'));
                     })
                     .catch(err => {
-                        res.render('pages/profile/reset-pass'), {
+                        res.render('pages/profile/resetpass'), {
                             gamer: gamerData,
                             navLocation: 'resetPasswordForm',
-                            validationErrors: err.errors
+                            validationErrors: err.errors,
+                            message: ''
                         }
                     });
             } else {
-                res.render('pages/profile/reset-pass?m=' + encodeURIComponent('Brak wskazanej pary nick + email w bazie serwisu'), {
-                    gamer: gamerData,
+                res.render('pages/profile/resetpass', {
+                    gamer: {},
                     navLocation: 'resetPasswordForm',
-                    validationErrors: err.errors
+                    validationErrors: [],
+                    message: "Brak wskazanej pary nick + email w bazie serwisu"
                 });
             }
         }).catch(err => {
-            res.render('pages/profile/reset-pass'), {
-                gamer: gamerData,
+            res.render('pages/profile/resetpass'), {
+                gamer: {},
                 navLocation: 'resetPasswordForm',
-                validationErrors: err.errors
+                validationErrors: err.errors,
+                message: ''
             }
         });
 }

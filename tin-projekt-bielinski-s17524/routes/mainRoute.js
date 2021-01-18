@@ -11,7 +11,7 @@ router.get('/login', mainController.showLogPage);
 router.get('/profile', mainController.showLogPage);
 router.post('/login', AuthController.login);
 router.get('/logout', AuthController.logout);
-router.get('/reset-pass', mainController.showResetPasswordPage);
-router.post('/reset-pass', mainController.resetPassword);
+router.get('/resetpass', mainController.showResetPasswordPage);
+router.post('/resetpass', mainController.resetPassword);
 
 module.exports = router;
