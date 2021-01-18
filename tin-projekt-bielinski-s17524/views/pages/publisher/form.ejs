@@ -86,29 +86,32 @@
                 <tbody>
                     <% for (let game of publisher.games) { %>
                     <tr>
-                        <td><a href="/games/details/<%= game._id %>" class="link-line"><%= game.gameName %></a></td>
-                        <% if (formMode == 'details') { %>
-                        <td class="td-center">do uzupełnienia</td>
+                        <td><a href="/game/details/<%= game._id %>" class="link-line"><%= game.gameName %></a></td>
+                        <% if (loggedUser) { %>
+                        <% if (loggedUser.rates.find(rate => rate.game_id == game._id)) { %>
+                        <td class="td-center"><a
+                                href="/rate/details/<%= loggedUser.rates.find(rate => rate.game_id == game._id)._id %>"
+                                class="link-line"><%= loggedUser.rates.find(rate => rate.game_id == game._id).rate %></a>
+                        </td>
+                        <% } else {%>
+                        <td class="td-center"><a href="/rate/add?gameId=<%= game._id %>"
+                                class="list-actions-button-score">Oceń</a>
+                        </td>
+                        <% } %>
+                        <% } %>
                         <td class="td-center"><%= game.averageRate %></td>
-                        <td class="td-center">do uzupełnienia</td>
-                        <% } %>
-                        <% if (formMode == 'edit') { %>
-                        <td class="td-center"><%= game.yearReleased %></td>
-                        <td class="td-center"><%= game.minPlayingTime %> - <%= game.maxPlayingTime %> min</td>
-                        <td class="td-center"><%= game.minPlayersNum %> - <%= game.maxPlayersNum %></td>
-                        <td class="td-center"><%= game.minAge %></td>
-                        <% } %>
-                        <td data-label="Akcje">
+                        <td class="td-center"><%= game.rates.length %></td>
+                        <td>
                             <ul class="list-actions">
-                                <li>
-                                    <a href="/game/1" class="list-actions-button-details">Szczegóły</a>
+                                <li><a href="/game/details/<%= game._id %>"
+                                        class="list-actions-button-details">Szczegóły</a>
                                 </li>
-                                <li>
-                                    <a href="/game/1/edit" class="list-actions-button-edit">Edytuj</a>
+                                <% if (loggedUser && loggedUser.nick == 'admin') { %>
+                                <li><a href="/game/edit/<%= game._id %>" class="list-actions-button-edit">Edytuj</a>
                                 </li>
-                                <li>
-                                    <a href="/game/list" class="list-actions-button-delete">Usuń</a>
+                                <li><a href="/game/delete/<%= game._id %>" class="list-actions-button-delete">Usuń</a>
                                 </li>
+                                <% } %>
                             </ul>
                         </td>
                     </tr>
