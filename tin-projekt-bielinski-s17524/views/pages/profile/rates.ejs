@@ -3,6 +3,8 @@
 <main>
     <h2>Lista Twoich ocen <%= loggedUser.nick %></h2>
 
+    <h3 id="message" class="message-text"><%= message %></h3>
+
     <% if (loggedUser.rates.length > 0) { %>
     <div class="table-div">
         <table class="table-list">

@@ -17,7 +17,8 @@ exports.showLoggedUserRateList = (req, res, next) => {
         .then(rates => {
             res.render('pages/profile/rates', {
                 rates: rates,
-                navLocation: 'my-scores',
+                navLocation: 'my-rates',
+                validationErrors: [],
                 message: req.param("m")
             });
         });
@@ -84,7 +85,7 @@ exports.addRate = (req, res, next) => {
             if (rate == undefined) {
                 rateRepository.createRate(rateData)
                     .then(result => {
-                        res.redirect('/rate?m=' + encodeURIComponent('Oceniono grę'));
+                        res.redirect('/rate/my?m=' + encodeURIComponent('Oceniono grę'));
                     })
                     .catch(err => {
                         res.render('pages/rate/form', {
@@ -109,7 +110,7 @@ exports.updateRate = (req, res, next) => {
     const rateData = { ...req.body };
     rateRepository.updateRate(rateId, rateData)
         .then(result => {
-            res.redirect('/rate?m=' + encodeURIComponent('Zaktualizowano ocenę'));
+            res.redirect('/rate/my?m=' + encodeURIComponent('Zaktualizowano ocenę'));
         })
         .catch(err => {
             rateRepository.getRateById(rateId)
@@ -134,6 +135,6 @@ exports.deleteRate = (req, res, next) => {
     const rateId = req.params.rateId;
     rateRepository.deleteRate(rateId)
         .then(() => {
-            res.redirect('/rate?m=' + encodeURIComponent('Usunięto ocenę'));
+            res.redirect('/rate/my?m=' + encodeURIComponent('Usunięto ocenę'));
         });
 };
