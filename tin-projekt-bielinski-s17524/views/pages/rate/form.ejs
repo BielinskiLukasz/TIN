@@ -12,6 +12,8 @@
 
         <h2><%= pageTitle %></h2>
 
+        <h3 id="message" class="message-text"><%= message %></h3>
+
         <label for="gameName">Gra:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="text" name="gameName" id="gameName" value="<%= rate.game.gameName %>" disabled
             class="<%= validationErrors.find(e => e.path.includes('gameName')) ? 'error-input' : '' %>" />

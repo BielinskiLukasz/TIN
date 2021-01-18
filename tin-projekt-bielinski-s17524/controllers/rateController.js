@@ -6,7 +6,8 @@ exports.showRateList = (req, res, next) => {
         .then(rates => {
             res.render('pages/rate/list', {
                 rates: rates,
-                navLocation: 'rates'
+                navLocation: 'rates',
+                message: req.param("m")
             });
         });
 }
@@ -16,7 +17,8 @@ exports.showLoggedUserRateList = (req, res, next) => {
         .then(rates => {
             res.render('pages/profile/rates', {
                 rates: rates,
-                navLocation: 'my-scores'
+                navLocation: 'my-scores',
+                message: req.param("m")
             });
         });
 }
@@ -35,7 +37,8 @@ exports.showAddRateForm = (req, res, next) => {
                 btnLabel: 'Oceń grę',
                 formAction: '/rate/add',
                 navLocation: 'rateForm',
-                validationErrors: []
+                validationErrors: [],
+                message: req.param("m")
             });
         });
 }
@@ -51,7 +54,8 @@ exports.showRateDetails = (req, res, next) => {
                 btnLabel: '',
                 formAction: '',
                 navLocation: '',
-                validationErrors: []
+                validationErrors: [],
+                message: req.param("m")
             });
         });
 }
@@ -67,7 +71,8 @@ exports.showEditRateForm = (req, res, next) => {
                 btnLabel: 'Zapisz zmiany',
                 formAction: '/rate/edit/',
                 navLocation: 'rateForm',
-                validationErrors: []
+                validationErrors: [],
+                message: req.param("m")
             });
         });
 }
@@ -79,7 +84,7 @@ exports.addRate = (req, res, next) => {
             if (rate == undefined) {
                 rateRepository.createRate(rateData)
                     .then(result => {
-                        res.redirect('/rate');
+                        res.redirect('/rate?m=' + encodeURIComponent('Oceniono grę'));
                     })
                     .catch(err => {
                         res.render('pages/rate/form', {
@@ -89,11 +94,12 @@ exports.addRate = (req, res, next) => {
                             btnLabel: 'Oceń grę',
                             formAction: '/rate/add',
                             navLocation: 'rateForm',
-                            validationErrors: err.errors
+                            validationErrors: err.errors,
+                            message: req.param("m")
                         });
                     });
             } else {
-                res.redirect('/rate/edit/' + rate._id);
+                res.redirect('/rate/edit/' + rate._id + '?m=' + encodeURIComponent('Oceniłeś tę grę wcześniej. Edytuj poprzednią ocenę.'));
             }
         });
 };
@@ -103,7 +109,7 @@ exports.updateRate = (req, res, next) => {
     const rateData = { ...req.body };
     rateRepository.updateRate(rateId, rateData)
         .then(result => {
-            res.redirect('/rate');
+            res.redirect('/rate?m=' + encodeURIComponent('Zaktualizowano ocenę'));
         })
         .catch(err => {
             rateRepository.getRateById(rateId)
@@ -117,7 +123,8 @@ exports.updateRate = (req, res, next) => {
                         btnLabel: 'Zapisz zmiany',
                         formAction: '/rate/edit/',
                         navLocation: 'rateForm',
-                        validationErrors: err.errors
+                        validationErrors: err.errors,
+                        message: req.param("m")
                     });
                 });
         });
@@ -127,6 +134,6 @@ exports.deleteRate = (req, res, next) => {
     const rateId = req.params.rateId;
     rateRepository.deleteRate(rateId)
         .then(() => {
-            res.redirect('/rate');
+            res.redirect('/rate?m=' + encodeURIComponent('Usunięto ocenę'));
         });
 };
