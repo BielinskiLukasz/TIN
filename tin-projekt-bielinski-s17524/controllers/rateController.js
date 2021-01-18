@@ -74,20 +74,27 @@ exports.showEditRateForm = (req, res, next) => {
 
 exports.addRate = (req, res, next) => {
     const rateData = { ...req.body };
-    rateRepository.createRate(rateData)
-        .then(result => {
-            res.redirect('/rate');
-        })
-        .catch(err => {
-            res.render('pages/rate/form', {
-                rate: rateData,
-                formMode: 'create',
-                pageTitle: 'Oceń grę',
-                btnLabel: 'Oceń grę',
-                formAction: '/rate/add',
-                navLocation: 'rateForm',
-                validationErrors: err.errors
-            });
+    rateRepository.getRateByIds(rateData.game_id, rateData.gamer_id)
+        .then(rate => {
+            if (rate == undefined) {
+                rateRepository.createRate(rateData)
+                    .then(result => {
+                        res.redirect('/rate');
+                    })
+                    .catch(err => {
+                        res.render('pages/rate/form', {
+                            rate: rateData,
+                            formMode: 'create',
+                            pageTitle: 'Oceń grę',
+                            btnLabel: 'Oceń grę',
+                            formAction: '/rate/add',
+                            navLocation: 'rateForm',
+                            validationErrors: err.errors
+                        });
+                    });
+            } else {
+                res.redirect('/rate/edit/' + rate._id);
+            }
         });
 };
 

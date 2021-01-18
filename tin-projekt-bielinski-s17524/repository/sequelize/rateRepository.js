@@ -29,6 +29,15 @@ exports.getRateById = (rateId) => {
         });
 };
 
+exports.getRateByIds = (game_id, gamer_id) => {
+    return Rate.findOne({
+        where: {
+            game_id: game_id,
+            gamer_id: gamer_id
+        }
+    });
+}
+
 exports.createRate = (data) => {
     return Rate.create({
         rate: data.rate,
