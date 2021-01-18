@@ -3,8 +3,10 @@
 <main>
     <h2>Resetowanie hasła</h2>
 
+    <h3 id="message" class="message-text"><%= message %></h3>
+
     <div id="login">
-        <form class="form" method="post" action="/login" novalidate>
+        <form class="form" method="post" action="/reset-pass" novalidate onsubmit="return validateForm();">
             <label for="nick">Nick:<abbr title="required" aria-label="required">*</abbr></label>
             <input type="text" name="nick" id="nick" placeholder="2-60 znaków" value="<%= gamer.nick %>"
                 class="<%= validationErrors.find(e => e.path.includes('nick')) ? 'error-input' : '' %>" />
