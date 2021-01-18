@@ -29,7 +29,8 @@
                             class="link-line"><%= loggedUser.rates.find(rate => rate.game_id == game._id).rate %></a>
                     </td>
                     <% } else {%>
-                    <td class="td-center"><a href="/rate/add" class="list-actions-button-score">Oceń</a>
+                    <td class="td-center"><a href="/rate/add?gameId=<%= game._id %>"
+                            class="list-actions-button-score">Oceń</a>
                     </td>
                     <% } %>
                     <% } %>

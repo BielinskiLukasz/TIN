@@ -1,4 +1,5 @@
 const rateRepository = require('../repository/sequelize/rateRepository');
+const gameRepository = require('../repository/sequelize/gameRepository');
 
 exports.showRateList = (req, res, next) => {
     rateRepository.getRates()
@@ -21,15 +22,22 @@ exports.showLoggedUserRateList = (req, res, next) => {
 }
 
 exports.showAddRateForm = (req, res, next) => {
-    res.render('pages/rate/form', {
-        rate: {},
-        formMode: 'create',
-        pageTitle: 'Oceń grę',
-        btnLabel: 'Oceń grę',
-        formAction: '/rate/add',
-        navLocation: 'rateForm',
-        validationErrors: []
-    });
+    const gameId = req.param("gameId")
+    gameRepository.getGameById(gameId)
+        .then(game => {
+            res.render('pages/rate/form', {
+                rate: {
+                    game_id: gameId,
+                    game: game
+                },
+                formMode: 'create',
+                pageTitle: 'Oceń grę',
+                btnLabel: 'Oceń grę',
+                formAction: '/rate/add',
+                navLocation: 'rateForm',
+                validationErrors: []
+            });
+        });
 }
 
 exports.showRateDetails = (req, res, next) => {

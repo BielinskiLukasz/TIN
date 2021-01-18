@@ -41,19 +41,6 @@
             <% } %>
         </span>
 
-        <!-- <label for="gameCategory">Gatunek:<abbr title="required" aria-label="required">*</abbr></label>
-        <select id="gameCategory" name="gameCategory"
-            class="<%= validationErrors.find(e => e.path.includes('gameCategory')) ? 'error-input' : '' %>">
-            <option disabled selected value> -- wybierz -- </option>
-            <option>Strategiczna</option>
-            <option>Wojenna</option>
-        </select>
-        <span id="errorGameCategory" class="errors-text">
-            <% if (validationErrors.find(e => e.path.includes('gameCategory'))) { %>
-            <%= validationErrors.find(e => e.path.includes('gameCategory')).message %>
-            <% } %>
-        </span> -->
-
         <label for="minAge">Min wiek:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="number" name="minAge" id="minAge" min="0" max="24" step="1" value="<%= game.minAge %>"
             <%= (formMode == 'details') ? 'disabled' : '' %>

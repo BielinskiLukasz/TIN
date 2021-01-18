@@ -3,6 +3,12 @@
 <main>
     <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm();">
         <input type="hidden" name="_id" value="<%= rate._id %>">
+        <% if (formMode == 'create') { %>
+        <input type="hidden" name="gamer_id" value="<%= loggedUser._id %>">
+        <input type="hidden" name="game_id" value="<%= rate.game._id %>">
+        <%= rate.gamer = loggedUser; %>
+        <%= rate.gamer_id = loggedUser._id; %>
+        <% } %>
 
         <h2><%= pageTitle %></h2>
 
