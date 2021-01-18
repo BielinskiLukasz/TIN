@@ -77,8 +77,8 @@ const Game = sequelize.define('Game', {
                 msg: "Pole powinno być liczbą naturalną"
             },
             min: {
-                args: [0],
-                msg: "Pole powinno być liczbą naturalną nie mniejszą od 0"
+                args: [1],
+                msg: "Pole powinno być liczbą naturalną nie mniejszą od 1"
             }
         }
     },
