@@ -96,12 +96,14 @@
                                 <li>
                                     <a href="/rate/1" class="list-actions-button-details">Szczegóły</a>
                                 </li>
+                                <% if (loggedUser && loggedUser.nick == 'admin') { %>
                                 <li>
                                     <a href="/rate/1/edit" class="list-actions-button-edit">Edytuj</a>
                                 </li>
                                 <li>
                                     <a href="/rate/list" class="list-actions-button-delete">Usuń</a>
                                 </li>
+                                <% } %>
                             </ul>
                         </td>
                     </tr>
