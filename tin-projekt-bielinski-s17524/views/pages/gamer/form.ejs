@@ -16,7 +16,7 @@
             <% } %>
         </span>
 
-        <label for="password">Hasło:</label>
+        <label for="password">Hasło:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="password" id="password" name="password" <%= (formMode == 'details') ? 'disabled' : '' %>
             class="<%= validationErrors.find(e => e.path.includes('password')) ? 'error-input' : '' %>">
         <span id="errorPassword" class="errors-text">
@@ -24,6 +24,7 @@
             <%= validationErrors.find(e => e.path.includes('password')).message %>
             <% } %>
         </span>
+
         <label for="email">Mail:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl" value="<%= gamer.email %>"
             <%= (formMode == 'details') ? 'disabled' : '' %>
